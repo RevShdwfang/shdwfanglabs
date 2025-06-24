@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,13 +9,12 @@ import {
 import styles from "@/components/modules/services.module.css";
 import "@/app/globals.css";
 
-
 export default function Services() {
   const serviceList = [
     {
       icon: faDesktop,
       title: "Stream Assets",
-      desc: "Overlays, alerts, and content branding for Twitch, YouTube, and social presence."
+      desc: "Overlays, alerts, and content branding for Twitch, YouTube, and social presence.",
     },
     {
       icon: faPalette,
@@ -40,7 +39,10 @@ export default function Services() {
 
         <div className={styles.row}>
           {serviceList.map((service, index) => (
-            <div className={`${styles.serviceItem} ${styles.padd15}`} key={index}>
+            <div
+              className={`${styles.serviceItem} ${styles.padd15}`}
+              key={index}
+            >
               <div className={styles.serviceItemInner}>
                 <div className={styles.icon}>
                   <FontAwesomeIcon icon={service.icon} />
@@ -53,6 +55,19 @@ export default function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className={styles.pricingInfo}>
+          <h3>Pricing Approach</h3>
+          <p>
+            As a solo creator, I tailor pricing to each project based on its
+            scope, complexity, and your specific goals. Once you reach out and
+            share your budget, I’ll review the details and let you know what’s
+            possible within that range. If everything aligns, I’ll provide a
+            clear breakdown of what’s included, along with the timeline. I aim
+            to keep everything transparent, fair, and focused on delivering real
+            value.
+          </p>
         </div>
       </div>
     </section>

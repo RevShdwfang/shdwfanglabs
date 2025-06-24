@@ -3,11 +3,8 @@
 ================================ */
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-}
-
-.padd15 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   padding: 0 15px;
 }
 
@@ -26,14 +23,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
   padding: 30px 20px;
   text-align: center;
+  height: 100%;
   background-color: var(--bg-black-100);
   border: 1px solid var(--bg-black-50);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .serviceItemInner:hover {
@@ -63,27 +60,28 @@
 
 
 /* ================================
-💵 Price Reveal Animation
+💵 Pricing Info Section
 ================================ */
-.price,
-.servicePrice {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-highlight);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.4s ease;
-  max-height: 0;
-  overflow: hidden;
+.pricingInfo {
+  margin-top: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-black-100);
+  border-radius: 12px;
+  color: var(--text-white);
+  border: 1px solid var(--bg-black-50);
 }
 
-.serviceItemInner:hover .price,
-.serviceItemInner:hover .servicePrice {
-  opacity: 1;
-  transform: translateY(0);
-  max-height: 100px;
-  margin-top: 10px;
+.pricingInfo h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
+
+.pricingInfo p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
 
 
 /* ================================
