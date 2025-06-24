@@ -1,0 +1,132 @@
+/* ================================
+🎯 Base Section Layout
+================================ */
+.aboutSection {
+  padding: 80px 32px;
+  background-color: var(--bg-black-100);
+  display: flex;
+  justify-content: center;
+}
+
+.aboutContainer {
+  max-width: 960px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ================================
+🧠 Content Structure
+================================ */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #fefcf9);
+  line-height: 1.3;
+}
+
+.highlight {
+  color: var(--accent-color, #2e5cff);
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 65ch;
+  color: var(--text-black-700);
+}
+
+/* ================================
+🎯 CTA Button
+================================ */
+.ctaBlock {
+  margin-top: 8px;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: var(--accent-color, #2e5cff);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--accent-color-dark, #1e47cc);
+  transform: translateY(-2px);
+}
+
+/* ================================
+📱 Responsive Breakpoints
+================================ */
+
+/* 🔽 Mobile: ≤ 480px */
+@media screen and (max-width: 480px) {
+  .aboutSection {
+    padding: 60px 20px;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .ctaBlock {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* 🔽 Small Tablets: 481px – 768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1.05rem;
+  }
+}
+
+/* 🔽 Tablets & Small Desktops: 769px – 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .heading {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}
+
+/* 🔽 Large Screens: 1281px+ */
+@media screen and (min-width: 1281px) {
+  .aboutContainer {
+    max-width: 1140px;
+  }
+
+  .heading {
+    font-size: 2.75rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+}

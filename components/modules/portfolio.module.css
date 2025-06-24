@@ -1,0 +1,124 @@
+/*=============================
+=         GRID LAYOUT        =
+=============================*/
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 10px;
+  padding: 1rem;
+  justify-content: center;
+}
+
+/* Individual Grid Items */
+.gridItem {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gridImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gridItem:hover .gridImage {
+  transform: scale(1.05);
+}
+
+/* Layout Variants */
+.wide {
+  grid-column: span 2;
+}
+
+.tall {
+  grid-row: span 2;
+}
+
+/*=============================
+=         LIGHTBOX           =
+=============================*/
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 2rem;
+}
+
+.lightboxImage {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+}
+
+/*=============================
+=        RESPONSIVE GRID     =
+=============================*/
+
+/* Mobile (≤ 480px) */
+@media screen and (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+    gap: 8px;
+    padding: 1rem;
+  }
+
+  .wide,
+  .tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Small Tablet (481px – 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+}
+
+/* Tablets and Laptops (768px – 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+/* Desktop (1025px – 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .gridContainer {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 240px;
+  }
+}
+
+/* Large Desktop (1441px and up) */
+@media screen and (min-width: 1441px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 260px;
+  }
+}

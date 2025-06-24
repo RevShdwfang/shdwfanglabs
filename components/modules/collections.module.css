@@ -1,0 +1,134 @@
+/* ===============================
+📦 Core Grid Layout
+================================= */
+.collectionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* ===============================
+🃏 Collection Card
+================================= */
+.collectionCard {
+  background-color: var(--bg-black-100);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.collectionCard:has(.btn:hover) {
+  transform: translateY(-5px);
+  box-shadow: 0 0 16px var(--text-black-900);
+  border: none;
+}
+
+/* ===============================
+🖼️ Image + Title Styling
+================================= */
+.collectionImageWrapper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.collectionImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  background-color: var(--bg-black-75);
+}
+
+.collectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  color: var(--text-black-900);
+  text-transform: uppercase;
+}
+
+/* ===============================
+🎯 Button Styling
+================================= */
+.btn {
+  margin: 1rem 0 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px 25px;
+  color: var(--text-black-700);
+  border-radius: 32px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+  font-variant: small-caps;
+}
+
+.btn:hover {
+  color: var(--text-black-900);
+}
+
+/* ===============================
+📱 Responsive Breakpoints
+================================= */
+
+/* Mobile (≤ 480px) */
+@media screen and (max-width: 480px) {
+  .collectionsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .collectionTitle {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 8px 20px;
+  }
+}
+
+/* Small Tablet (481px – 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .collectionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collectionTitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tablet (768px – 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .collectionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (1025px – 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .collectionsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Desktop (1441px and up) */
+@media screen and (min-width: 1441px) {
+  .collectionsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

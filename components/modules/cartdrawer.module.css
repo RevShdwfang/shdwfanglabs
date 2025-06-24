@@ -1,0 +1,232 @@
+/* ===============================
+📦 Base Drawer Styles
+================================= */
+.cartDrawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100vh;
+  background-color: var(--bg-black-100);
+  color: var(--text-white);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-left: 1px solid var(--bg-black-50);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.cartDrawer.open {
+  transform: translateX(0);
+}
+
+/* ===============================
+🧠 Drawer Header
+================================= */
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--bg-black-50);
+}
+
+.cartHeader h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-black-700);
+  cursor: pointer;
+}
+
+/* ===============================
+🛒 Cart Content Area
+================================= */
+.cartContent {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 1rem;
+}
+
+/* ===============================
+🧾 Cart Items
+================================= */
+.cartItem {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--bg-black-50);
+  padding-bottom: 1rem;
+}
+
+.itemImage img {
+  border-radius: 4px;
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  flex: 1;
+}
+
+.itemTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.itemVariant {
+  font-size: 0.875rem;
+  color: var(--text-black-700);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.itemPrice {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-black-700);
+  margin-top: 0.5rem;
+}
+
+/* ===============================
+🎛️ Cart Actions
+================================= */
+.itemActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.quantityControls button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text-black-700);
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* ===============================
+📭 Empty Cart
+================================= */
+.emptyCart {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-gray-500);
+}
+
+/* ===============================
+🧾 Cart Footer
+================================= */
+.cartFooter {
+  border-top: 1px solid var(--bg-black-50);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.subtotal {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-black-700);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.checkoutButton {
+  background-color: var(--bg-black-100);
+  color: var(--text-black-700);
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.checkoutButton:hover {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* ===============================
+📱 Responsive Breakpoints
+================================= */
+
+/* 📱 Mobile: ≤ 480px */
+@media screen and (max-width: 480px) {
+  .cartDrawer {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .cartHeader h2 {
+    font-size: 1rem;
+  }
+
+  .itemTitle {
+    font-size: 0.95rem;
+  }
+
+  .itemPrice,
+  .itemVariant {
+    font-size: 0.85rem;
+  }
+
+  .checkoutButton {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}
+
+/* 💻 Small Desktops: 769px–1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .cartDrawer {
+    width: 360px;
+  }
+}
+
+/* 🖥️ Large Desktops: 1025px+ */
+@media screen and (min-width: 1025px) {
+  .cartDrawer {
+    width: 400px;
+  }
+}

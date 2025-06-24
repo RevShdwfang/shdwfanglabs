@@ -1,0 +1,112 @@
+/* ===============================
+📐 Grid Layout
+================================= */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.padd15 {
+  padding: 0 15px;
+}
+
+.col6,
+.col12 {
+  width: 100%;
+}
+
+/* ===============================
+📝 Form Layout
+================================= */
+.contactForm {
+  width: 100%;
+}
+
+.formItem {
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  width: 100%;
+}
+
+.formControl {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--bg-black-50);
+  border-radius: 8px;
+  background-color: var(--bg-black-100);
+  color: var(--text-white);
+  font-size: 16px;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.formControl:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+/* ===============================
+🎯 Submit Button
+================================= */
+.btn {
+  padding: 12px 30px;
+  background-color: var(--accent-color);
+  color: var(--text-black-900);
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ===============================
+📱 Responsive Breakpoints
+================================= */
+
+/* Small Tablets (481px – 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .formControl {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 10px 24px;
+  }
+}
+
+/* Tablets / Small Desktops (768px – 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .col6 {
+    width: 50%;
+  }
+
+  .col12 {
+    width: 100%;
+  }
+
+  .formControl {
+    font-size: 16px;
+  }
+}
+
+/* Large Desktops (1025px and up) */
+@media screen and (min-width: 1025px) {
+  .formControl {
+    font-size: 17px;
+    padding: 14px 18px;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 14px 32px;
+  }
+}

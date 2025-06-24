@@ -1,0 +1,375 @@
+/* ================================
+🌙 Mode-Based Theming
+================================ */
+:global(body.dark) .productTitle {
+  color: var(--text-white);
+}
+
+:global(body.light) .productTitle {
+  color: var(--text-black-900);
+}
+
+:global(body.dark) .productGrid {
+  background-color: var(--bg-black-900);
+}
+
+:global(body.light) .productGrid {
+  background-color: var(--bg-white);
+}
+
+
+/* ================================
+📦 Layout Wrappers
+================================ */
+.productRowWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+}
+
+.productRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+
+
+/* ================================
+🖼️ Product Image Section
+================================ */
+.productImageColumn {
+  flex: 1 1 45%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.productMainImage {
+  max-width: 100%;
+  height: 500px;
+  border-radius: 8px;
+}
+
+.thumbnailScroll {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.thumbnailImg {
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.thumbnailImg:hover,
+.thumbnailImg.active {
+  opacity: 1;
+  border-color: var(--accent-color);
+}
+
+
+/* ================================
+📋 Product Info Section
+================================ */
+.productInfoColumn {
+  flex: 1 1 30%;
+  color: var(--text-white);
+}
+
+.productTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.productPriceLarge {
+  font-size: 1.25rem;
+  color: var(--text-black-700);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+
+/* ================================
+🎚️ Variant Selector
+================================ */
+.variantSection {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--bg-black-50);
+}
+
+.variantLabel {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sizeGuide {
+  font-size: 0.875rem;
+  margin-left: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.variantOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.variantValue {
+  width: 60px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bg-black-50);
+  background-color: transparent;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.variantValue input[type="radio"] {
+  display: none;
+}
+
+.radioLabel {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-black-700);
+}
+
+.variantCheck {
+  margin-left: 8px;
+  color: var(--accent-color);
+}
+
+.radioInput:checked + .radioLabel {
+  border-color: var(--accent-color);
+  color: var(--text-black-900);
+}
+
+
+/* ================================
+🧩 Quantity / Variant Controls
+================================ */
+.drawerButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  padding: 2rem 0;
+}
+
+.quantityWrapper {
+  flex: 0 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  background-color: var(--bg-black-100);
+  border: 1px solid var(--bg-black-100);
+  border-radius: var(--button-corner-radius);
+}
+
+
+/* ================================
+⬇️ Dropdown Select Customization
+================================ */
+.selectWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--bg-black-50);
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.customSelect {
+  width: 100%;
+  height: 100%;
+  padding: 0 2rem 0 1rem;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  font: inherit;
+  text-align: center;
+  text-align-last: center;
+  z-index: 1;
+}
+
+.dropdownIcon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.875rem;
+  color: var(--accent-color);
+  z-index: 2;
+}
+
+
+/* ================================
+🧵 Button Styling
+================================ */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family-heading, inherit);
+  font-weight: var(--font-weight-heading, 600);
+  font-size: 1rem;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: var(--button-corner-radius, 8px);
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.buttonExpand {
+  width: 100%;
+  height: 60px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* ================================
+📂 Product Details Section
+================================ */
+.productDetailsSection {
+  border-top: 1px solid var(--bg-black-50);
+  padding-top: 2rem;
+}
+
+.productDetailsSection details {
+  margin-bottom: 1rem;
+}
+
+.productDetailsSection summary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+}
+
+.product-details-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.product-details-section summary::after {
+  content: "▾";
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.productDetailsSection p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-gray-300);
+}
+
+
+/* ================================
+📱 Responsive Breakpoints
+================================ */
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .productRowWrapper {
+    padding: 1rem;
+  }
+
+  .productRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .productImageColumn,
+  .productInfoColumn {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .drawerButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .variantOptions {
+    justify-content: center;
+  }
+
+  .productTitle {
+    font-size: 1.75rem;
+  }
+}
+
+/* Tablet (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .productRow {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .productImageColumn,
+  .productInfoColumn {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .drawerButtons {
+    flex-direction: column;
+  }
+
+  .productTitle {
+    font-size: 1.85rem;
+  }
+}
+
+/* Small Desktop (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .productRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .productImageColumn,
+  .productInfoColumn {
+    flex: 1 1 48%;
+    max-width: 48%;
+  }
+
+  .drawerButtons {
+    flex-direction: row;
+  }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .productRow {
+    gap: 2rem;
+  }
+
+  .drawerButtons {
+    flex-direction: row;
+  }
+}

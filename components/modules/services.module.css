@@ -1,0 +1,130 @@
+/* ================================
+📦 Grid Layout
+================================ */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.padd15 {
+  padding: 0 15px;
+}
+
+
+/* ================================
+🧩 Service Card Structure
+================================ */
+.serviceItem {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.serviceItemInner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  background-color: var(--bg-black-100);
+  border: 1px solid var(--bg-black-50);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.serviceItemInner:hover {
+  transform: translateY(-5px);
+}
+
+
+/* ================================
+🎨 Card Content Styling
+================================ */
+.icon {
+  font-size: 36px;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+}
+
+.serviceItemInner h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.serviceItemInner p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+
+/* ================================
+💵 Price Reveal Animation
+================================ */
+.price,
+.servicePrice {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-highlight);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.serviceItemInner:hover .price,
+.serviceItemInner:hover .servicePrice {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 100px;
+  margin-top: 10px;
+}
+
+
+/* ================================
+📱 Responsive Breakpoints
+================================ */
+
+/* ServiceItem column override (fallbacks) */
+@media (min-width: 481px) {
+  .serviceItem {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 769px) {
+  .serviceItem {
+    flex: 0 0 33.3333%;
+  }
+}
+
+
+/* Grid column adjustments */
+@media screen and (min-width: 480px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

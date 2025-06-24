@@ -1,0 +1,212 @@
+/* ==============================
+   🌙 Mode-Based Styling
+============================== */
+:global(body.dark) .productTitle {
+  color: var(--text-white);
+}
+
+:global(body.light) .productTitle {
+  color: var(--text-black-900);
+}
+
+:global(body.dark) .productGrid {
+  background-color: var(--bg-black-900);
+}
+
+:global(body.light) .productGrid {
+  background-color: var(--bg-white);
+}
+
+
+/* ==============================
+   🧱 Core Grid Layout
+============================== */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: stretch;
+}
+
+
+/* ==============================
+   🃏 Product Card Layout
+============================== */
+.productCard {
+  background-color: var(--bg-black-900);
+  border: 2px solid var(--bg-black-100);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+}
+
+.productCard:has(.btn:hover) {
+  transform: translateY(-5px);
+  box-shadow: 0 0 16px var(--text-black-900);
+  border: none;
+}
+
+
+/* ==============================
+   🖼️ Image & Wrapper
+============================== */
+.imageWrapper {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background-color: var(--bg-black-100);
+  margin-bottom: 10px;
+}
+
+
+/* ==============================
+   📄 Card Content
+============================== */
+.productDetails {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.productTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-black-900);
+  margin: 10px;
+}
+
+.productDescription {
+  font-size: 0.95rem;
+}
+
+.productPrice {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-top: auto;
+}
+
+
+/* ==============================
+   🧷 Button Styles
+============================== */
+.btn {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 10px 25px;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: none;
+  color: var(--text-black-700);
+  font-variant: small-caps;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  color: var(--text-black-900);
+  cursor: pointer;
+}
+
+
+/* ==============================
+   📱 Responsive Breakpoints
+============================== */
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .productTitle {
+    font-size: 1rem;
+  }
+
+  .productDescription {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Tablet (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .imageWrapper {
+    height: 240px;
+  }
+
+  .productTitle {
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    padding: 9px 22px;
+  }
+}
+
+/* Small Desktop / Tablet Landscape (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .imageWrapper {
+    height: 260px;
+  }
+}
+
+/* Large Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .productGrid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    padding: 2rem 3rem;
+    gap: 2rem;
+  }
+
+  .imageWrapper {
+    height: 280px;
+  }
+}

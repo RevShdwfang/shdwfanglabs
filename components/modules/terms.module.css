@@ -1,0 +1,109 @@
+/* ================================
+📦 Base Layout
+================================ */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.padd15 {
+  padding: 0 15px;
+}
+
+.padd15 h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.padd15 h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+.padd15 p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+📱 Responsive Breakpoints
+================================ */
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 15px;
+  }
+
+  .sectiontitle {
+    font-size: 24px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .section h3 {
+    font-size: 18px;
+  }
+
+  .section p {
+    font-size: 15px;
+  }
+}
+
+/* Tablet Portrait (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .sectiontitle {
+    font-size: 28px;
+  }
+
+  .section h2 {
+    font-size: 24px;
+  }
+
+  .section h3 {
+    font-size: 19px;
+  }
+
+  .section p {
+    font-size: 15.5px;
+  }
+}
+
+/* Tablet Landscape (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .sectiontitle {
+    font-size: 30px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+}
+
+/* Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .padd15 {
+    flex: 1;
+    max-width: 100%;
+  }
+}
