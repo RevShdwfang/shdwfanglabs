@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/modules/contactform.module.css";
 
+
 export default function Contact() {
   const router = useRouter();
 
@@ -18,15 +19,11 @@ export default function Contact() {
     honeypot: "",
   });
 
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [feedbackMsg, setFeedbackMsg] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value.trimStart() }));
@@ -67,11 +64,7 @@ export default function Contact() {
         </div>
 
         <div className={styles.row}>
-          <form
-            className={`${styles.contactForm} ${styles.padd15}`}
-            onSubmit={handleSubmit}
-          >
-            {/* 🛡️ Honeypot Field to Catch Bots */}
+          <form className={`${styles.contactForm} ${styles.padd15}`} onSubmit={handleSubmit}>
             <input
               type="text"
               name="honeypot"
@@ -82,9 +75,7 @@ export default function Contact() {
 
             {/* Type */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <select
                     name="type"
@@ -103,9 +94,7 @@ export default function Contact() {
 
             {/* Name + Email */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col6} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col6} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <input
                     type="text"
@@ -118,9 +107,7 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              <div
-                className={`${styles.formItem} ${styles.col6} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col6} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <input
                     type="email"
@@ -137,9 +124,7 @@ export default function Contact() {
 
             {/* Brand */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <input
                     type="text"
@@ -156,9 +141,7 @@ export default function Contact() {
 
             {/* Budget */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <input
                     type="text"
@@ -175,9 +158,7 @@ export default function Contact() {
 
             {/* Subject */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <select
                     name="subject"
@@ -197,9 +178,7 @@ export default function Contact() {
 
             {/* Message */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <textarea
                     name="message"
@@ -213,11 +192,9 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <div className={styles.row}>
-              <div
-                className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}
-              >
+              <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <button
                   type="submit"
                   className={styles.btn}

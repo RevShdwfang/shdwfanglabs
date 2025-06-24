@@ -1,23 +1,24 @@
 'use client';
 
+import { useState } from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/modules/portfolio.module.css";
-import { useState } from "react";
-import Image from "next/image";
+
 
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
-  "/assets/images/portfolio/samurai-banner.jpg",
-  "/assets/images/portfolio/titanfall_tournament_poster.jpg",
-  "/assets/images/portfolio/revgreywolf(official)3.jpg",
-  "/assets/images/portfolio/businesscardmockup.jpg",
-  "/assets/images/portfolio/revshadowfang.jpg",
-  "/assets/images/portfolio/paneldisplay.jpg",
-  "/assets/images/portfolio/shdw-banner.jpg",
-];
+    "/assets/images/portfolio/samurai-banner.jpg",
+    "/assets/images/portfolio/titanfall_tournament_poster.jpg",
+    "/assets/images/portfolio/revgreywolf(official)3.jpg",
+    "/assets/images/portfolio/businesscardmockup.jpg",
+    "/assets/images/portfolio/revshadowfang.jpg",
+    "/assets/images/portfolio/paneldisplay.jpg",
+    "/assets/images/portfolio/shdw-banner.jpg",
+  ];
 
   return (
     <section className="section" id="portfolio">

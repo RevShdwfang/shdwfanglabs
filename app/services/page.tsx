@@ -1,15 +1,14 @@
-// Services.jsx (Updated with FontAwesome Icons)
+'use client';
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPencilAlt,
   faDesktop,
   faPalette,
   faCode,
-  faShirt,
-  faShareAlt
 } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/modules/services.module.css";
-import "@/app/globals.css"
+import "@/app/globals.css";
+
 
 export default function Services() {
   const serviceList = [
@@ -38,22 +37,23 @@ export default function Services() {
             <h2>Services</h2>
           </div>
         </div>
-       <div className={styles.row}>
-  {serviceList.map((service, index) => (
-    <div className={`${styles.serviceItem} ${styles.padd15}`} key={index}>
-      <div className={styles.serviceItemInner}>
-        <div className={styles.icon}>
-          <FontAwesomeIcon icon={service.icon} />
+
+        <div className={styles.row}>
+          {serviceList.map((service, index) => (
+            <div className={`${styles.serviceItem} ${styles.padd15}`} key={index}>
+              <div className={styles.serviceItemInner}>
+                <div className={styles.icon}>
+                  <FontAwesomeIcon icon={service.icon} />
+                </div>
+                <h4>{service.title}</h4>
+                <p>{service.desc}</p>
+                <div className={`${styles.price} ${styles.servicePrice}`}>
+                  {/* Future price info can go here */}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <h4>{service.title}</h4>
-        <p>{service.desc}</p>
-        <div className={`${styles.price} ${styles.servicePrice}`}>
-          
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
       </div>
     </section>
   );

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.shdwfanglabs.com
+
+# Sitemaps
+Sitemap: https://www.shdwfanglabs.com/sitemap.xml
