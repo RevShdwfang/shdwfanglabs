@@ -557,11 +557,16 @@ body.light .slider .switch-icon {
   .aside-footer {
     text-align: center;
     padding-bottom: 20px;
+    overflow-y: auto;
   }
 
   .layout-main {
-    padding: 20px;
-  }
+  flex-grow: 1;
+  min-height: 100svh; /* small viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
 
   .aside.open ~ .nav-toggler {
   left: 265px; /* 250px sidebar + 15px spacing */
@@ -612,6 +617,7 @@ body.light .slider .switch-icon {
   }
 
   .layout-main {
+    margin-left: 0;
     padding: 20px;
   }
 
@@ -668,6 +674,7 @@ body.light .slider .switch-icon {
   }
 
   .layout-main {
+    margin-left: 0;
     padding: 20px;
   }
 }

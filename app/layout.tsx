@@ -1,19 +1,25 @@
 // app/layout.tsx
 import './globals.css';
+import '@/styles/styleswitcher.css';
+
 import StyleSwitcher from '@/components/StyleSwitcher';
 import { CartProvider } from '@/components/cart/cart-context';
-import '@/styles/styleswitcher.css';
 import ClientLayout from '@/components/ClientLayout';
 
-export const metadata = {
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.shdwfanglabs.com'),
   title: 'Shadowfang Labs – Unleashing Bold Design',
-  description: 'Shadowfang Labs transforms adversity into striking digital design. Specializing in branding, UI/UX, and stream visuals that tell your story.',
+  description:
+    'Shadowfang Labs transforms adversity into striking digital design. Specializing in branding, UI/UX, and stream visuals that tell your story.',
   icons: {
     icon: '/favicon.ico',
   },
   openGraph: {
     title: 'Shadowfang Labs – Unleashing Bold Design',
-    description: 'Born of Shadows, Built for Legacy. From stream overlays to full brand identity — powered by purpose and crafted with resilience.',
+    description:
+      'Born of Shadows, Built for Legacy. From stream overlays to full brand identity — powered by purpose and crafted with resilience.',
     url: 'https://www.shdwfanglabs.com',
     siteName: 'Shadowfang Labs',
     type: 'website',
@@ -29,32 +35,36 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Shadowfang Labs – Unleashing Bold Design',
-    description: 'Born of Shadows, Built for Legacy. Shadowfang Labs creates bold visuals and purposeful designs for brands and creators.',
+    description:
+      'Born of Shadows, Built for Legacy. Shadowfang Labs creates bold visuals and purposeful designs for brands and creators.',
     creator: '@theShdwfang',
     images: ['/og-preview.jpg'],
   },
 };
 
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
-  {/* ✅ Preload self-hosted Explorer font */}
-  <link
-    rel="preload"
-    href="/fonts/Explorers-Regular.woff2"
-    as="font"
-    type="font/woff2"
-    crossOrigin="anonymous"
-  />
+        {/* ✅ Preload self-hosted Explorer font */}
+        <link
+          rel="preload"
+          href="/fonts/Explorers-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
-  {/* ✅ Google-hosted Orbitron (no preload needed) */}
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
-  />
-</head>
+        {/* ✅ Google-hosted Orbitron – no preload, just link */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+        />
+      </head>
       <body>
         <CartProvider>
           <div className="style-switcher-container">
@@ -66,4 +76,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
