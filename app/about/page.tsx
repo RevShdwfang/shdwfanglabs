@@ -12,7 +12,7 @@ export default function About() {
         <div className="titlerow">
           <div className="section-title">
             <h2>
-              <FontAwesomeIcon icon={faUser} /> About Me
+              About Me
             </h2>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function TermsPage() {
         <div className="titlerow">
           <div className="section-title padd-15">
             <h2>
-              <FontAwesomeIcon icon={faFileAlt} /> Terms of Service
+              Terms of Service
             </h2>
           </div>
         </div>

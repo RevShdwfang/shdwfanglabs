@@ -26,7 +26,7 @@ export default function Portfolio() {
         <div className="titlerow">
           <div className="section-title padd-15">
             <h2>
-              <FontAwesomeIcon icon={faBriefcase} /> Portfolio
+              Portfolio
             </h2>
           </div>
         </div>
