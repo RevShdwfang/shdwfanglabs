@@ -4,13 +4,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
 
 :root {
-  --bg-black-900: #010102;
+  --bg-black-900: #0B0C10;
   --bg-black-100: #121212;
   --bg-black-75: #2a2a2a;
   --bg-black-50: #444444;
   --text-black-900: #2e5cff;
   --text-black-700: #e9e9e9;
-  --accent-color: #bf8b3d;
+  --accent-color: #C08C46;
   --color-r: 46;
   --color-g: 92;
   --color-b: 255;
@@ -183,7 +183,7 @@ section.section {
 .aside {
   width: 250px;
   flex-shrink: 0;
-  height: 100vh;
+  height: 100dvh;
   background: var(--bg-black-100);
   border-right: 1px solid var(--bg-black-50);
   display: flex;
@@ -194,17 +194,20 @@ section.section {
   transition: left 0.3s ease;
 }
 
+.aside-body {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
 .aside-inner {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100dvh;
 }
+
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0 20px; /* space above and below */
-  width: 100%;
+  padding: 2rem 0 1rem;
   text-align: center;
 }
 
@@ -247,14 +250,15 @@ section.section {
 .nav-wrapper {
   flex: 1;
   display: flex;
-  justify-content: center;  /* vertically centers within leftover space */
   align-items: center;
-  padding: 20px 1rem;
+  justify-content: center;
 }
 
 .nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   list-style: none;
-  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -308,11 +312,12 @@ section.section {
   }
 }
 
+
 /* ====================================
     NAV TOGGLER
 ==================================== */
 .nav-toggler {
-  display: none;
+  display: flex; /* ensure it's visible */
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -325,8 +330,8 @@ section.section {
   align-items: center;
   cursor: pointer;
   border: 1px solid var(--bg-black-50);
+  transition: left 0.3s ease;
 }
-
 
 .nav-toggler span,
 .nav-toggler span::before,
@@ -358,6 +363,7 @@ section.section {
   padding: 20px 0 0;
   text-align: center;
   border-top: 1px solid var(--bg-black-50);
+  margin-top: auto;
 }
 
 .aside-footer .container {
@@ -481,152 +487,160 @@ body.light .slider .switch-icon {
 
 /* Mobile: 320px - 480px */
 @media (max-width: 480px) {
-  .section-title h2 {
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-  }
-
-  .btn {
-    padding: 10px 25px;
-    font-size: 14px;
-  }
-
-  .titlerow {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .aside:not(.open) {
-    transform: translateX(-100%);
-  }
-
   .nav-toggler {
     display: flex;
   }
-   .aside {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh;
-    background: var(--bg-black-100);
-    z-index: 1000;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
 
-  .aside.open {
-    transform: translateX(0);
-  }
-
-  .aside.open ~ .nav-toggler {
-  left: 265px; /* 250px sidebar + 15px spacing */
-}
-
-  .layout-main {
-    margin-left: -250px; /* always shifted left */
-    transition: margin-left 0.3s ease;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-/* Tablet: 481px - 768px */
-@media (min-width: 481px) and (max-width: 768px) {
-  .aside{
-    display: none;
-  }
-  .section-title h2 {
-    font-size: 2rem;
-  }
-
-  .btn {
-    padding: 11px 30px;
-    font-size: 15px;
-  }
-
-  .titlerow {
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .aside:not(.open) {
-    transform: translateX(-100%);
-  }
-
-  .nav-toggler {
-    display: flex;
-  }
   .aside {
     position: fixed;
     top: 0;
     left: 0;
     width: 250px;
-    height: 100vh;
+    height: 100dvh;
     background: var(--bg-black-100);
-    z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    flex-direction: column;
   }
 
   .aside.open {
     transform: translateX(0);
   }
 
+  .aside-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .nav-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .aside-footer {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .layout-main {
+    padding: 20px;
+  }
+
   .aside.open ~ .nav-toggler {
   left: 265px; /* 250px sidebar + 15px spacing */
 }
-
-  .layout-main {
-    margin-left: -250px; /* always shifted left */
-    transition: margin-left 0.3s ease;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }
 
-/* Small Desktop: 769px - 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .section-title h2 {
-    font-size: 2.25rem;
-  }
-
-  .btn {
-    padding: 12px 32px;
-    font-size: 15.5px;
-  }
-
+/* Tablet: 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
   .nav-toggler {
     display: flex;
   }
 
-   .aside {
+  .aside {
     position: fixed;
     top: 0;
     left: 0;
     width: 250px;
-    height: 100vh;
+    height: 100dvh;
     background: var(--bg-black-100);
-    z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    flex-direction: column;
   }
 
   .aside.open {
     transform: translateX(0);
   }
 
+  .aside-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .nav-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .aside-footer {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .layout-main {
+    padding: 20px;
+  }
+
+  .aside.open ~ .nav-toggler {
+  left: 265px; /* 250px sidebar + 15px spacing */
+}
+}
+
+/* Small Desktop: 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-toggler {
+    display: flex;
+  }
+
+  .aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100dvh;
+    background: var(--bg-black-100);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    flex-direction: column;
+  }
+
+  .aside.open {
+    transform: translateX(0);
+  }
+
+  .aside-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
   .aside.open ~ .nav-toggler {
   left: 265px; /* 250px sidebar + 15px spacing */
 }
 
+  .nav-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .aside-footer {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
   .layout-main {
-    margin-left: -250px; /* always shifted left */
-    transition: margin-left 0.3s ease;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
   }
 }
+
 
 
 /* Large Desktop: 1025px and up */
