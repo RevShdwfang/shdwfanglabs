@@ -3,7 +3,7 @@
 ================================ */
 .aboutSection {
   padding: 80px 32px;
-  background-color: var(--bg-black-100);
+  background-color: var(--color-bg-elevated);
   display: flex;
   justify-content: center;
 }

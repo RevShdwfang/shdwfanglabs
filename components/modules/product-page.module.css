@@ -10,7 +10,7 @@
 }
 
 :global(body.dark) .productGrid {
-  background-color: var(--bg-black-900);
+  background-color: var(--color-bg-base);
 }
 
 :global(body.light) .productGrid {
@@ -103,7 +103,7 @@
 ================================ */
 .variantSection {
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--bg-black-50);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .variantLabel {
@@ -130,7 +130,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--bg-black-50);
+  border: 1px solid var(--color-border);
   background-color: transparent;
   margin-top: 20px;
   cursor: pointer;
@@ -156,7 +156,7 @@
 }
 
 .radioInput:checked + .radioLabel {
-  border-color: var(--accent-color);
+  border-color: var(----color-border);
   color: var(--text-black-900);
 }
 
@@ -177,8 +177,8 @@
   align-items: center;
   justify-content: center;
   min-height: 60px;
-  background-color: var(--bg-black-100);
-  border: 1px solid var(--bg-black-100);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
   border-radius: var(--button-corner-radius);
 }
 
@@ -192,7 +192,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid var(--bg-black-50);
+  border: 1px solid var(--color-border);
   background-color: transparent;
   border-radius: 4px;
 }
@@ -253,7 +253,7 @@
 📂 Product Details Section
 ================================ */
 .productDetailsSection {
-  border-top: 1px solid var(--bg-black-50);
+  border-top: 1px solid var(--color-border);
   padding-top: 2rem;
 }
 

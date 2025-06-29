@@ -13,7 +13,7 @@ export default function Portfolio() {
   const images = [
     "/assets/images/portfolio/samurai-banner.jpg",
     "/assets/images/portfolio/titanfall_tournament_poster.jpg",
-    "/assets/images/portfolio/revgreywolf(official)3.jpg",
+    "/assets/images/portfolio/revgreywolf3.jpg",
     "/assets/images/portfolio/businesscardmockup.jpg",
     "/assets/images/portfolio/revshadowfang.jpg",
     "/assets/images/portfolio/paneldisplay.jpg",

@@ -42,9 +42,9 @@
   width: 100%;
   padding: 14px 18px;
   font-size: 1rem;
-  border: 1px solid var(--bg-black-50);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  background-color: var(--bg-black-100);
+  background-color: var(--color-bg-elevated);
   color: var(--text-black-700);
   resize: vertical;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;

@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--bg-black-900);
+  background-color: var(--color-bg-base);
   color: var(--text-white);
   text-align: center;
   padding: 2rem;

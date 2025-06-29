@@ -10,7 +10,7 @@
 }
 
 :global(body.dark) .productGrid {
-  background-color: var(--bg-black-900);
+  background-color: var(--color-bg-base);
 }
 
 :global(body.light) .productGrid {
@@ -37,8 +37,8 @@
    🃏 Product Card Layout
 ============================== */
 .productCard {
-  background-color: var(--bg-black-900);
-  border: 2px solid var(--bg-black-100);
+  background-color: var(--color-bg-base);
+  border: 2px solid var(--color-bg-border);
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
@@ -76,7 +76,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  background-color: var(--bg-black-100);
+  background-color: var(--color-bg-elevated);
   margin-bottom: 10px;
 }
 
