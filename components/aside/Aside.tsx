@@ -85,7 +85,7 @@ export default function Aside({ onLinkClick }: { onLinkClick: () => void }) {
         </ul>
         </div>
         </div>
-        </div>
+        
 
       <footer className="aside-footer">
         <div className="container">
@@ -115,6 +115,7 @@ export default function Aside({ onLinkClick }: { onLinkClick: () => void }) {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }
