@@ -44,19 +44,20 @@ export default function Portfolio() {
 
             return (
               <div
-                key={index}
-                className={`${styles.gridItem} ${className}`}
-                onClick={() => setSelectedImage(src)}
-              >
-                <Image
-                  src={src}
-                  alt={`Project ${index + 1}`}
-                  width={600}
-                  height={400}
-                  className={styles.gridImage}
-                  style={{ objectFit: "cover", borderRadius: "10px" }}
-                />
-              </div>
+  key={index}
+  className={`${styles.gridItem} ${className}`}
+  onClick={() => setSelectedImage(src)}
+>
+  <Image
+    src={src}
+    alt={`Project ${index + 1}`}
+    width={600}
+    height={400}
+    className={styles.gridImage}
+    style={{ objectFit: "cover", borderRadius: "10px" }}
+  />
+  <div className={styles.gridOverlay}></div>
+</div>
             );
           })}
         </div>

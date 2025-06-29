@@ -1,3 +1,10 @@
+.titlerow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
 .heroBanner {
   display: flex;
   justify-content: center;

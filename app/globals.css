@@ -1,36 +1,81 @@
+/* ====================================
+    GLOBAL IMPORTS & VARIABLES
+==================================== */
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
 
 :root {
   --bg-black-900: #010102;
   --bg-black-100: #121212;
-  --bg-black-75:  #2a2a2a;
+  --bg-black-75: #2a2a2a;
   --bg-black-50: #444444;
   --text-black-900: #2e5cff;
   --text-black-700: #e9e9e9;
   --accent-color: #bf8b3d;
+  --color-r: 46;
+  --color-g: 92;
+  --color-b: 255;
+}
+
+/* ====================================
+    BASE RESET & TYPOGRAPHY
+==================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  line-height: 1.5;
+  font-family: "exo", sans-serif;
   font-size: 16px;
-  font-family: "exo";
+  line-height: 1.5;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
+a,
+button {
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
-  box-sizing: border-box;
-}
-
-::before,
-::after {
-  box-sizing: border-box;
 }
 
 ul {
   list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+.nav a {
+  color: var(--text-black-900);
+  letter-spacing: 2px;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--text-black-700);
+  letter-spacing: 1px;
+  font-variant: small-caps;
+}
+
+/* Responsive Font Sizing */
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
 }
 
 section.section {
@@ -39,7 +84,7 @@ section.section {
   padding: 60px 0;
   z-index: 1;
   background-color: var(--bg-black-900);
-  margin: auto
+  margin: auto;
 }
 
 .container {
@@ -90,7 +135,6 @@ section.section {
   top: calc(100% + 8px);
 }
 
-
 .btn {
   font-size: 16px;
   font-weight: 500;
@@ -113,77 +157,86 @@ section.section {
   box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 }
 
-/* ===== Layout Wrapper ===== */
+/* ====================================
+    LAYOUT
+==================================== */
 .layout-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
+  align-items: stretch;
   overflow: hidden;
 }
 
-aside.aside {
+.layout-main {
+  flex: 1;
+  padding: 40px 30px;
+  background-color: var(--bg-black-900);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* ====================================
+    SIDEBAR
+==================================== */
+.aside {
   width: 250px;
   flex-shrink: 0;
   height: 100vh;
-  padding: 30px 20px;
-  background-color: var(--bg-black-100);
+  background: var(--bg-black-100);
   border-right: 1px solid var(--bg-black-50);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* <--- pushes footer to bottom */
-  position: fixed;
-  z-index: 1000;
   box-sizing: border-box;
-}
-
-.layout-main {
-  flex-grow: 1;
   position: relative;
-  z-index: 1;
-  padding: 40px 30px;
-  overflow-x: hidden;
-  background-color: var(--bg-black-900);
+  z-index: 1000;
+  transition: left 0.3s ease;
 }
 
-/* ===== Logo Styling ===== */
-.aside .logo {
+.aside-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  padding: 20px 0 20px; /* space above and below */
   width: 100%;
+  text-align: center;
 }
 
-.aside .logo a {
-  color: var(--text-black-900);
+.logo a {
+  font-size: 30px;
   font-weight: 700;
   padding: 15px 20px;
-  font-size: 30px;
-  letter-spacing: 5px;
+  color: var(--text-black-900);
   position: relative;
   display: inline-block;
 }
 
-.aside .logo a span {
+.logo a span {
   font-size: 40px;
 }
 
-.aside .logo a::before,
-.aside .logo a::after {
+.logo a::before,
+.logo a::after {
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
 }
 
-.aside .logo a::before {
+.logo a::before {
   border-bottom: 5px solid var(--accent-color);
   border-left: 5px solid var(--accent-color);
   bottom: 0;
   left: 0;
 }
 
-.aside .logo a::after {
+.logo a::after {
   border-top: 5px solid var(--accent-color);
   border-right: 5px solid var(--accent-color);
   top: 0;
@@ -191,27 +244,37 @@ aside.aside {
 }
 
 /* ===== Navigation ===== */
+.nav-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;  /* vertically centers within leftover space */
+  align-items: center;
+  padding: 20px 1rem;
+}
+
+.nav {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .aside .nav {
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .aside .nav li {
   margin-bottom: 20px;
-  display: block;
-  list-style: none;
 }
 
 .aside .nav li a {
   font-size: 16px;
   font-weight: 600;
-  display: block;
-  border-bottom: 1px solid var(--bg-black-50);
-  color: var(--text-black-900);
   padding: 8px 15px;
-  text-decoration: none;
+  display: block;
+  color: var(--text-black-900);
+  border-bottom: 1px solid var(--bg-black-50);
   transition: all 0.3s ease;
 }
 
@@ -224,49 +287,71 @@ aside.aside {
   margin-right: 15px;
 }
 
-/* ===== Nav Toggler (for mobile) ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 900; /* Below nav-toggler (1100) and aside (1000) */
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ====================================
+    NAV TOGGLER
+==================================== */
 .nav-toggler {
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 1rem;
-  right: -50px;
+  left: 1rem;
   width: 35px;
   height: 35px;
   background-color: var(--bg-black-100);
-  cursor: pointer;
   border-radius: 4px;
-  align-items: center;
+  z-index: 1001;
   justify-content: center;
-  z-index: 1000;
-  display: none;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid var(--bg-black-50);
 }
 
-.nav-toggler span {
-  width: 20px;
-  height: 2px;
-  background-color: var(--accent-color);
-  display: block;
-  position: relative;
-}
 
+.nav-toggler span,
 .nav-toggler span::before,
 .nav-toggler span::after {
-  content: "";
-  position: absolute;
+  display: block;
+  position: relative;
   width: 20px;
   height: 2px;
   background-color: var(--accent-color);
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .nav-toggler span::before {
+  content: "";
+  position: absolute;
   top: -6px;
 }
 
 .nav-toggler span::after {
+  content: "";
+  position: absolute;
   top: 6px;
 }
 
-/* ===== Footer Area ===== */
+/* Footer */
 .aside-footer {
   background-color: var(--bg-black-100);
   color: var(--text-black-700);
@@ -378,37 +463,16 @@ body.light .slider .switch-icon {
   font-size: 14px;
 }
 
-/* Ensure all headers, links use theme variable */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-a,
-.nav a {
-  color: var(--text-black-900);
-  letter-spacing: 2px;
-  font-family: "Orbitron";
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-p{
-  color: var(--text-black-700);
-  letter-spacing: 1px;
-  font-variant: small-caps;
-}
-
 /* ====================================
     FONT-FACE DEFINITIONS
 ==================================== */
 @font-face {
-  font-family: "ExplorersRegular";
-  src:
-    url("/fonts/explorers-regular-webfont.woff2") format("woff2"),
-    url("/fonts/explorers-regular-webfont.woff") format("woff");
+  font-family: 'Explorers';
+  src: url('/fonts/Explorers-Regular.woff2') format('woff2'),
+       url('/fonts/Explorers-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ====================================
@@ -432,18 +496,46 @@ p{
     align-items: flex-start;
   }
 
-   .aside:not(.open) {
-  transform: translateX(-100%);
-}
-
-.nav-toggler {
-    display: flex;
+  .aside:not(.open) {
+    transform: translateX(-100%);
   }
 
+  .nav-toggler {
+    display: flex;
+  }
+   .aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-black-100);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .aside.open {
+    transform: translateX(0);
+  }
+
+  .aside.open ~ .nav-toggler {
+  left: 265px; /* 250px sidebar + 15px spacing */
+}
+
+  .layout-main {
+    margin-left: -250px; /* always shifted left */
+    transition: margin-left 0.3s ease;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* Tablet: 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
+  .aside{
+    display: none;
+  }
   .section-title h2 {
     font-size: 2rem;
   }
@@ -459,11 +551,37 @@ p{
   }
 
   .aside:not(.open) {
-  transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  .nav-toggler {
+    display: flex;
+  }
+  .aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-black-100);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .aside.open {
+    transform: translateX(0);
+  }
+
+  .aside.open ~ .nav-toggler {
+  left: 265px; /* 250px sidebar + 15px spacing */
 }
 
-.nav-toggler {
-    display: flex;
+  .layout-main {
+    margin-left: -250px; /* always shifted left */
+    transition: margin-left 0.3s ease;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -477,16 +595,42 @@ p{
     padding: 12px 32px;
     font-size: 15.5px;
   }
+
   .nav-toggler {
     display: flex;
   }
+
+   .aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-black-100);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .aside.open {
+    transform: translateX(0);
+  }
+
+  .aside.open ~ .nav-toggler {
+  left: 265px; /* 250px sidebar + 15px spacing */
 }
+
+  .layout-main {
+    margin-left: -250px; /* always shifted left */
+    transition: margin-left 0.3s ease;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 
 /* Large Desktop: 1025px and up */
 @media (min-width: 1025px) {
-  section.section {
-    left: 300px;
-  }
   .section-title h2 {
     font-size: 2.5rem;
   }
@@ -495,54 +639,4 @@ p{
     padding: 12px 35px;
     font-size: 16px;
   }
-}
-
-
-/* === Enhancements for smoother responsiveness === */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Prevent horizontal overflow on mobile */
-body {
-  overflow-x: hidden;
-}
-
-/* Improve font scaling on smaller screens using clamp */
-h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw, 2rem);
-}
-
-/* Sidebar transition for smooth nav opening on mobile */
-@media (max-width: 1024px) {
-  .aside {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .aside.open {
-    transform: translateX(0);
-  }
-
-  .aside:not(.open) {
-    transform: translateX(-100%);
-  }
-
-  .layout-main {
-    padding-left: 0 !important;
-  }
-}
-
-/* Improve accessibility of buttons and links */
-a, button {
-  transition: all 0.3s ease;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
 }

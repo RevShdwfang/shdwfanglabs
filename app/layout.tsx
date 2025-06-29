@@ -1,9 +1,9 @@
 // app/layout.tsx
 import './globals.css';
 import StyleSwitcher from '@/components/StyleSwitcher';
-import Aside from '@/components/aside/Aside';
 import { CartProvider } from '@/components/cart/cart-context';
 import '@/styles/styleswitcher.css';
+import ClientLayout from '@/components/ClientLayout';
 
 export const metadata = {
   title: 'Shadowfang Labs – Unleashing Bold Design',
@@ -39,20 +39,31 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+  {/* ✅ Preload self-hosted Explorer font */}
+  <link
+    rel="preload"
+    href="/fonts/Explorers-Regular.woff2"
+    as="font"
+    type="font/woff2"
+    crossOrigin="anonymous"
+  />
+
+  {/* ✅ Google-hosted Orbitron (no preload needed) */}
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+  />
+</head>
       <body>
         <CartProvider>
           <div className="style-switcher-container">
             <StyleSwitcher />
           </div>
-
-          <div className="layout-container">
-            <Aside />
-            <main className="layout-main">
-              {children}
-            </main>
-          </div>
+          <ClientLayout>{children}</ClientLayout>
         </CartProvider>
       </body>
     </html>
   );
 }
+

@@ -7,6 +7,9 @@ body.light {
   --text-black-900: #34269d;
   --text-black-700: #010102;
   --accent-color: #bf8b3d;
+  --color-r: 65;
+  --color-g: 35;
+  --color-b: 216;
 }
 
 .style-switcher {

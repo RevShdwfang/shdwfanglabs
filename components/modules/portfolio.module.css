@@ -30,6 +30,24 @@
   transform: scale(1.05);
 }
 
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--color-r),var(--color-g),var(--color-b), 0.8); /* Arcane Blue overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gridItem:hover .gridOverlay {
+  opacity: 1;
+}
+
 /* Layout Variants */
 .wide {
   grid-column: span 2;

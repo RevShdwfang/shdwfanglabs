@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <section className="home active section" id="home">
       <div className="container">
-        <div className="titlerow">
+        <div className={styles.titlerow}>
           <div className="home-info padd-15">
             <div className={styles.heroBanner}>
               <div className={styles.heroContent}>
