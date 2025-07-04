@@ -15,7 +15,7 @@ export default function Portfolio() {
     "/assets/images/portfolio/titanfall_tournament_poster.jpg",
     "/assets/images/portfolio/revgreywolf.jpg",
     "/assets/images/portfolio/businesscardmockup.jpg",
-    "/assets/images/portfolio/revshadowfang.jpg",
+    "/assets/images/portfolio/revshdwfang.jpg",
     "/assets/images/portfolio/paneldisplay.jpg",
     "/assets/images/portfolio/shdw-banner.jpg",
   ];
