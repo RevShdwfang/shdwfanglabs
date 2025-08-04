@@ -29,11 +29,6 @@ export default function EchoGallery() {
       type: "standard",
     },
     {
-      src: "/assets/images/portfolio/revshadowfang.jpg",
-      alt: "Shadowfang Core Emblem",
-      type: "standard",
-    },
-    {
       src: "/assets/images/portfolio/paneldisplay.jpg",
       alt: "Command Panel Interface",
       type: "standard",
