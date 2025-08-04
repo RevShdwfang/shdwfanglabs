@@ -21,6 +21,13 @@
   width: 100%;
 }
 
+.forgeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
 /* ===============================
 📝 Form Layout
 ================================= */

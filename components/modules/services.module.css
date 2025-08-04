@@ -1,128 +1,171 @@
-/* ================================
-📦 Grid Layout
-================================ */
+/* ==============================
+🧩 Row
+============================= */
 .row {
   display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  padding: 0 15px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  
+}
+.forgeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-
-/* ================================
-🧩 Service Card Structure
-================================ */
+/* ==============================
+🧩 Service Item
+============================= */
 .serviceItem {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--void-amber);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.serviceItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .serviceItemInner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 20px;
   text-align: center;
-  height: 100%;
-  background-color: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
 }
 
-.serviceItemInner:hover {
-  transform: translateY(-5px);
-}
-
-
-/* ================================
-🎨 Card Content Styling
-================================ */
 .icon {
-  font-size: 36px;
-  color: var(--accent-color);
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+  color: var(--voidcore-indigo);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
 }
 
-.serviceItemInner h4 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
+.serviceItem:hover .icon {
+  color: var(--arcane-azure);
 }
 
-.serviceItemInner p {
-  font-size: 16px;
-  margin-bottom: 12px;
+.serviceItem h4 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  color: var(--ghostlight);
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+.serviceItem p {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.1rem;
+  color: var(--ghostlight);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
 
-/* ================================
-💵 Pricing Info Section
-================================ */
+.serviceItem .btn {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.2rem;
+  color: var(--ghostlight);
+  background: var(--voidcore-indigo);
+  padding: 0.7rem 1.8rem;
+  border: 2px solid var(--void-amber);
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  display: inline-block;
+}
+
+.serviceItem .btn:hover {
+  background: var(--arcane-azure);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(46, 92, 255, 0.2);
+}
+
+/* ==============================
+🧩 Pricing Info
+============================= */
 .pricingInfo {
-  margin-top: 3rem;
-  padding: 1rem 1.5rem;
-  background-color: var(--color-bg-elevated);
-  border-radius: 12px;
-  color: var(--text-white);
-  border: 1px solid var(--color-border);
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  border-top: 3px solid var(--void-amber);
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.pricingInfo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .pricingInfo h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.2rem;
+  color: var(--ghostlight);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
 }
 
 .pricingInfo p {
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.15rem;
+  color: var(--ghostlight);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
 }
 
+.pricingInfo .btn {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  color: var(--ghostlight);
+  background: var(--voidcore-indigo);
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--void-amber);
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  display: inline-block;
+}
 
+.pricingInfo .btn:hover {
+  background: var(--arcane-azure);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(46, 92, 255, 0.2);
+}
 
-/* ================================
+/* ==============================
 📱 Responsive Breakpoints
-================================ */
+============================= */
+@media screen and (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
-/* ServiceItem column override (fallbacks) */
-@media (min-width: 481px) {
   .serviceItem {
-    flex: 0 0 50%;
+    padding: 1.5rem;
   }
-}
 
-@media (min-width: 769px) {
-  .serviceItem {
-    flex: 0 0 33.3333%;
+  .pricingInfo {
+    padding: 1.8rem;
+    margin-bottom: 3rem;
   }
-}
 
-
-/* Grid column adjustments */
-@media screen and (min-width: 480px) {
-  .row {
-    grid-template-columns: repeat(2, 1fr);
+  .pricingInfo h3 {
+    font-size: 1.8rem;
   }
-}
 
-@media screen and (min-width: 768px) {
-  .row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .row {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .row {
-    grid-template-columns: repeat(3, 1fr);
+  .pricingInfo .btn {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.6rem;
   }
 }

@@ -1,91 +1,147 @@
-.titlerow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 30px;
-}
-
+/* ==============================
+🎛 Core Interface
+============================= */
 .heroBanner {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  min-height: 50vh;
+  background-color: var(--color-bg-base);
   text-align: center;
-  padding: 2rem 1rem;
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(0.75rem, 2vw, 1rem);
+  border-bottom: 1px solid var(--color-border);
 }
 
+/* ==============================
+🧩 Content Structure
+============================= */
 .heroContent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 1440px;
+  width: 100%;
 }
 
 .heroLogo {
-  max-width: 220px;
-  width:200px;
+  width: clamp(350px, 65vw, 900px);
   height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  transition: transform 0.3s ease-in-out;
+}
+
+.heroLogo:hover {
+  transform: scale(1.02);
 }
 
 .heroText h1 {
-  font-size: 2rem;
+  font-family: "vintage-deco", sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--text-black-900);
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .heroText p {
-  font-size: 1rem;
+  font-family: "titillium-web", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: var(--accent-color);
+  max-width: 45ch;
+  line-height: 1.6;
+  font-variant: small-caps;
 }
 
 .companyTitle {
-  font-weight: bold;
-  color: var(--primary-color);
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  color: var(--text-black-700);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(45deg, var(--text-black-900), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  transition: background 0.3s ease-in-out;
 }
 
-/* Tablet Portrait (481px - 768px) */
+/* ==============================
+📱 Responsive Breakpoints
+============================= */
 @media screen and (min-width: 481px) {
+  .heroLogo {
+    width: clamp(400px, 70vw, 1000px);
+  }
+
   .heroText h1 {
-    font-size: 2.3rem;
+    font-size: clamp(2rem, 4.5vw, 2.3rem);
   }
 
   .heroText p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
+    max-width: 50ch;
+  }
+
+  .companyTitle {
+    font-size: clamp(1.6rem, 3.2vw, 1.8rem);
+    letter-spacing: 1.8px;
   }
 }
 
-/* Tablet Landscape & Small Desktop (769px - 1024px) */
 @media screen and (min-width: 769px) {
   .heroContent {
     flex-direction: row;
     align-items: center;
     text-align: left;
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 3vw, 1.8rem);
   }
 
   .heroLogo {
-    max-width: 260px;
+    max-width: 500px;
+    width: 100%;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
   }
 
   .heroText h1 {
-    font-size: 2.75rem;
+    font-size: clamp(2.25rem, 5vw, 2.75rem);
   }
 
   .heroText p {
-    font-size: 1.25rem;
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    max-width: 40ch;
+  }
+
+  .companyTitle {
+    font-size: clamp(1.8rem, 3.5vw, 2.1rem);
+    letter-spacing: 2px;
   }
 }
 
-/* Large Desktop (1025px and up) */
 @media screen and (min-width: 1025px) {
   .heroLogo {
-    max-width: 300px;
+    max-width: 800px;
+    width: 100%;
+    padding: clamp(1.5rem, 3vw, 2rem);
   }
 
   .heroText h1 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5.5vw, 3rem);
   }
 
   .heroText p {
-    font-size: 1.35rem;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
+    max-width: 35ch;
+  }
+
+  .companyTitle {
+    font-size: clamp(2rem, 4vw, 2.3rem);
+    letter-spacing: 2.5px;
   }
 }

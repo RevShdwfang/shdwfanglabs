@@ -1,0 +1,250 @@
+/* ==============================
+🎛 Core Navigation Interface
+============================= */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: var(--color-bg-elevated);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--rift-gray);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(48, 46, 77, 0.15);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* ==============================
+🧩 Logo Text Styling
+============================= */
+.navLogo {
+  display: flex;
+  align-items: center;
+  line-height: 1.5rem; /* Matches nav links' implied line height */
+}
+
+.navLogo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.shadowfangText {
+  font-family: "vintage-deco", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ghostlight); /* Default for dark theme */
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  transition: color 0.3s ease-in-out;
+}
+
+body.light .shadowfangText {
+  color: var(--voidcore-indigo); /* Switch to dark color in light theme */
+}
+
+.labsText {
+  font-family: "vintage-deco", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--voidcore-indigo); /* Constant color */
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  margin-left: 0.25rem; /* Small spacing between words */
+}
+
+/* ==============================
+🎯 Menu Toggle (Hamburger)
+============================= */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--ghostlight);
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  z-index: 1001;
+  transition: color 0.3s ease-in-out;
+}
+
+.menuToggle:hover {
+  color: var(--void-amber);
+}
+
+/* Hamburger Icon */
+.menuToggle::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--ghostlight);
+  position: relative;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.menuToggle::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--ghostlight);
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(4px);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.menuToggle[aria-expanded="true"]::before {
+  transform: rotate(45deg) translateY(4px) translateX(4px);
+  background-color: var(--arcane-azure);
+}
+
+.menuToggle[aria-expanded="true"]::after {
+  transform: rotate(-45deg) translateY(-4px) translateX(4px);
+  background-color: var(--arcane-azure);
+}
+
+/* ==============================
+🧩 Navigation Links
+============================= */
+.navLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  position: relative;
+}
+
+.navLinks li a {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ghostlight);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.3s ease-in-out;
+}
+
+.navLinks li a:hover,
+.navLinks .active a {
+  color: var(--arcane-azure);
+  transform: translateY(-2px);
+}
+
+.navLinks .active a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--void-amber);
+  transition: width 0.3s ease-in-out;
+}
+
+/* ==============================
+🎯 Client Portal Command
+============================= */
+.navCommand {
+  display: flex;
+  align-items: center;
+}
+
+.sigilBtn {
+  background-color: var(--voidcore-indigo);
+  color: var(--ghostlight);
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sigilBtn:hover {
+  background-color: var(--void-amber);
+  color: var(--ghostlight);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(58, 26, 255, 0.3); /* Voidcore Indigo shadow */
+}
+
+/* ==============================
+📱 Responsive Breakpoints
+============================= */
+@media screen and (max-width: 768px) {
+  .menuToggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-bg-elevated);
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    z-index: 999;
+    animation: slideIn 0.4s ease-out;
+  }
+
+  .navLinks.active {
+    display: flex;
+  }
+
+  .navLinks li {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .navLinks li a {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+  }
+
+  .navCommand {
+    display: none;
+  }
+}
+
+/* ==============================
+🎬 Animations
+============================= */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

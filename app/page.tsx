@@ -26,28 +26,21 @@ export default function Home() {
 
   return (
     <section className="home active section" id="home">
-      <div className="container">
-        <div className={styles.titlerow}>
-          <div className="home-info padd-15">
-            <div className={styles.heroBanner}>
-              <div className={styles.heroContent}>
-                <img
-                  src={imageSrc}
-                  alt="From darkness rose Shadowfang Labs"
-                  className={styles.heroLogo}
-                />
-                <div className={styles.heroText}>
-                  <h1>
-                    <span className={styles.companyTitle}>Shadowfang</span> Labs
-                  </h1>
-                  <p>Born of shadows built for legacy</p>
-                </div>
-              </div>
-            </div>
-
+  <div className="container">
+    <div className={styles.titlerow}>
+      <div className="home-info padd-15">
+        <div className={styles.heroBanner}>
+          <div className={styles.heroContent}>
+            <img
+              src={imageSrc}
+              alt="From darkness rose Shadowfang Labs"
+              className={styles.heroLogo}
+            />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

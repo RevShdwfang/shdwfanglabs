@@ -1,0 +1,26 @@
+.forgeHeader {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  border-bottom: 2px solid var(--void-amber);
+}
+
+.forgeTitle {
+  font-family: "vintage-deco", sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  color: var(--text-black-900);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.sigilGlow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}

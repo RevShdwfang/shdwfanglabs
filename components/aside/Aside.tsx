@@ -87,34 +87,7 @@ export default function Aside({ onLinkClick }: { onLinkClick: () => void }) {
         </div>
         
 
-      <footer className="aside-footer">
-        <div className="container">
-          <div className="row">
-            <div className="footer-item">
-              <p>&copy; 2025 Shadowfang Labs. All Rights Reserved.</p>
-            </div>
-            <div className="footer-item">
-              <div className="social-links">
-                <a href="https://www.facebook.com/shdwfanglabs" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faFacebookF} />
-                </a>
-                <a href="https://x.com/shdwfanglabs" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faXTwitter} />
-                </a>
-                <a href="https://instagram.com/shdwfanglabs" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faInstagram} />
-                </a>
-                <a href="https://linkedin.com/in/shdwfanglabs" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faLinkedinIn} />
-                </a>
-                <a href="https://bsky.app/profile/shdwfanglabs.bsky.social" target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faBluesky} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
       </div>
     </>
   );

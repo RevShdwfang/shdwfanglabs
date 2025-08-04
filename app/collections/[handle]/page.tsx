@@ -8,6 +8,7 @@ import ProductCard from '../../../components/productcards/ProductCard';
 import styles from '../../../components/modules/product-card.module.css';
 import { Collection, Product } from "../../../lib/types";
 import { FourthwallCollection } from "../../../lib/fourthwall/types";
+import PageHeader from '@/components/modules/PageHeader/PageHeader';
 
 export default function CollectionPage() {
   const { handle } = useParams();
@@ -43,12 +44,8 @@ export default function CollectionPage() {
   return (
     <section className="collectionproducts active section" id="collectionproducts">
       <div className="container">
-        <div className="titlerow">
-          <div className="section-title padd-15">
-            <h2>{collection?.title || "Collection"}</h2>
-          </div>
-        </div>
-
+        <PageHeader title={collection?.title || "Collection"} />
+        
         <div className={styles.productGrid}>
           {products.map((product) => (
             <ProductCard

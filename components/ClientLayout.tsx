@@ -1,36 +1,24 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Aside from '@/components/aside/Aside';
+import { usePathname } from "next/navigation";
+import TopNav from "@/components/modules/TopNav";
+import Footer from "@/components/modules/Footer";
+import PageHeader from "@/components/modules/PageHeader/PageHeader";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
-  const [isAsideOpen, setIsAsideOpen] = useState(false);
-
-  const toggleAside = () => {
-    setIsAsideOpen(!isAsideOpen);
-  };
-   const closeAside = () => setIsAsideOpen(false);
+export default function ClientLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
-    <div className="layout-container">
-      {/* 🟥 Sidebar */}
-      <aside className={`aside ${isAsideOpen ? 'open' : ''}`}>
-        <Aside onLinkClick={closeAside} />
-      </aside>
-      
-      {/* 🟦 Mobile nav toggler */}
-      <div className="nav-toggler" onClick={toggleAside}>
-        <span></span>
-      </div>
-
-      {/* 🟨 Overlay appears only when sidebar is open */}
-      {isAsideOpen && (
-        <div className="overlay" onClick={() => setIsAsideOpen(false)} />
-      )}
-
-      {/* 🟩 Main content */}
-      <main className="layout-main">{children}</main>
+    <div className="page-wrapper">
+      <main className="layout-main">
+        {!isHome && <PageHeader />}
+        {children}
+      </main>
     </div>
   );
 }
-

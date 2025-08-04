@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { startTransition } from "react";
-import { getProduct } from "../../../lib/fourthwall"; // Adjust path if needed
+import { getCollectionBySlug, getProduct } from "../../../lib/fourthwall"; // Adjust path if needed
 import { useCart } from "../../../components/cart/cart-context";
 import CartDrawer from "@/components/cart/CartDrawer";
 import { setupAccordionAnimation } from "../../../lib/utils";
@@ -12,6 +12,7 @@ import styles from "@/components/modules/product-page.module.css";
 import { option, span } from "framer-motion/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function ProductPage() {
   const { handle } = useParams();
@@ -37,6 +38,21 @@ export default function ProductPage() {
     }
   }, [handle]);
 
+  const [collectionTitle, setCollectionTitle] = useState<string>("");
+
+useEffect(() => {
+  if (collection && !collectionTitle) {
+    getCollectionBySlug(collection)
+      .then((res) => {
+        if (res?.title) setCollectionTitle(res.title);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch collection title:", err);
+      });
+  }
+}, [collection, collectionTitle]);
+
+
   useEffect(() => {
     setupAccordionAnimation();
   }, []);
@@ -61,10 +77,14 @@ export default function ProductPage() {
     <section className="product-page section" id="productpage">
       <div className="container">
         {collection && (
-          <div className="back-button-wrapper">
-            <Link href={`/collections/${collection}`}>
-              <div className="backbtn">← Back to Collection</div>
-            </Link>
+  <div className="back-button-wrapper">
+    <Link
+      href={`/collections/${collection}`}
+      aria-label={`Go back to ${collectionTitle || "Collection"}`}
+    >
+      <div className="backbtn">← Back to {collectionTitle || "Collection"}</div>
+    </Link>
+
           </div>
         )}
 

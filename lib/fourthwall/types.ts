@@ -10,6 +10,7 @@ export type FourthwallCollection = {
   slug: string;
   description: string;
   updatedAt: string;
+  title: string;
 };
 
 export type FourthwallProduct = {

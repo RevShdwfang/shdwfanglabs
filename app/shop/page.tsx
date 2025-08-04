@@ -5,6 +5,7 @@ import { faStore } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/modules/collections.module.css";
 import { decodeHtml } from "@/lib/decodeHtml";
 import type { Metadata } from "next";
+import PageHeader from '@/components/modules/PageHeader/PageHeader';
 
 // ✅ SEO Metadata
 export const metadata: Metadata = {
@@ -23,14 +24,7 @@ export default async function ShopPage() {
 
   return (
     <section className="shop-page section" id="shop">
-      <div className="container">
-        <div className="titlerow">
-          <div className="section-title padd-15">
-            <h2>
-              <FontAwesomeIcon icon={faStore} /> Shop Collections
-            </h2>
-          </div>
-        </div>
+      <div className={styles.forgeContainer}>
 
         <div className={styles.collectionsGrid}>
           {collections.map((collection) => (

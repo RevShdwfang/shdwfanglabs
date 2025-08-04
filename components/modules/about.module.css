@@ -1,132 +1,192 @@
-/* ================================
-🎯 Base Section Layout
-================================ */
-.aboutSection {
-  padding: 80px 32px;
-  background-color: var(--color-bg-elevated);
-  display: flex;
-  justify-content: center;
+/* ====================================
+    VARIABLES (Imported from ThemeVariables.module.css)
+==================================== */
+/* Assume :root and body.light variables are imported */
+
+/* ==============================
+🎛 Legacy Forge
+============================= */
+.legacyForge {
+  padding: 6rem 2rem 4rem;
+  background: var(--color-bg-base);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.6s ease;
+}
+.forgeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-.aboutContainer {
-  max-width: 960px;
-  width: 100%;
+/* ==============================
+🧩 Story Vault
+============================= */
+.storyVault {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  align-items: flex-start;
+  gap: 4.5rem;
 }
 
-/* ================================
-🧠 Content Structure
-================================ */
-.intro {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+/* ==============================
+🧩 Story Block
+============================= */
+.storyBlock {
+  padding: 2.5rem 3rem;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+  border-left: 4px solid var(--void-amber);
+  border-radius: 0 10px 10px 0;
+  transition: all 0.4s ease;
 }
 
-.heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary, #fefcf9);
-  line-height: 1.3;
+.storyBlock:hover {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
+  padding-left: 3.5rem;
 }
 
-.highlight {
-  color: var(--accent-color, #2e5cff);
+.blockTitle {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.4rem;
+  color: var(--ghostlight);
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
 }
 
-.description {
-  font-size: 1.125rem;
+.sigilHighlight {
+  color: var(--voidcore-indigo);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.sigilHighlight:hover {
+  color: var(--arcane-azure);
+}
+
+.blockSubheading {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.7rem;
+  color: var(--ghostlight);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+}
+
+.blockText,
+.missionScroll p {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.15rem;
+  color: var(--ghostlight);
   line-height: 1.8;
-  max-width: 65ch;
-  color: var(--text-black-700);
+  margin: 0.7rem 0;
 }
 
-/* ================================
-🎯 CTA Button
-================================ */
-.ctaBlock {
-  margin-top: 8px;
+.missionScroll {
+  margin-top: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  background: rgba(217, 121, 4, 0.1);
+  border-radius: 5px;
 }
 
-.ctaButton {
-  display: inline-block;
-  padding: 14px 36px;
-  background-color: var(--accent-color, #2e5cff);
-  color: #fff;
-  font-size: 1rem;
+/* ==============================
+🧩 Creed List
+============================= */
+.creedList {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.15rem;
+  color: var(--ghostlight);
+  list-style: none;
+  padding: 0;
+}
+
+.creedList li {
+  margin: 1.2rem 0;
+  padding-left: 1.6rem;
+  position: relative;
+}
+
+.creedList li::before {
+  content: "›";
+  color: var(--void-amber);
+  position: absolute;
+  left: 0;
+}
+
+.creedList strong {
+  color: var(--voidcore-indigo);
   font-weight: 600;
-  text-decoration: none;
+}
+
+/* ==============================
+🧩 Call to Forge
+============================= */
+.callToForge {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.forgeCommand {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  color: var(--ghostlight);
+  background: var(--voidcore-indigo);
+  padding: 1.1rem 2.8rem;
+  border: 2px solid var(--void-amber);
   border-radius: 10px;
-  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(58, 26, 255, 0.3);
+  transition: all 0.5s ease-in-out;
+  display: inline-block;
 }
 
-.ctaButton:hover {
-  background-color: var(--accent-color-dark, #1e47cc);
-  transform: translateY(-2px);
+.forgeCommand:hover {
+  background: var(--arcane-azure);
+  box-shadow: 0 0 20px rgba(46, 92, 255, 0.4);
+  transform: translateY(-4px);
 }
 
-/* ================================
+/* ==============================
+🎬 Animations
+============================= */
+@keyframes sigilFade {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.4; }
+}
+
+/* ==============================
 📱 Responsive Breakpoints
-================================ */
-
-/* 🔽 Mobile: ≤ 480px */
-@media screen and (max-width: 480px) {
-  .aboutSection {
-    padding: 60px 20px;
+============================= */
+@media screen and (max-width: 768px) {
+  .legacyForge {
+    padding: 4rem 1rem 2.5rem;
   }
 
-  .heading {
-    font-size: 1.75rem;
-    text-align: center;
+  .forgeTitle {
+    font-size: 2.6rem;
   }
 
-  .description {
-    font-size: 1rem;
-    text-align: center;
+  .storyVault {
+    gap: 3.5rem;
   }
 
-  .ctaBlock {
-    text-align: center;
-    width: 100%;
-  }
-}
-
-/* 🔽 Small Tablets: 481px – 768px */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .heading {
+  .blockTitle {
     font-size: 2rem;
   }
 
-  .description {
-    font-size: 1.05rem;
-  }
-}
-
-/* 🔽 Tablets & Small Desktops: 769px – 1024px */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .heading {
-    font-size: 2.25rem;
+  .blockSubheading {
+    font-size: 1.5rem;
   }
 
-  .description {
-    font-size: 1.125rem;
-  }
-}
-
-/* 🔽 Large Screens: 1281px+ */
-@media screen and (min-width: 1281px) {
-  .aboutContainer {
-    max-width: 1140px;
+  .forgeCommand {
+    font-size: 1.5rem;
+    padding: 0.9rem 2.3rem;
   }
 
-  .heading {
-    font-size: 2.75rem;
-  }
-
-  .description {
-    font-size: 1.2rem;
+  .storyBlock {
+    padding: 2rem 2rem;
   }
 }

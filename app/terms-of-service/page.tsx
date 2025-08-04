@@ -1,20 +1,14 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAlt } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "@/components/modules/terms.module.css";
 import "@/app/globals.css";
+import PageHeader from '@/components/modules/PageHeader/PageHeader';
 
 
 export default function TermsPage() {
   return (
     <section className="section">
-      <div className="container">
-        <div className="titlerow">
-          <div className="section-title padd-15">
-            <h2>
-              Terms of Service
-            </h2>
-          </div>
-        </div>
+      <div className={styles.forgeContainer}>
+        <PageHeader/>
 
         <div className={styles.row}>
           <div className={styles.padd15}>

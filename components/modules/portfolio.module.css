@@ -1,33 +1,54 @@
-/*=============================
-=         GRID LAYOUT        =
-=============================*/
+/* ==============================
+📐 Grid Layout
+============================= */
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 200px;
-  gap: 10px;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-auto-rows: clamp(180px, 18vw, 220px);
+  gap: clamp(0.5rem, 1.2vw, 0.75rem);
+  padding: clamp(0.75rem, 1.5vw, 1rem);
   justify-content: center;
+  background-color: var(--color-bg-base);
 }
 
-/* Individual Grid Items */
+.forgeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==============================
+🧩 Artifact Modules
+============================= */
 .gridItem {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.gridItem:hover {
+  box-shadow: 0 8px 20px rgba(48, 46, 77, 0.25);
+  transform: translateY(-2px);
 }
 
 .gridImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInScale 0.5s ease-out forwards;
 }
 
 .gridItem:hover .gridImage {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .gridOverlay {
@@ -36,19 +57,32 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--color-r),var(--color-g),var(--color-b), 0.8); /* Arcane Blue overlay */
+  background-color: rgba(58, 26, 255, 0.8); /* Voidcore Indigo with opacity */
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 10px;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 8px;
   z-index: 1;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gridItem:hover .gridOverlay {
   opacity: 1;
 }
 
-/* Layout Variants */
+.gridOverlay span {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+  color: var(--ghostlight);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* ==============================
+🧩 Layout Variants
+============================= */
 .wide {
   grid-column: span 2;
 }
@@ -57,49 +91,77 @@
   grid-row: span 2;
 }
 
-/*=============================
-=         LIGHTBOX           =
-=============================*/
+/* ==============================
+🎬 Lightbox Interface
+============================= */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(11, 12, 16, 0.95); /* Darktrace with opacity */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
-  padding: 2rem;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
 }
 
 .lightboxImage {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
+  border: 2px solid var(--rift-gray);
+  border-radius: 8px;
+  transform: scale(0.85);
+  opacity: 0;
+  animation: scaleUp 0.4s ease-out 0.15s forwards;
 }
 
 .close {
   position: absolute;
-  top: 30px;
-  right: 50px;
-  font-size: 3rem;
-  color: white;
+  top: clamp(0.75rem, 1.5vw, 1rem);
+  right: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2rem);
+  color: var(--text-black-700);
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
 
-/*=============================
-=        RESPONSIVE GRID     =
-=============================*/
+.close:hover {
+  color: var(--void-amber);
+}
 
-/* Mobile (≤ 480px) */
-@media screen and (max-width: 480px) {
+/* ==============================
+🎬 Animations
+============================= */
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ==============================
+📱 Responsive Breakpoints
+============================= */
+@media screen and (max-width: 768px) {
   .gridContainer {
     grid-template-columns: 1fr;
-    grid-auto-rows: 200px;
-    gap: 8px;
-    padding: 1rem;
+    grid-auto-rows: clamp(160px, 16vw, 180px);
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+    padding: clamp(0.5rem, 1.2vw, 0.75rem);
   }
 
   .wide,
@@ -107,36 +169,32 @@
     grid-column: span 1;
     grid-row: span 1;
   }
-}
 
-/* Small Tablet (481px – 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .gridContainer {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 200px;
+  .close {
+    top: clamp(0.5rem, 1.2vw, 0.75rem);
+    right: clamp(0.75rem, 1.5vw, 1rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   }
 }
 
-/* Tablets and Laptops (768px – 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .gridContainer {
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 220px;
+    grid-auto-rows: clamp(180px, 18vw, 200px);
+    gap: clamp(0.5rem, 1.2vw, 0.75rem);
   }
 }
 
-/* Desktop (1025px – 1440px) */
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
   .gridContainer {
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 240px;
+    grid-auto-rows: clamp(200px, 20vw, 220px);
   }
 }
 
-/* Large Desktop (1441px and up) */
 @media screen and (min-width: 1441px) {
   .gridContainer {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-auto-rows: 260px;
+    grid-auto-rows: clamp(220px, 22vw, 240px);
   }
 }

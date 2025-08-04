@@ -2,8 +2,10 @@
 import './globals.css';
 import '@/styles/styleswitcher.css';
 
-import StyleSwitcher from '@/components/StyleSwitcher';
 import { CartProvider } from '@/components/cart/cart-context';
+import StyleSwitcher from '@/components/StyleSwitcher';
+import TopNav from '@/components/modules/TopNav';
+import Footer from '@/components/modules/Footer';
 import ClientLayout from '@/components/ClientLayout';
 
 import type { Metadata } from 'next';
@@ -13,9 +15,7 @@ export const metadata: Metadata = {
   title: 'Shadowfang Labs – Unleashing Bold Design',
   description:
     'Shadowfang Labs transforms adversity into striking digital design. Specializing in branding, UI/UX, and stream visuals that tell your story.',
-  icons: {
-    icon: '/favicon.ico',
-  },
+  icons: { icon: '/favicon.ico' },
   openGraph: {
     title: 'Shadowfang Labs – Unleashing Bold Design',
     description:
@@ -42,24 +42,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Preload self-hosted Explorer font */}
-        <link
-          rel="preload"
-          href="/fonts/Explorers-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-
-        {/* ✅ Google-hosted Orbitron – no preload, just link */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
@@ -67,10 +53,12 @@ export default function RootLayout({
       </head>
       <body>
         <CartProvider>
+          <TopNav isLight={false} />
           <div className="style-switcher-container">
             <StyleSwitcher />
           </div>
           <ClientLayout>{children}</ClientLayout>
+          <Footer />
         </CartProvider>
       </body>
     </html>

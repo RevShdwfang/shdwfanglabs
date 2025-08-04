@@ -1,109 +1,110 @@
-/* ================================
-📦 Base Layout
-================================ */
+.forgeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ====================================
+    VARIABLES (Imported from ThemeVariables.module.css)
+==================================== */
+/* Assume :root and body.light variables are imported */
+
+/* ===============================
+📏 Row
+================================= */
 .row {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  background: var(--color-bg-base);
+  background-image: linear-gradient(90deg, rgba(217, 121, 4, 0.05) 1px, transparent 1px),
+                    linear-gradient(rgba(217, 121, 4, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+  transition: background-color 0.5s ease;
 }
 
+/* ===============================
+📐 Padded Content
+================================= */
 .padd15 {
-  padding: 0 15px;
+  padding: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 2px dashed var(--void-amber);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-.padd15 h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.padd15 h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 12px;
+.padd15:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
 }
 
 .padd15 p {
-  font-size: 16px;
-  line-height: 1.6;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.1rem;
+  color: var(--ghostlight);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
 }
 
+.padd15 h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.1rem;
+  color: var(--void-amber);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
 
-/* ================================
+.padd15 h3:first-child {
+  margin-top: 0;
+}
+
+.padd15 h3::before {
+  content: "§";
+  position: absolute;
+  left: 0;
+  color: var(--void-amber);
+  opacity: 0.9;
+  transform: rotate(-5deg);
+}
+
+.padd15 a {
+  color: var(--arcane-azure);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.padd15 a:hover {
+  color: var(--void-amber);
+}
+
+/* ===============================
 📱 Responsive Breakpoints
-================================ */
-
-/* Mobile (≤ 480px) */
-@media (max-width: 480px) {
-  .section {
-    padding: 40px 15px;
-  }
-
-  .sectiontitle {
-    font-size: 24px;
-  }
-
-  .section h2 {
-    font-size: 22px;
-  }
-
-  .section h3 {
-    font-size: 18px;
-  }
-
-  .section p {
-    font-size: 15px;
-  }
-}
-
-/* Tablet Portrait (481px – 768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  .sectiontitle {
-    font-size: 28px;
-  }
-
-  .section h2 {
-    font-size: 24px;
-  }
-
-  .section h3 {
-    font-size: 19px;
-  }
-
-  .section p {
-    font-size: 15.5px;
-  }
-}
-
-/* Tablet Landscape (769px – 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .container {
-    padding: 0 30px;
-  }
-
-  .sectiontitle {
-    font-size: 30px;
-  }
-
-  .section h2 {
-    font-size: 26px;
-  }
-}
-
-/* Desktop (1025px and up) */
-@media (min-width: 1025px) {
+================================= */
+@media screen and (max-width: 768px) {
   .row {
-    flex-direction: row;
-    flex-wrap: wrap;
+    padding: 3rem 1rem;
   }
 
   .padd15 {
-    flex: 1;
-    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .padd15 p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .padd15 h3 {
+    font-size: 1.7rem;
+    letter-spacing: 1.2px;
+    margin-top: 1.8rem;
   }
 }

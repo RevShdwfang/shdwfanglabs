@@ -1,73 +1,64 @@
-"use client";
+'use client';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faDesktop,
-  faPalette,
-  faCode,
-} from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faPalette, faCode } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/modules/services.module.css";
 import "@/app/globals.css";
 
-export default function Services() {
-  const serviceList = [
+export default function DomainServices() {
+  const serviceDomains = [
     {
       icon: faDesktop,
-      title: "Stream Assets",
-      desc: "Overlays, alerts, and content branding for Twitch, YouTube, and social presence.",
+      title: "Stream Forge",
+      desc: "Crafted overlays, alerts, and branding assets to amplify your presence on Twitch, YouTube, and beyond.",
     },
     {
       icon: faPalette,
-      title: "Brand Identity",
-      desc: "From custom logos to full branding systems and social kits, we build identities that resonate.",
+      title: "Legacy Identity",
+      desc: "Forging bold logos and cohesive branding systems to resonate with your audience across all platforms.",
     },
     {
       icon: faCode,
-      title: "Website UI/UX",
-      desc: "Modern, responsive designs that blend usability with aesthetic precision.",
+      title: "Digital Command UI",
+      desc: "Precision-engineered, responsive interfaces blending seamless functionality with visionary aesthetics.",
     },
   ];
 
   return (
-    <section className="section" id="services">
-      <div className="container">
-        <div className="titlerow">
-          <div className="section-title padd-15">
-            <h2>Services</h2>
-          </div>
-        </div>
-
+    <section className="section" id="domains">
+      <div className={styles.forgeContainer}>
         <div className={styles.row}>
-          {serviceList.map((service, index) => (
+          {serviceDomains.map((domain, index) => (
             <div
-              className={`${styles.serviceItem} ${styles.padd15}`}
+              className={`${styles.serviceItem} shadow-dark`}
               key={index}
+              role="article"
+              aria-labelledby={`domain-title-${index}`}
             >
               <div className={styles.serviceItemInner}>
                 <div className={styles.icon}>
-                  <FontAwesomeIcon icon={service.icon} />
+                  <FontAwesomeIcon icon={domain.icon} aria-hidden="true" />
                 </div>
-                <h4>{service.title}</h4>
-                <p>{service.desc}</p>
-                <div className={`${styles.price} ${styles.servicePrice}`}>
-                  {/* Future price info can go here */}
-                </div>
+                <h4 id={`domain-title-${index}`}>{domain.title}</h4>
+                <p>{domain.desc}</p>
+                <a href="/contact" className="btn" aria-label={`Initiate ${domain.title} project`}>
+                  Launch Project
+                </a>
               </div>
             </div>
           ))}
         </div>
 
         <div className={styles.pricingInfo}>
-          <h3>Pricing Approach</h3>
+          <h3>Strategic Alignment</h3>
           <p>
-            As a solo creator, I tailor pricing to each project based on its
-            scope, complexity, and your specific goals. Once you reach out and
-            share your budget, I’ll review the details and let you know what’s
-            possible within that range. If everything aligns, I’ll provide a
-            clear breakdown of what’s included, along with the timeline. I aim
-            to keep everything transparent, fair, and focused on delivering real
-            value.
+            As a solo visionary at Shadowfang Labs, I tailor each mission to your project's scope and ambition.
+            Share your objectives, and I’ll deliver a precise blueprint of deliverables and timelines,
+            ensuring transparency and exceptional craftsmanship.
           </p>
+          <a href="/contact" className="btn" aria-label="Request a strategic quote">
+            Secure Your Blueprint
+          </a>
         </div>
       </div>
     </section>

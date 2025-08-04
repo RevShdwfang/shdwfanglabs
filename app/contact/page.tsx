@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/modules/contactform.module.css";
+import PageHeader from '@/components/modules/PageHeader/PageHeader';
 
-
-export default function Contact() {
+export default function CommandHub() {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ export default function Contact() {
     honeypot: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "transmitting" | "success" | "error">("idle");
   const [feedbackMsg, setFeedbackMsg] = useState("");
 
   const handleChange = (
@@ -31,7 +31,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
+    setStatus("transmitting");
 
     try {
       const res = await fetch("/api/contact", {
@@ -46,31 +46,27 @@ export default function Contact() {
         router.push("/contact/confirmation");
       } else {
         setStatus("error");
-        setFeedbackMsg(data.error || "Failed to send message.");
+        setFeedbackMsg(data.error || "Transmission failed.");
       }
     } catch {
       setStatus("error");
-      setFeedbackMsg("An error occurred while sending.");
+      setFeedbackMsg("An error occurred during transmission.");
     }
   };
 
   return (
-    <section className="contact active section" id="contact">
-      <div className="container">
-        <div className="titlerow">
-          <div className="section-title padd-15">
-            <h2>Contact Me</h2>
-          </div>
-        </div>
+    <section className="section" id="command">
+      <div className={styles.forgeContainer}>
 
         <div className={styles.row}>
-          <form className={`${styles.contactForm} ${styles.padd15}`} onSubmit={handleSubmit}>
+          <form className={`${styles.contactForm} ${styles.padd15}`} onSubmit={handleSubmit} aria-label="Contact Command Form">
             <input
               type="text"
               name="honeypot"
               style={{ display: "none" }}
               onChange={handleChange}
               value={formData.honeypot || ""}
+              aria-hidden="true"
             />
 
             {/* Type */}
@@ -83,10 +79,11 @@ export default function Contact() {
                     onChange={handleChange}
                     className={styles.formControl}
                     required
+                    aria-label="Select project type"
                   >
-                    <option value="">Select Type</option>
-                    <option value="streamer">Streamer</option>
-                    <option value="business">Small Business</option>
+                    <option value="">Select Domain</option>
+                    <option value="streamer">Streamer Operations</option>
+                    <option value="business">Small Business Command</option>
                   </select>
                 </div>
               </div>
@@ -102,8 +99,9 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Name"
+                    placeholder="Operator Name"
                     required
+                    aria-label="Your name"
                   />
                 </div>
               </div>
@@ -115,8 +113,9 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Email"
+                    placeholder="Transmission Address"
                     required
+                    aria-label="Your email address"
                   />
                 </div>
               </div>
@@ -132,8 +131,9 @@ export default function Contact() {
                     value={formData.brand}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Brand Name / Company Name"
+                    placeholder="Brand Identity / Command Unit"
                     required
+                    aria-label="Brand or company name"
                   />
                 </div>
               </div>
@@ -149,8 +149,9 @@ export default function Contact() {
                     value={formData.budget}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Budget"
+                    placeholder="Resource Allocation"
                     required
+                    aria-label="Project budget"
                   />
                 </div>
               </div>
@@ -166,11 +167,12 @@ export default function Contact() {
                     onChange={handleChange}
                     className={styles.formControl}
                     required
+                    aria-label="Select inquiry subject"
                   >
-                    <option value="">Select Subject</option>
-                    <option value="Stream Assets">Stream Assets Inquiry</option>
-                    <option value="Brand Identity">Brand Identity Inquiry</option>
-                    <option value="Website UI/UX">Website UI/UX Inquiry</option>
+                    <option value="">Select Mission Objective</option>
+                    <option value="Stream Assets">Stream Forge Inquiry</option>
+                    <option value="Brand Identity">Legacy Identity Inquiry</option>
+                    <option value="Website UI/UX">Digital Command UI Inquiry</option>
                   </select>
                 </div>
               </div>
@@ -185,8 +187,9 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Message"
+                    placeholder="Mission Details"
                     required
+                    aria-label="Your message"
                   />
                 </div>
               </div>
@@ -198,9 +201,10 @@ export default function Contact() {
                 <button
                   type="submit"
                   className={styles.btn}
-                  disabled={status === "sending"}
+                  disabled={status === "transmitting"}
+                  aria-label={status === "transmitting" ? "Transmitting message" : "Transmit message"}
                 >
-                  {status === "sending" ? "Sending..." : "SEND MESSAGE"}
+                  {status === "transmitting" ? "Transmitting..." : "Transmit Mission"}
                 </button>
               </div>
             </div>
@@ -208,9 +212,11 @@ export default function Contact() {
         </div>
 
         {status === "error" && (
-          <p className={styles.errorMessage}>{feedbackMsg}</p>
+          <p className={styles.errorMessage} role="alert">
+            {feedbackMsg}
+          </p>
         )}
-      </div>
+        </div>
     </section>
   );
 }
