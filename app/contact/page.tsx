@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/modules/contactform.module.css";
-import { useSearchParams } from 'next/navigation';
 
 
 export default function CommandHub() {
@@ -22,8 +21,6 @@ export default function CommandHub() {
 
   const [status, setStatus] = useState<"idle" | "transmitting" | "success" | "error">("idle");
   const [feedbackMsg, setFeedbackMsg] = useState("");
-
-  const searchParams = useSearchParams();
 
 useEffect(() => {
   const searchParams = new URLSearchParams(window.location.search);
