@@ -1,16 +1,30 @@
 /* ==================== Style Switcher ==================== */
 body.light {
-  --color-bg-base: #F7F6F3; /* Ghostlight */
-  --color-bg-elevated: #e9e9e9; /* Light Elevated Background */
-  --obsidian-steel: #d1d1d1; /* Light Color Surface */
-  --rift-gray: #a9a9a9; /* Light Color Border */
-  --voidcore-indigo: #3A1AFF; /* Text Black 900 */
-  --ghostlight: #010102; /* Dark Text for Light Theme */
-  --void-amber: #D97904; /* Accent Color */
-  --arcane-azure: #2e5cff; /* Link Hover */
-  --color-r: 46; /* RGB of --arcane-azure */
-  --color-g: 92;
-  --color-b: 255;
+  --color-bg-base: #f7f6f3; /* Ghostlight – Soft light base */
+  --color-ui-shell: #ffffff; /*UI Shell - Top naviation and footer background */
+  --color-bg-elevated: linear-gradient(
+    to bottom,
+    #ffffff,
+    #e6e6e6
+  ); /* Pure white for cards/sections */
+  --color-surface: #e6e6e6; /* Light gray for surfaces */
+  --color-border: #cccccc; /* Subtle light border (Rift Gray lightened) */
+
+  --color-text-primary: #0b0c10; /* Darktrace – Rich dark text */
+  --color-text-secondary: #4c4c4c; /* Muted Gray – Softer but readable */
+  --color-text-heading: #0b0c10; /* Consistent with primary text for headers */
+  --color-text-accent: #3a1aff; /* Voidcore Indigo – Brand accent remains */
+}
+
+body.light .forgeContainer {
+  background:
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50"%3E%3Cpath d="M25 0 L30 10 L25 20 L20 10 Z" fill="rgba(0, 0, 0, 0.03)" transform="rotate(45 25 25)"/%3E%3C/svg%3E')
+      repeat,
+    linear-gradient(
+      to top,
+      var(--color-bg-elevated) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
 }
 
 .style-switcher {
@@ -83,8 +97,10 @@ body.light {
 body {
   background: var(--color-bg-base);
   color: var(--ghostlight);
-  font-family: 'Exo', sans-serif;
-  transition: background 0.3s ease, color 0.3s ease;
+  font-family: "Exo", sans-serif;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .typed-cursor {

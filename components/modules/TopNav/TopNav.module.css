@@ -5,15 +5,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  background-color: var(--color-bg-elevated);
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--rift-gray);
+  gap: var(--space-6);
+  background: var(--color-ui-shell); /* UI Shell for navigation background */
+  padding: var(--space-4) var(--space-8);
+  border-bottom: var(--border-base);
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(48, 46, 77, 0.15);
-  transition: background-color 0.3s ease-in-out;
+  z-index: var(--z-modal);
+  box-shadow: var(--shadow-base);
+  transition: var(--transition-base);
 }
 
 /* ==============================
@@ -22,7 +22,7 @@
 .navLogo {
   display: flex;
   align-items: center;
-  line-height: 1.5rem; /* Matches nav links' implied line height */
+  line-height: var(--font-size-base);
 }
 
 .navLogo a {
@@ -32,27 +32,27 @@
 }
 
 .shadowfangText {
-  font-family: "vintage-deco", sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-headline);
+  font-size: var(--font-size-base);
   font-weight: 700;
-  color: var(--ghostlight); /* Default for dark theme */
+  color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  transition: color 0.3s ease-in-out;
+  transition: var(--transition-base);
 }
 
 body.light .shadowfangText {
-  color: var(--voidcore-indigo); /* Switch to dark color in light theme */
+  color: var(--color-text-accent);
 }
 
 .labsText {
-  font-family: "vintage-deco", sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-headline);
+  font-size: var(--font-size-base);
   font-weight: 400;
-  color: var(--voidcore-indigo); /* Constant color */
+  color: var(--color-text-accent);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  margin-left: 0.25rem; /* Small spacing between words */
+  margin-left: var(--space-1);
 }
 
 /* ==============================
@@ -62,21 +62,21 @@ body.light .shadowfangText {
   display: none;
   background: none;
   border: none;
-  color: var(--ghostlight);
-  font-family: "Orbitron", sans-serif;
-  font-size: 1rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-tech);
+  font-size: var(--font-size-base);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.8px;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--space-2);
   position: relative;
-  z-index: 1001;
-  transition: color 0.3s ease-in-out;
+  z-index: var(--z-toast);
+  transition: var(--transition-base);
 }
 
 .menuToggle:hover {
-  color: var(--void-amber);
+  color: var(--color-accent);
 }
 
 /* Hamburger Icon */
@@ -85,11 +85,11 @@ body.light .shadowfangText {
   display: inline-block;
   width: 24px;
   height: 2px;
-  background-color: var(--ghostlight);
+  background-color: var(--color-text-primary);
   position: relative;
   vertical-align: middle;
-  margin-right: 0.5rem;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  margin-right: var(--space-2);
+  transition: transform var(--transition-base), background-color var(--transition-base);
 }
 
 .menuToggle::after {
@@ -97,22 +97,22 @@ body.light .shadowfangText {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: var(--ghostlight);
+  background-color: var(--color-text-primary);
   position: absolute;
   top: 50%;
   left: 8px;
   transform: translateY(4px);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: transform var(--transition-base), background-color var(--transition-base);
 }
 
 .menuToggle[aria-expanded="true"]::before {
   transform: rotate(45deg) translateY(4px) translateX(4px);
-  background-color: var(--arcane-azure);
+  background-color: var(--color-link-hover);
 }
 
 .menuToggle[aria-expanded="true"]::after {
   transform: rotate(-45deg) translateY(-4px) translateX(4px);
-  background-color: var(--arcane-azure);
+  background-color: var(--color-link-hover);
 }
 
 /* ==============================
@@ -123,7 +123,7 @@ body.light .shadowfangText {
   align-items: center;
   justify-content: center;
   flex: 1;
-  gap: 1.5rem;
+  gap: var(--space-6);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -134,20 +134,20 @@ body.light .shadowfangText {
 }
 
 .navLinks li a {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1rem;
+  font-family: var(--font-tech);
+  font-size: var(--font-size-base);
   font-weight: 500;
-  color: var(--ghostlight);
+  color: var(--color-text-primary);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.8px;
   padding: 0;
-  transition: color 0.2s ease, transform 0.3s ease-in-out;
+  transition: color var(--transition-fast), transform var(--transition-base);
 }
 
 .navLinks li a:hover,
 .navLinks .active a {
-  color: var(--arcane-azure);
+  color: var(--color-link-hover);
   transform: translateY(-2px);
 }
 
@@ -158,8 +158,8 @@ body.light .shadowfangText {
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--void-amber);
-  transition: width 0.3s ease-in-out;
+  background: var(--color-accent);
+  transition: width var(--transition-base);
 }
 
 /* ==============================
@@ -171,31 +171,31 @@ body.light .shadowfangText {
 }
 
 .sigilBtn {
-  background-color: var(--voidcore-indigo);
-  color: var(--ghostlight);
-  padding: 0.5rem 1.25rem;
+  background-color: var(--color-text-accent);
+  color: var(--color-text-primary);
+  padding: var(--space-2) var(--space-5);
   border: none;
-  border-radius: 0.5rem;
-  font-family: "Orbitron", sans-serif;
-  font-size: 1rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-tech);
+  font-size: var(--font-size-base);
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  transition: background-color 0.3s ease, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: background-color var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .sigilBtn:hover {
-  background-color: var(--void-amber);
-  color: var(--ghostlight);
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(58, 26, 255, 0.3); /* Voidcore Indigo shadow */
+  box-shadow: var(--glow-indigo);
 }
 
 /* ==============================
 📱 Responsive Breakpoints
 ============================= */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: var(--breakpoint-tablet)) {
   .menuToggle {
     display: flex;
     align-items: center;
@@ -207,11 +207,11 @@ body.light .shadowfangText {
     top: 100%;
     right: 0;
     width: 100%;
-    background-color: var(--color-bg-elevated);
+    background: var(--color-ui-shell);
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
-    z-index: 999;
+    padding: var(--space-4);
+    z-index: var(--z-overlay);
     animation: slideIn 0.4s ease-out;
   }
 
@@ -222,12 +222,12 @@ body.light .shadowfangText {
   .navLinks li {
     width: 100%;
     text-align: center;
-    padding: 0.5rem 0;
+    padding: var(--space-2) 0;
   }
 
   .navLinks li a {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
+    font-size: var(--font-size-md);
+    padding: var(--space-2) 0;
   }
 
   .navCommand {

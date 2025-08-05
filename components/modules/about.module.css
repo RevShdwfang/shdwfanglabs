@@ -1,192 +1,231 @@
-/* ====================================
-    VARIABLES (Imported from ThemeVariables.module.css)
-==================================== */
-/* Assume :root and body.light variables are imported */
-
 /* ==============================
-🎛 Legacy Forge
+📜 Legacy Forge Section (About)
 ============================= */
 .legacyForge {
-  padding: 6rem 2rem 4rem;
-  background: var(--color-bg-base);
+  padding: var(--space-12) var(--space-6);
+  background: rgba(11, 12, 16, 0.3); /* Semi-transparent Darktrace */
+  backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
-  transition: background 0.6s ease;
-}
-.forgeContainer {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
 }
 
-/* ==============================
-🧩 Story Vault
-============================= */
+.legacyForge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(58, 26, 255, 0.2), transparent);
+  animation: hologramScan 4s infinite linear;
+}
+
+.forgeContainer {
+  max-width: var(--breakpoint-desktop-sm);
+  margin: 0 auto;
+}
+
 .storyVault {
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  gap: var(--space-6);
 }
 
-/* ==============================
-🧩 Story Block
-============================= */
-.storyBlock {
-  padding: 2.5rem 3rem;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
-  border-left: 4px solid var(--void-amber);
-  border-radius: 0 10px 10px 0;
-  transition: all 0.4s ease;
+.sectionRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: rgba(58, 26, 255, 0.1); /* Voidcore Indigo overlay */
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-void);
+  box-shadow: 0 0 8px var(--border-void);
+  transition: box-shadow var(--transition-base);
 }
 
-.storyBlock:hover {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent);
-  padding-left: 3.5rem;
+.sectionRow:hover {
+  box-shadow: 0 0 12px var(--glow-indigo);
 }
 
-.blockTitle {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2.4rem;
-  color: var(--ghostlight);
-  margin-bottom: 0.9rem;
+.labelBlock {
+  font-family: var(--font-tech);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-link-hover);
   text-transform: uppercase;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 5px var(--glow-indigo);
+  animation: textPulse 2s infinite ease-in-out;
 }
 
 .sigilHighlight {
-  color: var(--voidcore-indigo);
-  position: relative;
-  transition: color 0.3s ease;
+  color: var(--color-error);
+  font-style: normal;
+  font-weight: 600;
+  text-shadow: 0 0 3px var(--color-error);
 }
 
-.sigilHighlight:hover {
-  color: var(--arcane-azure);
+.textBlock {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  opacity: 0.95;
 }
 
-.blockSubheading {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.7rem;
-  color: var(--ghostlight);
-  margin-bottom: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.9px;
+.textBlock p {
+  margin-bottom: var(--space-3);
 }
 
-.blockText,
-.missionScroll p {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 1.15rem;
-  color: var(--ghostlight);
-  line-height: 1.8;
-  margin: 0.7rem 0;
-}
-
-.missionScroll {
-  margin-top: 1.2rem;
-  padding: 1.2rem 1.5rem;
-  background: rgba(217, 121, 4, 0.1);
-  border-radius: 5px;
-}
-
-/* ==============================
-🧩 Creed List
-============================= */
 .creedList {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 1.15rem;
-  color: var(--ghostlight);
   list-style: none;
-  padding: 0;
+  padding-left: var(--space-3);
 }
 
 .creedList li {
-  margin: 1.2rem 0;
-  padding-left: 1.6rem;
+  margin-bottom: var(--space-2);
   position: relative;
 }
 
 .creedList li::before {
-  content: "›";
-  color: var(--void-amber);
+  content: '▹';
+  color: var(--color-link-hover);
   position: absolute;
-  left: 0;
+  left: -1.25rem;
+  font-size: var(--font-size-md);
 }
 
 .creedList strong {
-  color: var(--voidcore-indigo);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
-/* ==============================
-🧩 Call to Forge
-============================= */
 .callToForge {
   text-align: center;
-  margin-top: 5rem;
+  margin-top: var(--space-6);
 }
 
 .forgeCommand {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.8rem;
-  color: var(--ghostlight);
-  background: var(--voidcore-indigo);
-  padding: 1.1rem 2.8rem;
-  border: 2px solid var(--void-amber);
-  border-radius: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  text-decoration: none;
-  box-shadow: 0 0 15px rgba(58, 26, 255, 0.3);
-  transition: all 0.5s ease-in-out;
   display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, var(--color-text-accent), var(--color-link-hover));
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-link-hover);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
 }
 
 .forgeCommand:hover {
-  background: var(--arcane-azure);
-  box-shadow: 0 0 20px rgba(46, 92, 255, 0.4);
-  transform: translateY(-4px);
+  box-shadow: 0 0 12px var(--glow-indigo);
+}
+
+.forgeCommand::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.forgeCommand:hover::after {
+  left: 100%;
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--space-2) var(--space-5);
+  background: transparent;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border: 1px solid var(--color-text-accent);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-tech);
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.btn:hover {
+  border-color: var(--color-link-hover);
+  box-shadow: 0 0 10px var(--glow-indigo);
 }
 
 /* ==============================
 🎬 Animations
 ============================= */
-@keyframes sigilFade {
-  0% { opacity: 0.4; }
-  50% { opacity: 0.7; }
-  100% { opacity: 0.4; }
+@keyframes hologramScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes textPulse {
+  0%, 100% { text-shadow: 0 0 5px var(--glow-indigo); }
+  50% { text-shadow: 0 0 8px var(--glow-indigo); }
 }
 
 /* ==============================
-📱 Responsive Breakpoints
+📱 Responsive Design
 ============================= */
-@media screen and (max-width: 768px) {
-  .legacyForge {
-    padding: 4rem 1rem 2.5rem;
+@media (min-width: var(--breakpoint-tablet)) {
+  .sectionRow {
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  .forgeTitle {
-    font-size: 2.6rem;
+  .labelBlock {
+    width: 30%;
+    font-size: var(--font-size-2xl);
   }
 
-  .storyVault {
-    gap: 3.5rem;
+  .textBlock {
+    width: 70%;
   }
 
-  .blockTitle {
-    font-size: 2rem;
+  .serviceItem {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: var(--breakpoint-tablet)) {
+  .legacyForge,
+  .section {
+    padding: var(--space-6) var(--space-3);
   }
 
-  .blockSubheading {
-    font-size: 1.5rem;
+  .labelBlock {
+    font-size: var(--font-size-lg);
   }
 
-  .forgeCommand {
-    font-size: 1.5rem;
-    padding: 0.9rem 2.3rem;
+  .forgeCommand,
+  .btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
   }
+}
 
-  .storyBlock {
-    padding: 2rem 2rem;
+/* ==============================
+♿ Accessibility
+============================= */
+@media (prefers-reduced-motion: reduce) {
+  .legacyForge::before,
+  .section::before,
+  .sectionRow,
+  .forgeCommand,
+  .forgeCommand::after,
+  .serviceItem,
+  .btn,
+  .btn::after,
+  .labelBlock,
+  .pricingInfo h3 {
+    transition: none;
+    animation: none;
   }
 }

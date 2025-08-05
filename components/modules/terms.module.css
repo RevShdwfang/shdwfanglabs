@@ -1,110 +1,88 @@
-.forgeContainer {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* ====================================
-    VARIABLES (Imported from ThemeVariables.module.css)
-==================================== */
-/* Assume :root and body.light variables are imported */
-
 /* ===============================
-📏 Row
-================================= */
+📐 Grid Foundation
+================================ */
 .row {
-  max-width: 1150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  max-width: var(--breakpoint-desktop-xl);
   margin: 0 auto;
-  padding: 5rem 2rem;
-  background: var(--color-bg-base);
-  background-image: linear-gradient(90deg, rgba(217, 121, 4, 0.05) 1px, transparent 1px),
-                    linear-gradient(rgba(217, 121, 4, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
+}
+
+.forgeContainer {
   position: relative;
-  transition: background-color 0.5s ease;
+  z-index: var(--z-base);
 }
 
 /* ===============================
-📐 Padded Content
-================================= */
+📝 Text Card
+================================ */
 .padd15 {
-  padding: 2.5rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
-  border: 2px dashed var(--void-amber);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  background: rgba(255, 255, 255, 0.05);
+  padding: var(--space-8);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-accent);
+  box-shadow: var(--shadow-base);
+  transition: var(--transition-base);
 }
 
 .padd15:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
 }
 
 .padd15 p {
-  font-family: "Titillium Web", sans-serif;
-  font-size: 1.1rem;
-  color: var(--ghostlight);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
   line-height: 1.75;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 .padd15 h3 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 2.1rem;
-  color: var(--void-amber);
+  font-family: var(--font-tech);
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.padd15 h3:first-child {
-  margin-top: 0;
+  letter-spacing: 1px;
 }
 
 .padd15 h3::before {
   content: "§";
-  position: absolute;
-  left: 0;
-  color: var(--void-amber);
+  color: var(--color-accent);
+  margin-right: var(--space-2);
   opacity: 0.9;
   transform: rotate(-5deg);
 }
 
 .padd15 a {
-  color: var(--arcane-azure);
+  color: var(--color-link-hover);
   text-decoration: underline;
-  transition: color 0.3s ease;
+  transition: var(--transition-base);
 }
 
 .padd15 a:hover {
-  color: var(--void-amber);
+  color: var(--color-accent);
 }
 
 /* ===============================
-📱 Responsive Breakpoints
-================================= */
-@media screen and (max-width: 768px) {
+📱 Responsive Tweaks
+================================ */
+@media screen and (max-width: var(--breakpoint-tablet)) {
   .row {
-    padding: 3rem 1rem;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
-
   .padd15 {
-    padding: 1.5rem;
+    padding: var(--space-6);
   }
-
   .padd15 p {
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     line-height: 1.6;
   }
-
   .padd15 h3 {
-    font-size: 1.7rem;
-    letter-spacing: 1.2px;
-    margin-top: 1.8rem;
+    font-size: var(--font-size-lg);
   }
 }

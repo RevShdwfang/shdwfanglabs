@@ -36,19 +36,19 @@ export default function TopNav({ isLight }: TopNavProps) {
 
       <ul className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`} aria-hidden={!isMenuOpen}>
         <li className={pathname === '/' ? styles.active : ''}>
-          <Link href="/" onClick={handleLinkClick} aria-label="Navigate to Core Domain">Core</Link>
+          <Link href="/" onClick={handleLinkClick} aria-label="Navigate to Core Domain">Home</Link>
         </li>
         <li className={pathname === '/about' ? styles.active : ''}>
-          <Link href="/about" onClick={handleLinkClick} aria-label="Navigate to Legacy Domain">Legacy</Link>
+          <Link href="/about" onClick={handleLinkClick} aria-label="Navigate to Legacy Domain">Abut</Link>
         </li>
         <li className={pathname === '/services' ? styles.active : ''}>
-          <Link href="/services" onClick={handleLinkClick} aria-label="Navigate to Offerings Domain">Offerings</Link>
+          <Link href="/services" onClick={handleLinkClick} aria-label="Navigate to Offerings Domain">Services</Link>
         </li>
         <li className={pathname === '/portfolio' ? styles.active : ''}>
-          <Link href="/portfolio" onClick={handleLinkClick} aria-label="Navigate to Artifact Gallery">Gallery</Link>
+          <Link href="/portfolio" onClick={handleLinkClick} aria-label="Navigate to Artifact Gallery">Portfolio</Link>
         </li>
         <li className={pathname === '/contact' ? styles.active : ''}>
-          <Link href="/contact" onClick={handleLinkClick} aria-label="Navigate to Conduit Hub">Conduit</Link>
+          <Link href="/contact" onClick={handleLinkClick} aria-label="Navigate to Conduit Hub">Contact</Link>
         </li>
         <li className={pathname === '/shop' ? styles.active : ''}>
           <Link href="/shop" onClick={handleLinkClick} aria-label="Navigate to Shadowfang Forge">Forge</Link>

@@ -1,21 +1,124 @@
 /* ====================================
     GLOBAL IMPORTS & VARIABLES
 ==================================== */
-@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
 @import url("https://use.typekit.net/vhp4tic.css");
 
 :root {
-  --color-bg-base: #0B0C10; /* Darktrace */
-  --color-bg-elevated: #121212; /* Elevated Black */
-  --obsidian-steel: #2a2a2a; /* Color Surface */
-  --rift-gray: #444444; /* Color Border */
-  --voidcore-indigo: #3A1AFF; /* Text Black 900 */
-  --ghostlight: #F7F6F3; /* Text Black 700 */
-  --void-amber: #D97904; /* Accent Color */
-  --arcane-azure: #2e5cff; /* Link Hover */
-  --color-r: 46;
-  --color-g: 92;
-  --color-b: 255;
+  /* ======================================
+     🎨 Color Palette – Umbra Core
+  ====================================== */
+  --color-bg-base: #0b0c10; /* Darktrace – Main background */
+  --color-ui-shell: #1a1a1a; /* UI Shell – Top navigation and footer background */
+  --color-bg-elevated: linear-gradient(to bottom, #1a1a1a, #2a2a2a); /* Elevated Card Background – Subtle gradient for surfaces above base */
+  --color-surface: #2a2a2a; /* Obsidian Steel – Neutral surface */
+  --color-border: #444444; /* Rift Gray – Border lines */
+
+  --color-text-primary: #f7f6f3; /* Ghostlight – Main text color */
+  --color-text-secondary: #b0afaf; /* Muted Light – For lower emphasis */
+  --color-text-heading: #ffffff; /* Pure white for headers */
+  --color-text-accent: #3a1aff; /* Voidcore Indigo – Brand emphasis */
+
+  --color-accent: #d97904; /* Void Amber – Calls to action */
+  --color-accent-hover: #f49012; /* Brightened Amber */
+
+  --color-link: #3a1aff; /* Voidcore Indigo */
+  --color-link-hover: #2e5cff; /* Arcane Azure */
+
+  --color-error: #ff4c4c; /* Error Red */
+  --color-success: #2ecc71; /* Success Green */
+  --color-warning: #f1c40f; /* Warning Yellow */
+  --color-info: #3498db; /* Info Blue */
+
+  /* ======================================
+     🌫️ Shadows, Glows, and Borders
+  ====================================== */
+  --border-base: 1px solid var(--color-border);
+  --border-glow: #1d1d20;
+  --border-void: rgba(58, 26, 255, 0.12); /* Indigo glow border */
+
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.4);
+  --glow-indigo: 0 0 12px var(--color-text-accent);
+
+  /* ======================================
+     🌈 Gradients
+  ====================================== */
+  --gradient-indigo-flare: linear-gradient(to top, #4123d8, #3a1aff);
+  --gradient-amber-flare: linear-gradient(to right, #d97904, #f49c10);
+  --gradient-bg-overlay: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(11, 12, 16, 1)
+  );
+
+  /* ======================================
+     ✒️ Typography
+  ====================================== */
+  --font-headline: "vintage-deco", serif;
+  --font-tech: "Orbitron", sans-serif;
+  --font-body: "titillium-web", sans-serif;
+  --font-code: "Fira Code", monospace;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+  --font-size-4xl: 3rem; /* 48px */
+
+  /* ======================================
+     📏 Spacing Scale (margin/padding/gap)
+  ====================================== */
+  --space-0: 0;
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+
+  /* ======================================
+     📐 Radius and Layout
+  ====================================== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ======================================
+     ⏫ Z-Index System
+  ====================================== */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 50;
+  --z-overlay: 100;
+  --z-modal: 1000;
+  --z-toast: 1100;
+  --z-tooltip: 1200;
+
+  /* ======================================
+     🔄 Transitions and Animations
+  ====================================== */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* ======================================
+     📱 Breakpoints (for media queries)
+  ====================================== */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop-sm: 1024px;
+  --breakpoint-desktop-lg: 1280px;
+  --breakpoint-desktop-xl: 1440px;
 }
 
 /* ====================================
@@ -30,12 +133,23 @@
 }
 
 body {
-  font-family: "Exo", sans-serif;
+  font-family: "titillium-web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 16px;
   line-height: 1.5;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: var(--color-bg-base);
+  color: var(--text-black-700);
+  letter-spacing: 1px;
+}
+
+body {
+  background: #0a0a0a
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"%3E%3Cpath d="M50 0 L60 10 L50 20 L40 10 Z" fill="rgba(255, 255, 255, 0.02)" transform="rotate(45 50 50)"/%3E%3C/svg%3E')
+    repeat;
+  background-size: 20px 20px;
 }
 
 a,
@@ -50,31 +164,35 @@ ul {
   list-style: none;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: var(--text-black-900);
   font-family: "vintage-deco", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
-h3, h4, h5, h6, a, .nav a {
+h3,
+h4,
+h5,
+h6,
+a,
+.nav a {
   color: var(--text-black-900);
   font-family: "Orbitron", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-p {
-  font-family: "titillium-web", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--text-black-700);
-  letter-spacing: 1px;
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
 }
-
-h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 4.5vw, 2.5rem); }
-h3 { font-size: clamp(1.25rem, 3vw, 2rem); }
+h2 {
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
+}
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
 
 /* ====================================
     GENERAL COMPONENTS
@@ -180,10 +298,11 @@ section.section {
   flex: 1;
   padding: 40px 30px;
   background-color: var(--color-bg-base);
-  min-height: calc(100dvh - 160px); /* Adjusts for topnav (~60px) and footer (~100px) */
+  min-height: calc(
+    100dvh - 160px
+  ); /* Adjusts for topnav (~60px) and footer (~100px) */
   overflow-x: hidden;
   transition: transform 0.3s ease;
-  
 }
 
 /* ====================================
@@ -243,11 +362,17 @@ body.light .slider .switch-icon {
 }
 
 .slider {
-  transition: background-color 0.3s ease, justify-content 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    justify-content 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .slider .switch-icon {
-  transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .slider:active {
@@ -255,9 +380,15 @@ body.light .slider .switch-icon {
 }
 
 @keyframes pulseSwitch {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* ==============================
@@ -414,7 +545,13 @@ body.light .slider .switch-icon {
 }
 
 @keyframes pulseSwitch {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

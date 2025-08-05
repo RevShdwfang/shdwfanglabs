@@ -2,17 +2,17 @@
 🎛 Footer Interface
 ============================= */
 .siteFooter {
-  background-color: var(--color-bg-elevated);
-  color: var(--ghostlight);
-  padding: 2rem 1rem;
-  border-top: 1px solid var(--rift-gray);
+  background-color: var(--color-ui-shell);
+  color: var(--color-text-primary);
+  padding: var(--space-8) var(--space-4);
+  border-top: var(--border-base);
 }
 
 /* ==============================
 🧩 Container Styling
 ============================= */
 .container {
-  max-width: 1440px;
+  max-width: var(--breakpoint-desktop-xl);
   margin: 0 auto;
 }
 
@@ -22,8 +22,8 @@
 .row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
 }
 
 /* ==============================
@@ -32,14 +32,14 @@
 .footerItem {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--space-3);
 }
 
 .footerItem h3 {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--ghostlight);
+  font-family: var(--font-tech);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
 }
 
 .footerItem ul {
@@ -49,18 +49,18 @@
 }
 
 .footerItem ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-2);
 }
 
 .footerItem a {
-  font-family: "Titillium Web", sans-serif;
+  font-family: var(--font-body);
   text-decoration: none;
-  color: var(--ghostlight);
-  transition: color 0.2s ease;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
 }
 
 .footerItem a:hover {
-  color: var(--arcane-azure);
+  color: var(--color-link-hover);
 }
 
 /* ==============================
@@ -68,18 +68,18 @@
 ============================= */
 .socialLinks {
   display: flex;
-  gap: 1rem;
-  font-size: 1.25rem;
-  color: var(--ghostlight);
+  gap: var(--space-4);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
 }
 
 .socialLinks a {
-  color: var(--ghostlight);
-  transition: color 0.2s ease;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
 }
 
 .socialLinks a:hover {
-  color: var(--arcane-azure);
+  color: var(--color-link-hover);
 }
 
 /* ==============================
@@ -87,8 +87,8 @@
 ============================= */
 .footerBottom {
   text-align: center;
-  font-family: "Titillium Web", sans-serif;
-  font-size: 0.875rem;
-  color: var(--ghostlight);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
   opacity: 0.8;
 }

@@ -1,26 +1,28 @@
+/* ==============================
+🔥 Forge Header
+============================= */
 .forgeHeader {
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  text-align: left;
+  padding: var(--space-8) var(--space-4);
+  margin-bottom: var(--space-8);
   position: relative;
-  border-bottom: 2px solid var(--void-amber);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .forgeTitle {
-  font-family: "vintage-deco", sans-serif;
-  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
-  color: var(--text-black-900);
+  font-family: var(--font-headline);
+  font-size: clamp(1.8rem, 4.5vw, var(--font-size-3xl));
+  color: var(--color-text-heading);
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  margin-bottom: var(--space-2);
 }
 
-.sigilGlow {
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 2px;
-  background: var(--accent-color);
-  box-shadow: 0 0 12px var(--accent-color);
+.forgeSubtitle {
+  font-family: var(--font-body);
+  font-size: clamp(var(--font-size-md), 3vw, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  letter-spacing: 0.8px;
+  line-height: 1.5;
+  opacity: 0.9;
 }

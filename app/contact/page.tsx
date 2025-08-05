@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/components/modules/contactform.module.css";
-import PageHeader from '@/components/modules/PageHeader/PageHeader';
+import { useSearchParams } from 'next/navigation';
+
 
 export default function CommandHub() {
   const router = useRouter();
@@ -21,6 +22,30 @@ export default function CommandHub() {
 
   const [status, setStatus] = useState<"idle" | "transmitting" | "success" | "error">("idle");
   const [feedbackMsg, setFeedbackMsg] = useState("");
+
+  const searchParams = useSearchParams();
+
+useEffect(() => {
+  const quote = searchParams.get("quote");
+  const subject = searchParams.get("subject");
+
+  if (quote || subject) {
+    const decodedQuote = quote ? decodeURIComponent(quote) : "";
+    const decodedSubject = subject ? decodeURIComponent(subject) : "";
+
+    setFormData((prev) => ({
+      ...prev,
+      message: decodedQuote
+        ? decodedSubject === "Custom Package Request"
+          ? `Hey! I’m interested in a custom package with the following services:\n\n${decodedQuote}`
+          : `I’d like to move forward with this package:\n\n${decodedQuote}`
+        : prev.message,
+      subject: decodedSubject || prev.subject,
+    }));
+  }
+}, [searchParams]);
+
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -99,7 +124,7 @@ export default function CommandHub() {
                     value={formData.name}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Operator Name"
+                    placeholder="Name"
                     required
                     aria-label="Your name"
                   />
@@ -113,7 +138,7 @@ export default function CommandHub() {
                     value={formData.email}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Transmission Address"
+                    placeholder="Email"
                     required
                     aria-label="Your email address"
                   />
@@ -131,7 +156,7 @@ export default function CommandHub() {
                     value={formData.brand}
                     onChange={handleChange}
                     className={styles.formControl}
-                    placeholder="Brand Identity / Command Unit"
+                    placeholder="Brand / Company"
                     required
                     aria-label="Brand or company name"
                   />
@@ -162,18 +187,21 @@ export default function CommandHub() {
               <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
                 <div className={styles.formGroup}>
                   <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className={styles.formControl}
-                    required
-                    aria-label="Select inquiry subject"
-                  >
-                    <option value="">Select Mission Objective</option>
-                    <option value="Stream Assets">Stream Forge Inquiry</option>
-                    <option value="Brand Identity">Legacy Identity Inquiry</option>
-                    <option value="Website UI/UX">Digital Command UI Inquiry</option>
-                  </select>
+  name="subject"
+  value={formData.subject}
+  onChange={handleChange}
+  className={styles.formControl}
+  required
+  aria-label="Select inquiry subject"
+>
+  <option value="">Select Mission Objective</option>
+  <option value="Stream Forge">Stream Forge Inquiry</option>
+  <option value="Web Design">Web Design Inquiry</option>
+  <option value="Web Development">Web Development Inquiry</option>
+  <option value="Brand Identity">Brand Identity Inquiry</option>
+  <option value="Custom Package Request">Custom Package Inquiry</option>
+</select>
+
                 </div>
               </div>
             </div>

@@ -1,44 +1,56 @@
-
-
 /* ===============================
-📐 Grid Layout
-================================= */
+📐 Grid Foundation
+================================ */
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-
-.padd15 {
-  padding: 0 15px;
-}
-
-.col6 {
-  width: 100%;
-}
-
-.col12 {
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  max-width: var(--breakpoint-desktop-xl);
+  margin: 0 auto;
 }
 
 .forgeContainer {
-  max-width: 1400px;
-  margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: var(--z-base);
 }
 
 /* ===============================
-📝 Form Layout
-================================= */
+📝 Form Card
+================================ */
 .contactForm {
-  width: 100%;
+  background: rgba(11, 12, 16, 0.2); /* Semi-transparent Darktrace */
+  backdrop-filter: blur(8px);
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(58, 26, 255, 0.3); /* Voidcore Indigo */
+  box-shadow: 0 0 10px var(--border-void);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
 }
 
+.contactForm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(58, 26, 255, 0.2), transparent);
+  animation: hologramScan 3s infinite linear;
+}
+
+.contactForm:hover {
+  box-shadow: 0 0 15px var(--glow-indigo);
+}
+
+/* ===============================
+🧩 Form Elements
+================================ */
 .formItem {
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: var(--space-5);
+  position: relative;
 }
 
 .formGroup {
@@ -47,109 +59,137 @@
 
 .formControl {
   width: 100%;
-  padding: 14px 18px;
-  font-size: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  background-color: var(--color-bg-elevated);
-  color: var(--text-black-700);
-  resize: vertical;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-variant: small-caps;
+  padding: 10px 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  border: none;
+  border-bottom: 2px solid var(--color-text-secondary);
+  background: transparent;
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .formControl:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.3);
+  border-bottom-color: var(--color-link-hover);
+  box-shadow: 0 2px 10px var(--glow-indigo);
   outline: none;
+  animation: pulseGlow 1.5s infinite ease-in-out;
 }
 
 /* ===============================
-🎯 Submit Button
-================================= */
+🎯 Action Button
+================================ */
 .btn {
-  padding: 14px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-black-700);
-  background-color: var(--accent-color);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-variant: small-caps;
-  font-family: "Orbitron";
-  letter-spacing: 1px;
+  font-family: var(--font-tech);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  padding: var(--space-3) var(--space-6);
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-text-accent);
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .btn:hover {
-  background-color: var(--text-black-900);
-  transform: scale(1.03);
+  border-color: var(--color-link-hover);
+  box-shadow: 0 0 12px var(--glow-indigo);
 }
 
-.successMessage {
-  text-align: center;
-  color: var(--accent-color);
-  margin-top: 1.5rem;
-  font-weight: 600;
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(46, 92, 255, 0.3), transparent);
+  transition: left 0.6s ease;
 }
 
-.errorMessage {
-  text-align: center;
-  color: #D92B2B;
-  margin-top: 1.5rem;
-  font-weight: 600;
+.btn:hover::after {
+  left: 100%;
 }
 
 /* ===============================
-📱 Responsive Breakpoints
-================================= */
+📢 Messages
+================================ */
+.successMessage,
+.errorMessage {
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-top: var(--space-5);
+  text-align: center;
+  font-size: var(--font-size-base);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  opacity: 0;
+  animation: fadeInMessage 0.5s ease-out forwards;
+}
 
-/* Small Tablets (481px – 767px) */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-  .formControl {
-    font-size: 15px;
-    padding: 12px 16px;
+.successMessage {
+  color: var(--color-accent);
+}
+
+.errorMessage {
+  color: var(--color-error);
+}
+
+/* ===============================
+🎬 Animations
+================================ */
+@keyframes hologramScan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 2px 10px var(--glow-indigo); }
+  50% { box-shadow: 0 2px 15px var(--glow-indigo); }
+}
+
+@keyframes fadeInMessage {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===============================
+📱 Responsive Tweaks
+================================ */
+@media screen and (max-width: var(--breakpoint-tablet)) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
-
+  .contactForm {
+    padding: var(--space-4);
+  }
+  .formControl {
+    font-size: var(--font-size-sm);
+    padding: 8px 0;
+  }
   .btn {
-    font-size: 0.95rem;
-    padding: 12px 28px;
+    font-size: var(--font-size-base);
+    padding: var(--space-2) var(--space-5);
   }
 }
 
-/* Tablets and Small Desktops (768px – 1024px) */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .col6 {
-    width: 50%;
-  }
-
-  .col12 {
-    width: 100%;
-  }
-
-  .formControl {
-    font-size: 16px;
-  }
-}
-
-/* Large Desktops (1025px and up) */
-@media screen and (min-width: 1025px) {
-  .col6 {
-    width: 50%;
-  }
-
-  .col12 {
-    width: 100%;
-  }
-
-  .formControl {
-    font-size: 17px;
-    padding: 16px 20px;
-  }
-
-  .btn {
-    font-size: 1rem;
-    padding: 16px 36px;
+/* ===============================
+♿ Accessibility
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  .contactForm,
+  .contactForm::before,
+  .formControl,
+  .btn,
+  .btn::after,
+  .successMessage,
+  .errorMessage {
+    transition: none;
+    animation: none;
   }
 }
