@@ -26,6 +26,7 @@ export default function CommandHub() {
   const searchParams = useSearchParams();
 
 useEffect(() => {
+  const searchParams = new URLSearchParams(window.location.search);
   const quote = searchParams.get("quote");
   const subject = searchParams.get("subject");
 
@@ -43,7 +44,9 @@ useEffect(() => {
       subject: decodedSubject || prev.subject,
     }));
   }
-}, [searchParams]);
+}, []);
+
+
 
 
 
