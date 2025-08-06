@@ -78,3 +78,5 @@ const brandingData = {
 export default function BrandIdentityPage() {
   return <ServicePage {...brandingData} currentSlug="brand-identity" />;
 }
+
+

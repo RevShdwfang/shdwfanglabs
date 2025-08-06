@@ -2,10 +2,10 @@ import { getCollections } from "@/lib/fourthwall";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStore } from "@fortawesome/free-solid-svg-icons";
-import styles from "@/components/modules/collections.module.css";
+import styles from "@/styles/modules/collections.module.css";
 import { decodeHtml } from "@/lib/decodeHtml";
 import type { Metadata } from "next";
-import PageHeader from '@/components/shared/PageHeader/PageHeader';
+import PageHeader from '@/components/shared/PageHeader';
 
 // ✅ SEO Metadata
 export const metadata: Metadata = {
@@ -51,3 +51,5 @@ export default async function ShopPage() {
     </section>
   );
 }
+
+

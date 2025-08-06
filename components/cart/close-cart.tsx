@@ -8,3 +8,5 @@ export default function CloseCart({ className }: { className?: string }) {
     </div>
   );
 }
+
+

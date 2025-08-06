@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "@/components/modules/ServicePage.module.css";
+import styles from "@/styles/modules/ServicePage.module.css";
 import FAQSection from "./FAQSection";
 
 type Package = {
@@ -116,3 +116,5 @@ export default function ServicePage({
     </div>
   );
 }
+
+

@@ -1,7 +1,7 @@
 
-import styles from "@/components/modules/terms.module.css";
+import styles from "@/styles/modules/terms.module.css";
 import "@/app/globals.css";
-import PageHeader from '@/components/shared/PageHeader/PageHeader';
+import PageHeader from '@/components/shared/PageHeader';
 
 
 export default function TermsPage() {
@@ -91,3 +91,5 @@ export default function TermsPage() {
     </section>
   );
 }
+
+

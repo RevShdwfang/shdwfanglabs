@@ -8,7 +8,7 @@ import ProductCard from '../../../components/productcards/ProductCard';
 import styles from '../../../components/modules/product-card.module.css';
 import { Collection, Product } from "../../../lib/types";
 import { FourthwallCollection } from "../../../lib/fourthwall/types";
-import PageHeader from '@/components/shared/PageHeader/PageHeader';
+import PageHeader from '@/components/shared/PageHeader';
 
 export default function CollectionPage() {
   const { handle } = useParams();
@@ -72,3 +72,5 @@ export default function CollectionPage() {
     </section>
   );
 }
+
+

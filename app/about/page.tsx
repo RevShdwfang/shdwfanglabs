@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/components/modules/about.module.css";
+import styles from "@/styles/modules/about.module.css";
 
 const blocks = [
   {
@@ -76,3 +76,5 @@ export default function LegacyDomain() {
 );
 
 }
+
+

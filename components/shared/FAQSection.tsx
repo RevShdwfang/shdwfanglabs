@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import styles from '@/components/modules/FAQSection.module.css';
+import styles from '@/styles/modules/FAQSection.module.css';
 
 
 export default function FAQSection({ faq }: { faq: { question: string; answer: string }[] }) {
@@ -44,4 +44,6 @@ export default function FAQSection({ faq }: { faq: { question: string; answer: s
 
   );
 }
+
+
 

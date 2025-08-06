@@ -7,7 +7,7 @@ import {
   faFingerprint,
   faWaveSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "@/components/modules/services.module.css";
+import styles from "@/styles/modules/services.module.css";
 import "@/app/globals.css";
 import Link from "next/link";
 
@@ -104,3 +104,5 @@ export default function DomainServices() {
     </section>
   );
 }
+
+
