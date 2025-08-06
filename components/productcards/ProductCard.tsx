@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import styles from "../modules/product-card.module.css";
+import styles from '@/components/modules/product-card.module.css';
 
 interface ProductCardProps {
   product: {
