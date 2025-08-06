@@ -1,4 +1,4 @@
-import ServicePage from '@/components/ServicePage';
+import ServicePage from '@/components/shared/ServicePage';
 
 const webDesignData = {
   title: 'Web Design',

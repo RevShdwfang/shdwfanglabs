@@ -5,7 +5,7 @@ import { faStore } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/components/modules/collections.module.css";
 import { decodeHtml } from "@/lib/decodeHtml";
 import type { Metadata } from "next";
-import PageHeader from '@/components/PageHeader/PageHeader';
+import PageHeader from '@/components/shared/PageHeader/PageHeader';
 
 // ✅ SEO Metadata
 export const metadata: Metadata = {

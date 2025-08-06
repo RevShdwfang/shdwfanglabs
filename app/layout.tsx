@@ -3,10 +3,10 @@ import './globals.css';
 import '@/styles/styleswitcher.css';
 
 import { CartProvider } from '@/components/cart/cart-context';
-import StyleSwitcher from '@/components/StyleSwitcher';
-import TopNav from '@/components/TopNav';
-import Footer from '@/components/Footer';
-import ClientLayout from '@/components/ClientLayout';
+import StyleSwitcher from '@/components/shared/StyleSwitcher';
+import TopNav from '@/components/shared/TopNav';
+import Footer from '@/components/shared/Footer';
+import ClientLayout from '@/components/shared/ClientLayout';
 
 import type { Metadata } from 'next';
 

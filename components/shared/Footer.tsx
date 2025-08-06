@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '@/components/modules/Footer.module.css';
+import styles from '@/styles/modules/Footer.module.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

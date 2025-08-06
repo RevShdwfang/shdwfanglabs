@@ -1,7 +1,7 @@
 
 import styles from "@/components/modules/terms.module.css";
 import "@/app/globals.css";
-import PageHeader from '@/components/PageHeader/PageHeader';
+import PageHeader from '@/components/shared/PageHeader/PageHeader';
 
 
 export default function TermsPage() {
