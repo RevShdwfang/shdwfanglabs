@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "@/styles/modules/ServicePage.module.css";
+import styles from "@/styles/modules/servicePage.module.css";
 import FAQSection from "./FAQSection";
 
 type Package = {

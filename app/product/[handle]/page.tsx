@@ -8,7 +8,7 @@ import { getCollectionBySlug, getProduct } from "../../../lib/fourthwall"; // Ad
 import { useCart } from "../../../components/cart/cart-context";
 import CartDrawer from "@/components/cart/CartDrawer";
 import { setupAccordionAnimation } from "../../../lib/utils";
-import styles from "@/modules/product-page.module.css";
+import styles from "@/styles/modules/product-page.module.css";
 import { option, span } from "framer-motion/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
