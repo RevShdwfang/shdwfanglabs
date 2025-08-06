@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { fetchProductsByCollectionSlug, getCollectionBySlug } from "../../../lib/fourthwall";
 import { reshapeProducts, reshapeCollection } from "../../../lib/fourthwall/reshape";
 import ProductCard from '../../../components/productcards/ProductCard';
-import styles from '../../../components/modules/product-card.module.css';
+import styles from '@/styles/modules/product-card.module.css';
 import { Collection, Product } from "../../../lib/types";
 import { FourthwallCollection } from "../../../lib/fourthwall/types";
 import PageHeader from '@/components/shared/PageHeader';

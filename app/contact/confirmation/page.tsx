@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import styles from "@/styles/@/styles/modules/contactconfirm.module.css";
+import styles from "@/styles/modules/contactconfirm.module.css";
 
 export default function TransmissionConfirm() {
   useEffect(() => {
