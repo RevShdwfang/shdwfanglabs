@@ -92,3 +92,45 @@
   color: var(--color-text-primary);
   opacity: 0.8;
 }
+
+/* ==============================
+📱 Responsive Adjustments
+============================= */
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .siteFooter {
+    padding: var(--space-6) var(--space-2);
+  }
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .footerItem h3 {
+    font-size: var(--font-size-base);
+  }
+  .footerItem ul li {
+    font-size: var(--font-size-sm);
+  }
+  .socialLinks {
+    font-size: var(--font-size-base);
+    gap: var(--space-3);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-10);
+  }
+  .footerItem h3 {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .container {
+    max-width: var(--breakpoint-desktop-xl);
+  }
+  .row {
+    gap: var(--space-12);
+  }
+}

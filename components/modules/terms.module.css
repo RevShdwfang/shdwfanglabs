@@ -68,21 +68,40 @@
 }
 
 /* ===============================
-📱 Responsive Tweaks
+📱 Responsive Tweaks (Enhanced)
 ================================ */
-@media screen and (max-width: var(--breakpoint-tablet)) {
+@media screen and (max-width: var(--breakpoint-mobile)) {
   .row {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4);
+    padding: 0 var(--space-2);
   }
   .padd15 {
-    padding: var(--space-6);
+    padding: var(--space-4);
+    border-left-width: 2px; /* Thinner border */
   }
   .padd15 p {
-    font-size: var(--font-size-base);
-    line-height: 1.6;
+    font-size: var(--font-size-sm);
   }
   .padd15 h3 {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-10);
+  }
+  .padd15 {
+    padding: var(--space-10);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    gap: var(--space-12);
+  }
+  .padd15 {
+    padding: var(--space-12);
   }
 }

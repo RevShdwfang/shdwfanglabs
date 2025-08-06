@@ -38,21 +38,45 @@ const webDesignData = {
       ],
     },
   ],
-  process: [
-    'Discovery & Requirements',
-    'Wireframes & Mockups',
-    'Feedback & Revisions',
-    'Final Delivery',
-  ],
   faq: [
     {
-      question: 'How long does a project typically take?',
-      answer: 'Anywhere from 1–4 weeks depending on the scope and responsiveness during revisions.',
-    },
-    {
-      question: 'Do I need to provide content?',
-      answer: 'You can! Or I can help write it based on your goals and audience.',
-    },
+  question: 'Can you match my existing brand or logo?',
+  answer: 'Absolutely. I can work with your current assets or help refine them into a cohesive design system.',
+},
+{
+  question: 'Will my site be mobile-friendly?',
+  answer: 'Yes — all designs are responsive by default and tailored to look great on phones, tablets, and desktops.',
+},
+{
+  question: 'Do you offer revisions?',
+  answer: 'Yes — every design package includes at least 1–2 rounds of revisions to make sure it feels right for you.',
+},
+{
+  question: 'What if I don’t know what I want yet?',
+  answer: 'No problem. I’ll guide you through a style and mood discovery process to uncover what fits best.',
+},
+{
+  question: 'Can you design around specific goals like conversions or leads?',
+  answer: 'Definitely. Design should do more than look good — I focus on UX that supports your goals.',
+},
+{
+  question: 'Do you use templates or design from scratch?',
+  answer: 'All designs are custom-built. No cookie-cutter templates — your site will be one of a kind.',
+},
+{
+  question: 'What design tools do you use?',
+  answer: 'Figma, Illustrator, and other industry-standard tools depending on the project’s needs.',
+},
+{
+  question: 'Will you include animations or interactions?',
+  answer: 'Yes — subtle motion, hover effects, and scroll-based interactions can all be incorporated to enhance the experience.',
+},
+{
+  question: 'Can you also develop the site after it’s designed?',
+  answer: 'Yes — I offer both design and development. You can get everything built and launched in one place.',
+}
+
+
   ],
 };
 

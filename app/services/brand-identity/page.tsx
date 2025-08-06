@@ -38,21 +38,40 @@ const brandingData = {
       ],
     },
   ],
-  process: [
-    'Brand discovery call',
-    'Concept sketches & direction selection',
-    'Design and feedback rounds',
-    'Final asset delivery and style guide',
-  ],
   faq: [
     {
-      question: 'How many revisions are included?',
-      answer: 'Each tier includes 1–3 rounds depending on the package.',
-    },
-    {
-      question: 'Do I own the final logo?',
-      answer: 'Yes. You’ll receive full commercial usage rights.',
-    },
+  question: 'What’s included in a brand identity package?',
+  answer: 'Depending on the tier, you’ll get a custom logo, color palette, font recommendations, social assets, and a brand guide.',
+},
+{
+  question: 'Can you redesign or improve my existing logo?',
+  answer: 'Absolutely. I can modernize your current identity while preserving the essence of your brand.',
+},
+{
+  question: 'What if I’m not sure what direction I want?',
+  answer: 'No problem — I’ll guide you through a discovery phase to explore your vision, audience, and style preferences.',
+},
+{
+  question: 'Do I get different logo versions?',
+  answer: 'Yes — you’ll receive full logo variations including horizontal, vertical, icon-only, and dark/light background options.',
+},
+{
+  question: 'What file formats will I receive?',
+  answer: 'You’ll get high-resolution vector files (SVG, PDF) and raster formats (PNG, JPG), ready for print, web, and social.',
+},
+{
+  question: 'Is there a brand guide included?',
+  answer: 'Yes — all standard and premium tiers include a brand guideline PDF with usage rules, spacing, colors, and typography.',
+},
+{
+  question: 'Can I use the logo for merch or content?',
+  answer: 'Definitely. All final assets are yours to use on stream, products, business cards — wherever you need.',
+},
+{
+  question: 'Will you help with future updates?',
+  answer: 'Yes — I offer follow-up design support and brand expansion packages if you grow or rebrand later on.',
+}
+
   ],
 };
 

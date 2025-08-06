@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import styles from './PageHeader.module.css';
+import styles from '@/components/modules/PageHeader.module.css';
 
 const routeTitles: Record<string, string> = {
   '/about': 'Enter the Legacy',

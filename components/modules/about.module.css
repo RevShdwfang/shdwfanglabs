@@ -1,231 +1,207 @@
 /* ==============================
-📜 Legacy Forge Section (About)
+📜 About Section (Legacy Forge)
 ============================= */
 .legacyForge {
-  padding: var(--space-12) var(--space-6);
-  background: rgba(11, 12, 16, 0.3); /* Semi-transparent Darktrace */
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
+  padding: var(--space-16) var(--space-4);
+  background: var(--color-bg-base); /* Darktrace #0b0c10 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.legacyForge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(58, 26, 255, 0.2), transparent);
-  animation: hologramScan 4s infinite linear;
+.legacyForge.dark {
+  background: var(--color-text-primary); /* Ghostlight #f7f6f3 */
 }
 
 .forgeContainer {
   max-width: var(--breakpoint-desktop-sm);
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--space-4);
 }
 
 .storyVault {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-12);
 }
 
 .sectionRow {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  background: rgba(58, 26, 255, 0.1); /* Voidcore Indigo overlay */
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--border-void);
-  box-shadow: 0 0 8px var(--border-void);
-  transition: box-shadow var(--transition-base);
+  padding: var(--space-6);
 }
 
-.sectionRow:hover {
-  box-shadow: 0 0 12px var(--glow-indigo);
+.sectionRow.dark {
+  color: var(--color-bg-base); /* Darktrace #0b0c10 */
 }
 
 .labelBlock {
-  font-family: var(--font-tech);
-  font-size: var(--font-size-xl);
+  font-family: var(--font-headline);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--color-link-hover);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 5px var(--glow-indigo);
-  animation: textPulse 2s infinite ease-in-out;
+  color: var(--color-text-heading); /* Pure white #ffffff */
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.labelBlock.dark {
+  color: var(--color-bg-base); /* Darktrace #0b0c10 */
 }
 
 .sigilHighlight {
-  color: var(--color-error);
-  font-style: normal;
-  font-weight: 600;
-  text-shadow: 0 0 3px var(--color-error);
+  color: var(--color-accent); /* Void Amber #d97904 */
+  font-weight: 700;
+}
+
+.sigilHighlight.dark {
+  color: var(--color-accent-hover); /* Brightened Amber #f49012 */
 }
 
 .textBlock {
   font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  color: var(--color-text-primary);
-  opacity: 0.95;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary); /* Muted Light #b0afaf */
+  line-height: 1.6;
+}
+
+.textBlock.dark {
+  color: var(--color-ui-shell); /* UI Shell #1a1a1a */
 }
 
 .textBlock p {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .creedList {
   list-style: none;
-  padding-left: var(--space-3);
+  padding-left: 0;
+  margin: var(--space-4) 0;
 }
 
 .creedList li {
-  margin-bottom: var(--space-2);
-  position: relative;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary); /* Ghostlight #f7f6f3 */
+  margin-bottom: var(--space-3);
+}
+
+.creedList.dark {
+  color: var(--color-ui-shell); /* UI Shell #1a1a1a */
 }
 
 .creedList li::before {
-  content: '▹';
-  color: var(--color-link-hover);
-  position: absolute;
-  left: -1.25rem;
-  font-size: var(--font-size-md);
+  content: '—';
+  color: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
+  margin-right: var(--space-2);
+}
+
+.creedList.dark li::before {
+  color: var(--color-link-hover); /* Arcane Azure #2e5cff */
 }
 
 .creedList strong {
-  color: var(--color-accent);
+  color: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
   font-weight: 600;
+}
+
+.creedList.dark strong {
+  color: var(--color-link-hover); /* Arcane Azure #2e5cff */
 }
 
 .callToForge {
   text-align: center;
-  margin-top: var(--space-6);
+  margin-top: var(--space-12);
 }
 
 .forgeCommand {
   display: inline-block;
   padding: var(--space-3) var(--space-6);
-  background: linear-gradient(135deg, var(--color-text-accent), var(--color-link-hover));
-  color: var(--color-text-primary);
+  background: var(--color-accent); /* Void Amber #d97904 */
+  color: var(--color-text-primary); /* Ghostlight #f7f6f3 */
   text-decoration: none;
   font-family: var(--font-tech);
-  font-weight: 700;
-  border-radius: var(--radius-xs);
-  border: 1px solid var(--color-link-hover);
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow var(--transition-base);
+  font-weight: 600;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.forgeCommand.dark {
+  background: var(--color-accent-hover); /* Brightened Amber #f49012 */
+  color: var(--color-bg-base); /* Darktrace #0b0c10 */
 }
 
 .forgeCommand:hover {
-  box-shadow: 0 0 12px var(--glow-indigo);
+  background: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
+  color: var(--color-text-heading);
 }
 
-.forgeCommand::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.forgeCommand:hover::after {
-  left: 100%;
-}
-
-.btn {
-  display: inline-block;
-  padding: var(--space-2) var(--space-5);
-  background: transparent;
+.forgeCommand.dark:hover {
+  background: var(--color-link-hover); /* Arcane Azure #2e5cff */
   color: var(--color-text-primary);
-  text-decoration: none;
-  border: 1px solid var(--color-text-accent);
-  border-radius: var(--radius-xs);
-  font-family: var(--font-tech);
-  font-weight: 700;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
-.btn:hover {
-  border-color: var(--color-link-hover);
-  box-shadow: 0 0 10px var(--glow-indigo);
+.forgeCommand:focus {
+  outline: 2px solid var(--color-link); /* Voidcore Indigo #3a1aff */
+  outline-offset: 2px;
+}
+
+.forgeCommand.dark:focus {
+  outline-color: var(--color-link-hover); /* Arcane Azure #2e5cff */
 }
 
 /* ==============================
-🎬 Animations
+📱 Responsive Design (Enhanced)
 ============================= */
-@keyframes hologramScan {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-@keyframes textPulse {
-  0%, 100% { text-shadow: 0 0 5px var(--glow-indigo); }
-  50% { text-shadow: 0 0 8px var(--glow-indigo); }
-}
-
-/* ==============================
-📱 Responsive Design
-============================= */
-@media (min-width: var(--breakpoint-tablet)) {
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .legacyForge {
+    padding: var(--space-6) var(--space-1); /* Tighter padding */
+  }
   .sectionRow {
-    flex-direction: row;
-    align-items: flex-start;
+    padding: var(--space-3);
   }
-
   .labelBlock {
-    width: 30%;
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl); /* Smaller heading */
   }
-
   .textBlock {
-    width: 70%;
+    font-size: var(--font-size-base); /* Smaller body text */
   }
-
-  .serviceItem {
-    padding: var(--space-6);
-  }
-}
-
-@media (max-width: var(--breakpoint-tablet)) {
-  .legacyForge,
-  .section {
-    padding: var(--space-6) var(--space-3);
-  }
-
-  .labelBlock {
-    font-size: var(--font-size-lg);
-  }
-
-  .forgeCommand,
-  .btn {
-    padding: var(--space-2) var(--space-4);
+  .creedList li {
     font-size: var(--font-size-sm);
   }
+  .forgeCommand {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-xs);
+  }
 }
 
+@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+  .forgeContainer {
+    max-width: var(--breakpoint-desktop-sm); /* Consistent container width */
+  }
+  .labelBlock {
+    font-size: var(--font-size-5xl); /* Larger heading */
+  }
+  .textBlock {
+    font-size: var(--font-size-xl); /* Larger body text */
+  }
+  .creedList li {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .forgeContainer {
+    max-width: var(--breakpoint-desktop-lg); /* Wider container */
+  }
+  .sectionRow {
+    padding: var(--space-10); /* More spacious */
+  }
+}
 /* ==============================
 ♿ Accessibility
 ============================= */
 @media (prefers-reduced-motion: reduce) {
-  .legacyForge::before,
-  .section::before,
-  .sectionRow,
-  .forgeCommand,
-  .forgeCommand::after,
-  .serviceItem,
-  .btn,
-  .btn::after,
-  .labelBlock,
-  .pricingInfo h3 {
+  .forgeCommand {
     transition: none;
-    animation: none;
   }
 }

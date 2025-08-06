@@ -54,6 +54,7 @@
   box-shadow: var(--shadow-base);
   position: relative;
   overflow: hidden;
+  max-width: 650px;
 }
 
 .serviceItem:hover {
@@ -156,7 +157,7 @@
 }
 
 .serviceItem .priceTag strong {
-  color: var(--color-border);
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -181,11 +182,12 @@
   border: 1px solid var(--border-glow);
   backdrop-filter: blur(8px);
   text-transform: none;
-  letter-spacing: 0.8px;
+  letter-spacing: 2px;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   transition: var(--transition-base);
+  text-transform: uppercase;
 }
 
 .serviceItem .btn:hover {
@@ -198,9 +200,6 @@
 .customPackage {
   margin-top: var(--space-16);
   padding: var(--space-8);
-  background: var(--color-surface);
-  border: var(--border-base);
-  border-radius: var(--radius-lg);
   text-align: center;
 }
 
@@ -236,24 +235,65 @@
 }
 
 /* ==============================
-📱 Responsive Tweaks
+📱 Responsive Tweaks (Enhanced)
 ============================== */
-@media screen and (max-width: var(--breakpoint-tablet)) {
+@media screen and (max-width: var(--breakpoint-mobile)) {
   .row {
-    grid-template-columns: 1fr;
-    padding: 0 var(--space-4);
+    gap: var(--space-6);
+    padding: 0 var(--space-2);
   }
-
+  .missionApproach {
+    padding: var(--space-6) var(--space-4);
+  }
   .serviceItem {
-    padding: var(--space-6);
+    padding: var(--space-4);
   }
-
-  .ctaContainer {
-    flex-direction: column;
-    gap: var(--space-4);
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: var(--font-size-lg);
   }
+  .icon::before {
+    width: 80px;
+    height: 80px;
+  }
+  .icon::after {
+    width: 100px;
+    height: 100px;
+  }
+  .serviceItem h4 {
+    font-size: var(--font-size-base);
+  }
+  .serviceItem p {
+    font-size: var(--font-size-xs);
+  }
+  .serviceItem .btn {
+    font-size: var(--font-size-xs);
+    padding: var(--space-2) var(--space-4);
+  }
+}
 
-  .serviceItem .priceTag {
-    margin-bottom: var(--space-4);
+@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Wider columns */
+    gap: var(--space-10);
+  }
+  .missionApproach {
+    padding: var(--space-12) var(--space-10);
+  }
+  .serviceItem {
+    padding: var(--space-12);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .forgeContainer {
+    max-width: var(--breakpoint-desktop-xl); /* Full width for large screens */
+  }
+  .row {
+    gap: var(--space-12);
+  }
+  .missionApproach {
+    padding: var(--space-14) var(--space-12);
   }
 }

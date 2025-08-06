@@ -80,7 +80,7 @@ export default function DomainServices() {
                     className={styles.btn}
                     aria-label={`Initiate ${domain.title} project`}
                   >
-                    Book a Call <span>→</span>
+                    Choose Package <span>→</span>
                   </Link>
                 </div>
               </div>

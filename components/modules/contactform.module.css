@@ -160,21 +160,56 @@
 /* ===============================
 📱 Responsive Tweaks
 ================================ */
-@media screen and (max-width: var(--breakpoint-tablet)) {
+/* ===============================
+📱 Responsive Tweaks (Enhanced)
+================================ */
+@media screen and (max-width: var(--breakpoint-mobile)) {
   .row {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-4); /* Tighter gap for smaller screens */
+    padding: 0 var(--space-2);
   }
   .contactForm {
-    padding: var(--space-4);
+    padding: var(--space-3); /* Further reduced padding */
+    border-radius: var(--radius-xs); /* Smaller radius for compact screens */
   }
   .formControl {
-    font-size: var(--font-size-sm);
-    padding: 8px 0;
+    font-size: var(--font-size-xs); /* Smaller font for mobile */
+    padding: 6px 0; /* Reduced padding */
   }
   .btn {
-    font-size: var(--font-size-base);
-    padding: var(--space-2) var(--space-5);
+    font-size: var(--font-size-sm);
+    padding: var(--space-2) var(--space-4);
+    letter-spacing: 1px; /* Slightly tighter letter spacing */
+  }
+  .successMessage,
+  .errorMessage {
+    font-size: var(--font-size-xs); /* Smaller message text */
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider columns */
+    gap: var(--space-10);
+  }
+  .contactForm {
+    padding: var(--space-8); /* Increased padding for larger screens */
+  }
+  .formControl {
+    font-size: var(--font-size-md); /* Slightly larger input text */
+  }
+  .btn {
+    font-size: var(--font-size-lg); /* Larger button text */
+    padding: var(--space-4) var(--space-8);
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .row {
+    gap: var(--space-12); /* Wider gap for large screens */
+  }
+  .contactForm {
+    padding: var(--space-10); /* More spacious padding */
   }
 }
 

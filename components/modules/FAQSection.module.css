@@ -1,0 +1,142 @@
+.faq {
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  color: var(--color-text-primary);
+}
+
+.faqLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.faqIntro h2 {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-align: left;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.faqIntro p {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.faqLabel {
+  color: var(--color-text-primary);
+  display: block;
+}
+
+.faqHighlight {
+  color: var(--color-text-accent);
+  display: block;
+}
+
+/* Right Side */
+.faqContent {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FAQ Item Styles */
+.faqItem {
+  margin-bottom: 1.25rem;
+  background: var(--color-ui-shell);
+  border-radius: 12px;
+  box-shadow: var(--shadow-base);
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.summary {
+  cursor: pointer;
+  padding: 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.summary:hover {
+  background-color: var(--color-surface);
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-left: 1rem;
+}
+
+.faqAnswer {
+  padding: 1.25rem;
+  background: var(--color-bg-base);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* ==============================
+📱 Responsive Adjustments
+============================= */
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .faq {
+    padding: 2rem 1rem;
+  }
+  .faqLayout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .faqIntro p {
+    font-size: 1.5rem;
+  }
+  .faqItem {
+    margin-bottom: 1rem;
+  }
+  .summary {
+    font-size: 0.875rem;
+    padding: 1rem;
+  }
+  .faqAnswer {
+    font-size: 0.85rem;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-tablet)) and (max-width: var(--breakpoint-desktop-sm)) {
+  .faqLayout {
+    grid-template-columns: 1fr 1.5fr;
+  }
+  .faqIntro p {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .faq {
+    padding: 5rem 3rem;
+  }
+  .faqLayout {
+    gap: 3rem;
+  }
+  .faqIntro p {
+    font-size: 3.5rem;
+  }
+  .summary {
+    font-size: 1.125rem;
+  }
+  .faqAnswer {
+    font-size: 1rem;
+  }
+}

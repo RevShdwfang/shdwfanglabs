@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/styles/customPackage.module.css';
+import styles from '@/styles/modules/customPackage.module.css';
+
 
 const serviceItems = [
   {

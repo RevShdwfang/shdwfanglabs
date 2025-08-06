@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import TopNav from "@/components/modules/TopNav";
-import Footer from "@/components/modules/Footer";
-import PageHeader from "@/components/modules/PageHeader/PageHeader";
+import TopNav from "@/components/TopNav";
+import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader/PageHeader";
 
 export default function ClientLayout({
   children,

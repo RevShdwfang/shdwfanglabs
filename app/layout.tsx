@@ -4,8 +4,8 @@ import '@/styles/styleswitcher.css';
 
 import { CartProvider } from '@/components/cart/cart-context';
 import StyleSwitcher from '@/components/StyleSwitcher';
-import TopNav from '@/components/modules/TopNav';
-import Footer from '@/components/modules/Footer';
+import TopNav from '@/components/TopNav';
+import Footer from '@/components/Footer';
 import ClientLayout from '@/components/ClientLayout';
 
 import type { Metadata } from 'next';

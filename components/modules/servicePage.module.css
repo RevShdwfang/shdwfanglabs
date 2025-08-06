@@ -1,0 +1,310 @@
+/* ==================================
+📦 Package Grid Container
+================================== */
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  margin-top: 3rem;
+}
+
+/* ==================================
+🃏 Individual Package Card
+================================== */
+.packageCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg-elevated); /* linear-gradient(to bottom, #1a1a1a, #2a2a2a) */
+  border: 1px solid var(--border-glow); /* #1d1d20 */
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  transition: all 0.3s ease; /* Assuming --transition-base is ~0.3s ease */
+  box-shadow: var(--shadow-base); /* 0 4px 12px rgba(0, 0, 0, 0.25) */
+  position: relative;
+  overflow: hidden;
+}
+
+.packageCard:hover {
+  box-shadow: var(--shadow-hover); /* 0 6px 20px rgba(0, 0, 0, 0.4) */
+  transform: translateY(-4px);
+}
+
+.packageCard.featured {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.03);
+  padding: 2.5rem 2rem;
+  border: none; /* Remove direct border */
+}
+
+.packageCard.featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* Thickness of the border */
+  border-radius: 12px;
+  background: var(--gradient-indigo-flare); /* linear-gradient(to top, #4123d8, #3a1aff) */
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  background: var(--gradient-indigo-flare); /* linear-gradient(to top, #4123d8, #3a1aff) */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==================================
+🧾 Title, Subtitle, Price
+================================== */
+.packageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-heading); /* #ffffff */
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.packageSubtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary); /* #b0afaf */
+  margin-bottom: 1.5rem;
+  min-height: 48px; /* Helps align cards with varying text */
+}
+
+.packagePrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-secondary); /* #b0afaf */
+  margin-bottom: 1.5rem;
+}
+
+/* ==================================
+🚀 Call to Action Button
+================================== */
+.packageButton {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-glow); /* #1d1d20 */
+  border-radius: 50px;
+  color: var(--color-text-secondary); /* #b0afaf */
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out; /* Assuming --transition-fast is ~0.2s */
+  margin-bottom: 0.5rem;
+}
+
+.packageButton:hover {
+  background: var(--color-link-hover); /* #2e5cff */
+  color: var(--color-text-primary); /* #f7f6f3 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 92, 255, 0.2); /* Matches --color-link-hover */
+}
+
+.packageButton.gradient {
+  background: var(--gradient-indigo-flare); /* linear-gradient(to top, #4123d8, #3a1aff) */
+  color: var(--color-text-primary); /* #f7f6f3 */
+  border: none;
+  font-weight: bold;
+  transition: opacity 0.2s ease; /* Assuming --transition-fast */
+}
+
+.packageButton.gradient:hover {
+  opacity: 0.85;
+}
+
+/* ==================================
+💳 Small Note Under Button
+================================== */
+.noCredit {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary); /* #b0afaf */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ==================================
+📋 Feature List Area
+================================== */
+.featureList {
+  flex-grow: 1;
+  min-height: 180px; /* Forces same card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.featureList::before {
+  content: "Key features:";
+  display: block;
+  font-weight: 600;
+  color: var(--color-text-secondary); /* #b0afaf */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary); /* #b0afaf */
+  margin-bottom: 0.75rem;
+}
+
+.featureItem::before {
+  content: "✔";
+  color: var(--color-accent); /* #d97904 */
+  margin-right: 0.6rem;
+  font-weight: bold;
+}
+
+/* ==================================
+📐 Container Max Width
+================================== */
+.forgeContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+🔗 RELATED SERVICES SECTION
+=============================== */
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.relatedCard {
+  background: var(--color-bg-elevated);
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-base);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  color: var(--text-black-700);
+}
+
+.relatedCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--color-text-accent);
+}
+
+.relatedCard h3 {
+  font-family: var(--font-tech);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--text-black-700); /* Will adjust based on theme */
+  margin-bottom: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.relatedLink {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+.relatedLink::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-text-accent);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.relatedLink:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ==================================
+📱 Responsive Grid Adjustments (Enhanced)
+================================== */
+@media screen and (max-width: var(--breakpoint-mobile)) {
+  .packages {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .packageCard {
+    padding: 1.5rem 1rem;
+  }
+  .packageTitle {
+    font-size: 1.25rem;
+  }
+  .packageSubtitle {
+    font-size: 0.875rem;
+    min-height: 36px;
+  }
+  .packagePrice {
+    font-size: 1.5rem;
+  }
+  .featureList {
+    min-height: 150px;
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-tablet)) and (max-width: var(--breakpoint-desktop-sm)) {
+  .packages {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  .packageCard {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+  .forgeContainer {
+    max-width: var(--breakpoint-desktop-xl);
+  }
+  .packages {
+    gap: 2.5rem;
+  }
+  .packageTitle {
+    font-size: 1.75rem;
+  }
+  .packagePrice {
+    font-size: 2.25rem;
+  }
+}

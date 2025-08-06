@@ -38,21 +38,40 @@ const webDevData = {
       ],
     },
   ],
-  process: [
-    'Requirement gathering & tech stack planning',
-    'Development with milestone updates',
-    'Client testing & review',
-    'Deployment and launch support',
-  ],
   faq: [
-    {
-      question: 'What platforms or tools do you use?',
-      answer: 'Next.js, Tailwind, Vercel, and custom APIs when needed.',
-    },
-    {
-      question: 'Can I update the site myself later?',
-      answer: 'Yes — I can set you up with a CMS or provide instructions for edits.',
-    },
+   {
+  question: 'Will my website be mobile-friendly?',
+  answer: 'Yes — all sites are fully responsive and optimized for performance across mobile, tablet, and desktop devices.',
+},
+{
+  question: 'How long does a typical website build take?',
+  answer: 'Most builds take 2–4 weeks depending on complexity, revisions, and how quickly content is provided.',
+},
+{
+  question: 'Do you offer hosting or domain setup?',
+  answer: 'Yes — I can handle setup on platforms like Vercel, IONOS, or others. You’ll retain full ownership.',
+},
+{
+  question: 'Can you integrate third-party tools or services?',
+  answer: 'Definitely. I can connect email platforms, booking systems, payment gateways, analytics, and more.',
+},
+{
+  question: 'Is SEO included in the build?',
+  answer: 'Yes — every site includes basic SEO best practices like clean code, meta tags, and performance tuning. Advanced SEO available upon request.',
+},
+{
+  question: 'What if I already have a design?',
+  answer: 'Perfect — I can develop from your design files (Figma, PSD, etc.) and bring your vision to life.',
+},
+{
+  question: 'Do you provide support after launch?',
+  answer: 'Yes — I offer post-launch support and optional maintenance plans to keep things running smoothly.',
+},
+{
+  question: 'Will my site be fast and optimized?',
+  answer: 'Absolutely. I build with speed, accessibility, and performance in mind — no bloated themes or plugins.',
+}
+
   ],
 };
 
