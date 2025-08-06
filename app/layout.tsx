@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <CartProvider>
-          <TopNav isLight={false} />
+          <TopNav />
           <div className="style-switcher-container">
             <StyleSwitcher />
           </div>
