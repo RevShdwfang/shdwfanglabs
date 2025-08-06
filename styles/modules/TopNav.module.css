@@ -1,28 +1,19 @@
-/* ==============================
-🎛 Core Navigation Interface
-============================= */
 .topnav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1.5rem; /* Assuming --space-6 is ~1.5rem */
-  background: var(--color-ui-shell); /* #1a1a1a */
-  padding: 1rem 2rem; /* Assuming --space-4 is 1rem, --space-8 is 2rem */
-  border-bottom: var(--border-base); /* 1px solid #444444 */
+  justify-content: space-between;
+  background: var(--color-ui-shell);
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Assuming --z-modal is ~1000 */
-  box-shadow: var(--shadow-base); /* 0 4px 12px rgba(0, 0, 0, 0.25) */
-  transition: all 0.3s ease; /* Assuming --transition-base is 0.3s ease */
+  z-index: 1000;
+  box-shadow: var(--shadow-base);
+  flex-wrap: wrap;
 }
 
-/* ==============================
-🧩 Logo Text Styling
-============================= */
 .navLogo {
   display: flex;
   align-items: center;
-  line-height: 1rem; /* Assuming --font-size-base is ~1rem */
 }
 
 .navLogo a {
@@ -32,207 +23,130 @@
 }
 
 .shadowfangText {
-  font-family: var(--font-headline, 'Arial', sans-serif); /* Fallback font */
-  font-size: 1rem; /* Assuming --font-size-base is ~1rem */
+  font-family: var(--font-headline, 'Arial', sans-serif);
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--color-text-primary); /* #f7f6f3 */
+  color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  transition: all 0.3s ease; /* Assuming --transition-base is 0.3s ease */
 }
 
 body.light .shadowfangText {
-  color: var(--color-text-accent); /* #3a1aff */
+  color: var(--color-text-accent);
 }
 
 .labsText {
-  font-family: var(--font-headline, 'Arial', sans-serif); /* Fallback font */
-  font-size: 1rem; /* Assuming --font-size-base is ~1rem */
+  font-family: var(--font-headline, 'Arial', sans-serif);
+  font-size: 1rem;
   font-weight: 400;
-  color: var(--color-text-accent); /* #3a1aff */
+  color: var(--color-text-accent);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  margin-left: 0.25rem; /* Assuming --space-1 is ~0.25rem */
+  margin-left: 0.25rem;
 }
 
-/* ==============================
-🎯 Menu Toggle (Hamburger)
-============================= */
 .menuToggle {
   display: none;
   background: none;
   border: none;
-  color: var(--color-text-primary); /* #f7f6f3 */
-  font-family: var(--font-tech, 'Courier New', monospace); /* Fallback font */
-  font-size: 1rem; /* Assuming --font-size-base is ~1rem */
+  color: var(--color-text-primary);
+  font-family: var(--font-tech, 'Courier New', monospace);
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.8px;
   cursor: pointer;
-  padding: 0.5rem; /* Assuming --space-2 is ~0.5rem */
-  position: relative;
-  z-index: 1100; /* Assuming --z-toast is higher than --z-modal, ~1100 */
-  transition: all 0.3s ease; /* Assuming --transition-base is 0.3s ease */
+  padding: 0.5rem;
+  z-index: 1100;
 }
 
-.menuToggle:hover {
-  color: var(--color-accent); /* #d97904 */
-}
-
-/* Hamburger Icon */
-.menuToggle::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-text-primary); /* #f7f6f3 */
-  position: relative;
-  vertical-align: middle;
-  margin-right: 0.5rem; /* Assuming --space-2 is ~0.5rem */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Assuming --transition-base */
-}
-
-.menuToggle::after {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-text-primary); /* #f7f6f3 */
-  position: absolute;
-  top: 50%;
-  left: 8px;
-  transform: translateY(4px);
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Assuming --transition-base */
-}
-
-.menuToggle[aria-expanded="true"]::before {
-  transform: rotate(45deg) translateY(4px) translateX(4px);
-  background-color: var(--color-link-hover); /* #2e5cff */
-}
-
-.menuToggle[aria-expanded="true"]::after {
-  transform: rotate(-45deg) translateY(-4px) translateX(4px);
-  background-color: var(--color-link-hover); /* #2e5cff */
-}
-
-/* ==============================
-🧩 Navigation Links
-============================= */
 .navLinks {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: 1.5rem; /* Assuming --space-6 is ~1.5rem */
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.navLinks li {
-  position: relative;
-}
-
 .navLinks li a {
-  font-family: var(--font-tech, 'Courier New', monospace); /* Fallback font */
-  font-size: 1rem; /* Assuming --font-size-base is ~1rem */
+  font-family: var(--font-tech, 'Courier New', monospace);
+  font-size: 1rem;
   font-weight: 500;
-  color: var(--color-text-primary); /* #f7f6f3 */
+  color: var(--color-text-primary);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  padding: 0;
-  transition: color 0.2s ease, transform 0.3s ease; /* Assuming --transition-fast is ~0.2s, --transition-base is ~0.3s */
+  transition: color 0.2s ease, transform 0.3s ease;
 }
 
 .navLinks li a:hover,
 .navLinks .active a {
-  color: var(--color-link-hover); /* #2e5cff */
+  color: var(--color-link-hover);
   transform: translateY(-2px);
 }
 
-.navLinks .active a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-accent); /* #d97904 */
-  transition: width 0.3s ease; /* Assuming --transition-base is ~0.3s */
-}
-
-/* ==============================
-🎯 Client Portal Command
-============================= */
-.navCommand {
+.navCommandDesktop {
   display: flex;
   align-items: center;
 }
 
+.navCommandMobile {
+  display: none;
+}
+
+/* 🎯 Client Portal Button */
 .sigilBtn {
-  background-color: var(--color-text-accent); /* #3a1aff */
-  color: var(--color-text-primary); /* #f7f6f3 */
-  padding: 0.5rem 1.25rem; /* Assuming --space-2 is ~0.5rem, --space-5 is ~1.25rem */
+  background-color: var(--color-text-accent);
+  color: var(--color-text-primary);
+  padding: 0.5rem 1.25rem;
   border: none;
-  border-radius: 0.25rem; /* Assuming --radius-md is ~0.25rem */
-  font-family: var(--font-tech, 'Courier New', monospace); /* Fallback font */
-  font-size: 1rem; /* Assuming --font-size-base is ~1rem */
+  border-radius: 0.25rem;
+  font-family: var(--font-tech, 'Courier New', monospace);
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Assuming --transition-base */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sigilBtn:hover {
-  background-color: var(--color-accent); /* #d97904 */
-  color: var(--color-text-primary); /* #f7f6f3 */
+  background-color: var(--color-accent);
   transform: translateY(-3px);
-  box-shadow: var(--glow-indigo); /* 0 0 12px #3a1aff */
+  box-shadow: var(--glow-indigo);
 }
 
-/* ==============================
-📱 Responsive Breakpoints (Enhanced)
-============================= */
-@media screen and (max-width: var(--breakpoint-mobile)) {
-  .topnav {
-    padding: 0.75rem 1rem;
-  }
-  .shadowfangText,
-  .labsText {
-    font-size: 0.875rem;
-    letter-spacing: 1.2px;
-  }
+/* 📱 Mobile Layout */
+@media (max-width: 1176px) {
   .menuToggle {
-    font-size: 0.875rem;
-    padding: 0.25rem;
+    display: block;
+    margin-left: auto;
   }
-  .navLinks li a {
-    font-size: 1rem;
-  }
-}
 
-@media screen and (min-width: var(--breakpoint-desktop-sm)) {
-  .topnav {
-    gap: 2rem;
-    padding: 1.25rem 2.5rem;
-  }
   .navLinks {
-    gap: 2rem;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--color-ui-shell);
+    padding: 1rem 2rem;
+    animation: slideIn 0.3s ease;
   }
-  .navLinks li a {
-    font-size: 1.125rem;
+
+  .navLinks.show {
+    display: flex;
   }
-  .sigilBtn {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
+
+  .navCommandDesktop {
+    display: none;
+  }
+
+  .navCommandMobile {
+    display: flex;
+    margin-top: 1rem;
   }
 }
 
-/* ==============================
-🎬 Animations
-============================= */
 @keyframes slideIn {
   from {
     opacity: 0;

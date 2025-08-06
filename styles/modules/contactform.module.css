@@ -1,230 +1,133 @@
-/* ===============================
-📐 Grid Foundation
-================================ */
-.row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
-  margin-bottom: var(--space-16);
-  max-width: var(--breakpoint-desktop-xl);
+/* ==============================
+🧩 Contact Form Styles – Umbra Core
+============================== */
+
+.contactSection {
+  background: var(--color-bg-elevated);
+  padding: 4rem 2rem;
+  color: var(--text-black-700);
+}
+
+.contactSection h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-black-900);
+}
+
+.formWrapper {
+  max-width: 720px;
   margin: 0 auto;
-}
-
-.forgeContainer {
-  position: relative;
-  z-index: var(--z-base);
-}
-
-/* ===============================
-📝 Form Card
-================================ */
-.contactForm {
-  background: rgba(11, 12, 16, 0.2); /* Semi-transparent Darktrace */
-  backdrop-filter: blur(8px);
-  padding: var(--space-6);
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(58, 26, 255, 0.3); /* Voidcore Indigo */
-  box-shadow: 0 0 10px var(--border-void);
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow var(--transition-base);
-}
-
-.contactForm::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(58, 26, 255, 0.2), transparent);
-  animation: hologramScan 3s infinite linear;
-}
-
-.contactForm:hover {
-  box-shadow: 0 0 15px var(--glow-indigo);
-}
-
-/* ===============================
-🧩 Form Elements
-================================ */
-.formItem {
-  margin-bottom: var(--space-5);
-  position: relative;
+  background: var(--color-surface);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-base);
+  border: 1px solid var(--color-border);
 }
 
 .formGroup {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.formControl {
-  width: 100%;
-  padding: 10px 0;
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  border: none;
-  border-bottom: 2px solid var(--color-text-secondary);
-  background: transparent;
-  color: var(--color-text-primary);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.formControl:focus {
-  border-bottom-color: var(--color-link-hover);
-  box-shadow: 0 2px 10px var(--glow-indigo);
-  outline: none;
-  animation: pulseGlow 1.5s infinite ease-in-out;
-}
-
-/* ===============================
-🎯 Action Button
-================================ */
-.btn {
-  font-family: var(--font-tech);
-  font-size: var(--font-size-md);
-  font-weight: 700;
-  padding: var(--space-3) var(--space-6);
-  background: transparent;
-  color: var(--color-text-primary);
-  border: 2px solid var(--color-text-accent);
-  border-radius: var(--radius-xs);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+.forgeContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
   position: relative;
-  overflow: hidden;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  z-index: 2;
 }
 
-.btn:hover {
-  border-color: var(--color-link-hover);
-  box-shadow: 0 0 12px var(--glow-indigo);
+.formGroup label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-black-700);
 }
 
-.btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(46, 92, 255, 0.3), transparent);
-  transition: left 0.6s ease;
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  background: var(--color-bg-base);
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-black-700);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn:hover::after {
-  left: 100%;
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--text-black-900);
+  box-shadow: 0 0 0 3px rgba(var(--color-r), var(--color-g), var(--color-b), 0.25);
 }
 
-/* ===============================
-📢 Messages
-================================ */
+
+.formGroup textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formGroup button[type='submit'] {
+  background: var(--text-black-900);
+  color: var(--color-bg-base);
+  font-family: var(--font-tech);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.formGroup button[type='submit']:hover {
+  background: var(--accent-color);
+  color: var(--text-black-700);
+  transform: translateY(-2px);
+}
+
+
 .successMessage,
 .errorMessage {
-  font-family: var(--font-body);
-  font-weight: 600;
-  margin-top: var(--space-5);
+  font-family: var(--font-tech);
+  font-size: 1rem;
   text-align: center;
-  font-size: var(--font-size-base);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  opacity: 0;
-  animation: fadeInMessage 0.5s ease-out forwards;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
 }
 
 .successMessage {
-  color: var(--color-accent);
+  color: #2ecc71;
+  background-color: rgba(46, 204, 113, 0.1);
 }
 
 .errorMessage {
-  color: var(--color-error);
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
 }
 
-/* ===============================
-🎬 Animations
-================================ */
-@keyframes hologramScan {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .formWrapper {
+    padding: 2rem 1rem;
+  }
 
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 2px 10px var(--glow-indigo); }
-  50% { box-shadow: 0 2px 15px var(--glow-indigo); }
-}
+  .formGroup input,
+.formGroup select,
+.formGroup textarea {
+    font-size: 0.95rem;
+  }
 
-@keyframes fadeInMessage {
-  0% { opacity: 0; transform: translateY(5px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* ===============================
-📱 Responsive Tweaks
-================================ */
-/* ===============================
-📱 Responsive Tweaks (Enhanced)
-================================ */
-@media screen and (max-width: var(--breakpoint-mobile)) {
-  .row {
-    gap: var(--space-4); /* Tighter gap for smaller screens */
-    padding: 0 var(--space-2);
-  }
-  .contactForm {
-    padding: var(--space-3); /* Further reduced padding */
-    border-radius: var(--radius-xs); /* Smaller radius for compact screens */
-  }
-  .formControl {
-    font-size: var(--font-size-xs); /* Smaller font for mobile */
-    padding: 6px 0; /* Reduced padding */
-  }
-  .btn {
-    font-size: var(--font-size-sm);
-    padding: var(--space-2) var(--space-4);
-    letter-spacing: 1px; /* Slightly tighter letter spacing */
-  }
-  .successMessage,
-  .errorMessage {
-    font-size: var(--font-size-xs); /* Smaller message text */
-  }
-}
-
-@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
-  .row {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider columns */
-    gap: var(--space-10);
-  }
-  .contactForm {
-    padding: var(--space-8); /* Increased padding for larger screens */
-  }
-  .formControl {
-    font-size: var(--font-size-md); /* Slightly larger input text */
-  }
-  .btn {
-    font-size: var(--font-size-lg); /* Larger button text */
-    padding: var(--space-4) var(--space-8);
-  }
-}
-
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
-  .row {
-    gap: var(--space-12); /* Wider gap for large screens */
-  }
-  .contactForm {
-    padding: var(--space-10); /* More spacious padding */
-  }
-}
-
-/* ===============================
-♿ Accessibility
-================================ */
-@media (prefers-reduced-motion: reduce) {
-  .contactForm,
-  .contactForm::before,
-  .formControl,
-  .btn,
-  .btn::after,
-  .successMessage,
-  .errorMessage {
-    transition: none;
-    animation: none;
+  .formGroup button[type='submit'] {
+    font-size: 0.95rem;
   }
 }

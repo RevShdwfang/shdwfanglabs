@@ -1,12 +1,12 @@
 /* ==============================
-   🌙 Mode-Based Styling
+🌙 Mode-Based Styling
 ============================== */
 :global(body.dark) .productTitle {
-  color: var(--text-white);
+  color: var(--color-text-heading);
 }
 
 :global(body.light) .productTitle {
-  color: var(--text-black-900);
+  color: var(--color-text-primary);
 }
 
 :global(body.dark) .productGrid {
@@ -14,16 +14,15 @@
 }
 
 :global(body.light) .productGrid {
-  background-color: var(--bg-white);
+  background-color: var(--color-text-heading);
 }
 
-
 /* ==============================
-   🧱 Core Grid Layout
+🧱 Grid Layout
 ============================== */
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   padding: 2rem;
   max-width: 1440px;
@@ -39,41 +38,42 @@
   z-index: 2;
 }
 
+/* ==============================
+↩️ Back Button
+============================== */
 .backbtn {
   display: inline-block;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1.25rem;
   margin-bottom: 1.5rem;
   background-color: transparent;
-  border: 2px solid var(--accent-color); /* Uses your --accent-color */
-  color: var(--accent-color);
-  font-family: 'Orbitron', sans-serif;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-family: var(--font-tech);
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
   border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .backbtn:hover {
-  background-color: var(--accent-color);
-  color: var(--color-bg-base); /* Text turns dark when background lights up */
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
   transform: translateX(-4px);
 }
 
-
 /* ==============================
-   🃏 Product Card Layout
+🃏 Product Card
 ============================== */
 .productCard {
   background-color: var(--color-bg-base);
-  border: 2px solid var(--color-bg-border);
+  border: 2px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
-  max-width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -82,24 +82,17 @@
 
 .productCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 16px var(--color-text-primary);
 }
-
-.productCard:has(.btn:hover) {
-  transform: translateY(-5px);
-  box-shadow: 0 0 16px var(--text-black-900);
-  border: none;
-}
-
 
 /* ==============================
-   🖼️ Image & Wrapper
+🖼️ Image
 ============================== */
 .imageWrapper {
   width: 100%;
   height: 280px;
   overflow: hidden;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  background: var(--color-bg-elevated);
 }
 
 .productImage {
@@ -107,66 +100,66 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  background-color: var(--color-bg-elevated);
-  margin-bottom: 10px;
 }
 
-
 /* ==============================
-   📄 Card Content
+📄 Card Content
 ============================== */
 .productDetails {
-  padding: 1.25rem;
+  padding: 1.5rem 1rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-grow: 1;
 }
 
 .productTitle {
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-black-900);
-  margin: 10px;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.25rem;
 }
 
 .productDescription {
   font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  flex-grow: 1;
+  line-height: 1.5;
 }
 
 .productPrice {
   font-size: 1rem;
-  font-weight: 500;
-  color: var(--accent-color);
-  margin-top: auto;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 0.5rem;
 }
 
-
 /* ==============================
-   🧷 Button Styles
+🧷 Button
 ============================== */
 .btn {
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 10px 25px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background: none;
-  color: var(--text-black-700);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.65rem 1.5rem;
+  margin-top: 1rem;
+  border: 2px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: 6px;
   font-variant: small-caps;
   letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  color: var(--text-black-900);
-  cursor: pointer;
+  background-color: var(--color-accent);
+  color: var(--color-bg-base);
+  transform: translateY(-2px);
 }
 
-
 /* ==============================
-   📱 Responsive Breakpoints
+📱 Responsive
 ============================== */
 
 /* Mobile (≤ 480px) */
@@ -190,7 +183,7 @@
   }
 
   .btn {
-    padding: 8px 20px;
+    padding: 0.5rem 1.2rem;
     font-size: 0.85rem;
   }
 }
@@ -200,28 +193,17 @@
   .productGrid {
     grid-template-columns: repeat(2, 1fr);
     padding: 1.5rem;
-    gap: 1.75rem;
   }
 
   .imageWrapper {
     height: 240px;
   }
-
-  .productTitle {
-    font-size: 1.05rem;
-  }
-
-  .btn {
-    padding: 9px 22px;
-  }
 }
 
-/* Small Desktop / Tablet Landscape (769px – 1024px) */
+/* Medium Tablet (769px – 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
   .productGrid {
     grid-template-columns: repeat(3, 1fr);
-    padding: 2rem;
-    gap: 2rem;
   }
 
   .imageWrapper {
@@ -232,9 +214,8 @@
 /* Large Desktop (1025px and up) */
 @media (min-width: 1025px) {
   .productGrid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     padding: 2rem 3rem;
-    gap: 2rem;
   }
 
   .imageWrapper {

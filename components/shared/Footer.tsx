@@ -1,7 +1,7 @@
 'use client';
 
 import styles from '@/styles/modules/Footer.module.css';
-
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
@@ -18,35 +18,39 @@ export default function Footer() {
         <div className={styles.row}>
           <div className={styles.footerItem}>
             <h3>Shadowfang Labs</h3>
-            <p>BORN OF SHADOWS. BUILT FOR LEGACY.</p>
-          </div>
-
-          <div className={styles.footerItem}>
-            <h3>Quick Links</h3>
             <ul>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/terms-of-service">User Agreement</a></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/portfolio">Portfolio</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
 
           <div className={styles.footerItem}>
-            <h3>Connect With Us</h3>
+            <h3>Community</h3>
+            <ul>
+              <li><Link href="https://kick.com/shdwfanglabs" target="_blank">Kick Stream</Link></li>
+              <li><Link href="/shop">Forge (Shop)</Link></li>
+              <li><Link href="/signin">Client Portal</Link></li>
+            </ul>
+          </div>
+
+          <div className={styles.footerItem}>
+            <h3>Connect</h3>
             <div className={styles.socialLinks}>
-              <a href="https://www.facebook.com/shdwfanglabs" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <a href="https://facebook.com/theShdwfang" target="_blank" aria-label="Facebook">
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="https://x.com/shdwfanglabs" target="_blank" rel="noreferrer" aria-label="Twitter">
+              <a href="https://x.com/theShdwfang" target="_blank" aria-label="X (Twitter)">
                 <FontAwesomeIcon icon={faXTwitter} />
               </a>
-              <a href="https://instagram.com/shdwfanglabs" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <a href="https://instagram.com/theShdwfang" target="_blank" aria-label="Instagram">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="https://linkedin.com/in/shdwfanglabs" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/theShdwfang" target="_blank" aria-label="LinkedIn">
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
-              <a href="https://bsky.app/profile/shdwfanglabs.bsky.social" target="_blank" rel="noreferrer" aria-label="Bluesky">
+              <a href="https://bsky.app/profile/theShdwfang" target="_blank" aria-label="Bluesky">
                 <FontAwesomeIcon icon={faBluesky} />
               </a>
             </div>
@@ -54,11 +58,9 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerBottom}>
-          <p>&copy; 2025 Shadowfang Labs. All Rights Reserved.</p>
+          &copy; {new Date().getFullYear()} Shadowfang Labs. All rights reserved.
         </div>
       </div>
     </footer>
   );
 }
-
-

@@ -1,35 +1,10 @@
-/* ====================================
-    VARIABLES (Imported from ThemeVariables.module.css)
-==================================== */
-/* Assume :root and body.light variables are imported */
-
 /* ================================
-🌙 Mode-Based Theming
-================================ */
-:global(body.dark) .productTitle {
-  color: var(--ghostlight);
-}
-
-:global(body.light) .productTitle {
-  color: var(--voidcore-indigo);
-}
-
-:global(body.dark) .productGrid {
-  background-color: var(--color-bg-base);
-}
-
-:global(body.light) .productGrid {
-  background-color: var(--color-bg-elevated);
-}
-
-/* ================================
-📦 Layout Wrappers
+📦 Layout Containers
 ================================ */
 .productRowWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: auto;
   padding: 2rem 1rem;
 }
 
@@ -37,19 +12,19 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
   max-width: 1200px;
   width: 100%;
+  justify-content: space-between;
 }
 
 /* ================================
-🖼️ Product Image Display
+🖼️ Image Section
 ================================ */
 .productImageColumn {
   flex: 1 1 45%;
   max-width: 600px;
-  text-align: center;
   padding: 1rem;
+  text-align: center;
 }
 
 .productMainImage {
@@ -57,7 +32,7 @@
   max-height: 500px;
   object-fit: cover;
   border-radius: 0.5rem;
-  background-color: var(--obsidian-steel);
+  background-color: var(--color-surface);
 }
 
 .thumbnailScroll {
@@ -74,47 +49,47 @@
   object-fit: cover;
   cursor: pointer;
   opacity: 0.6;
-  border: 1px solid var(--border-glow);
+  border: 1px solid var(--color-border);
   border-radius: 0.25rem;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .thumbnailImg:hover,
 .thumbnailImg.active {
   opacity: 1;
-  border-color: var(--void-amber);
+  border-color: var(--color-accent);
 }
 
 /* ================================
-📋 Product Info Section
+📋 Product Info
 ================================ */
 .productInfoColumn {
   flex: 1 1 30%;
-  color: var(--ghostlight);
+  color: var(--color-text-primary);
 }
 
 .productTitle {
   font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--void-amber);
+  color: var(--color-text-heading);
   margin-bottom: 0.5rem;
 }
 
 .productPriceLarge {
   font-family: "Titillium Web", sans-serif;
   font-size: 1.25rem;
-  color: var(--ghostlight);
   font-weight: 600;
   margin-bottom: 1rem;
+  color: var(--color-text-primary);
 }
 
 /* ================================
-🎚️ Variant Selector
+🎚️ Variants + Size Guide
 ================================ */
 .variantSection {
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--rift-gray);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .variantLabel {
@@ -124,23 +99,23 @@
 }
 
 .sizeGuide {
-  font-family: "Titillium Web", sans-serif;
   font-size: 0.875rem;
+  color: var(--color-link);
   margin-left: 1rem;
   text-decoration: underline;
-  color: var(--arcane-azure);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .sizeGuide:hover {
-  color: var(--void-amber);
+  color: var(--color-link-hover);
 }
 
 .variantOptions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .variantValue {
@@ -149,15 +124,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--rift-gray);
-  background-color: transparent;
-  margin-top: 20px;
-  cursor: pointer;
   font-family: "Titillium Web", sans-serif;
   font-size: 0.95rem;
-  text-align: center;
-  box-sizing: border-box;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .variantValue input[type="radio"] {
@@ -167,65 +139,54 @@
 .radioLabel {
   cursor: pointer;
   font-weight: 600;
-  color: var(--ghostlight);
-}
-
-.variantCheck {
-  margin-left: 8px;
-  color: var(--void-amber);
+  color: var(--color-text-primary);
 }
 
 .radioInput:checked + .radioLabel {
-  border-color: var(--void-amber);
-  color: var(--voidcore-indigo);
+  border-color: var(--color-accent);
+  color: var(--color-text-accent);
 }
 
 /* ================================
-🧩 Quantity / Variant Controls
+➕ Quantity & Actions
 ================================ */
 .drawerButtons {
   display: flex;
   gap: 1rem;
-  align-items: stretch;
   padding: 2rem 0;
 }
 
 .quantityWrapper {
-  flex: 0 0 100px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 60px;
-  background-color: var(--color-bg-elevated);
-  border: 1px solid var(--rift-gray);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
 }
 
 /* ================================
-⬇️ Dropdown Select Customization
+🔽 Dropdown
 ================================ */
 .selectWrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
   display: flex;
   align-items: center;
-  border: 1px solid var(--rift-gray);
-  background-color: transparent;
-  border-radius: 4px;
 }
 
 .customSelect {
-  width: 100%;
-  height: 100%;
+  flex: 1;
   padding: 0 2rem 0 1rem;
-  appearance: none;
   background: transparent;
   border: none;
   font-family: "Titillium Web", sans-serif;
-  color: var(--void-amber);
+  color: var(--color-accent);
+  appearance: none;
   text-align: center;
-  text-align-last: center;
   z-index: 1;
 }
 
@@ -235,36 +196,33 @@
   right: 12px;
   transform: translateY(-50%);
   pointer-events: none;
-  font-size: 0.875rem;
-  color: var(--void-amber);
+  color: var(--color-accent);
   z-index: 2;
 }
 
 /* ================================
-🧵 Button Styling
+🧵 CTA Buttons
 ================================ */
-
 .button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  padding: 0.875rem 1.5rem;
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
   font-size: 1rem;
-  padding: 0.875rem 1.5rem;
+  background: var(--color-text-accent);
+  color: var(--color-text-primary);
   border: 2px solid transparent;
   border-radius: 0.5rem;
-  cursor: pointer;
-  text-align: center;
   text-transform: uppercase;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  background-color: var(--voidcore-indigo);
-  color: var(--ghostlight);
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .button:hover {
-  background-color: var(--arcane-azure);
-  border-color: var(--void-amber);
+  background-color: var(--color-link-hover);
+  border-color: var(--color-accent);
 }
 
 .buttonExpand {
@@ -274,16 +232,11 @@
   font-weight: 700;
 }
 
-.buttonExpand:hover {
-  background-color: var(--arcane-azure);
-  border-color: var(--void-amber);
-}
-
 /* ================================
-📂 Product Details Section
+📂 Details Section
 ================================ */
 .productDetailsSection {
-  border-top: 1px solid var(--rift-gray);
+  border-top: 1px solid var(--color-border);
   padding-top: 2rem;
 }
 
@@ -294,25 +247,20 @@
 .productDetailsSection summary {
   font-family: "Orbitron", sans-serif;
   font-weight: 600;
+  color: var(--color-text-primary);
   cursor: pointer;
   margin-bottom: 0.25rem;
-  color: var(--ghostlight);
-}
-
-.productDetailsSection summary::-webkit-details-marker {
-  display: none;
 }
 
 .productDetailsSection summary::after {
   content: "▾";
-  font-size: 1rem;
+  float: right;
   opacity: 0.7;
   transition: transform 0.2s ease;
 }
 
-.productDetailsSection summary:focus,
 .productDetailsSection summary:hover {
-  color: var(--void-amber);
+  color: var(--color-accent);
 }
 
 .productDetailsSection summary[open]::after {
@@ -321,39 +269,23 @@
 
 .productDetailsSection p {
   font-family: "Titillium Web", sans-serif;
-  margin-top: 0.5rem;
   font-size: 0.95rem;
-  color: var(--ghostlight);
+  margin-top: 0.5rem;
+  color: var(--color-text-primary);
 }
 
 /* ================================
-📱 Responsive Breakpoints
+📱 Responsive Styles
 ================================ */
 @media (max-width: 480px) {
-  .productRowWrapper {
-    padding: 1rem;
-  }
-
   .productRow {
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
-  }
-
-  .productImageColumn,
-  .productInfoColumn {
-    flex: 1 1 100%;
-    max-width: 100%;
-    text-align: center;
   }
 
   .drawerButtons {
     flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .variantOptions {
-    justify-content: center;
+    gap: 1rem;
   }
 
   .productTitle {
@@ -364,13 +296,6 @@
 @media (min-width: 481px) and (max-width: 768px) {
   .productRow {
     flex-direction: column;
-    gap: 2rem;
-  }
-
-  .productImageColumn,
-  .productInfoColumn {
-    flex: 1 1 100%;
-    max-width: 100%;
   }
 
   .drawerButtons {
@@ -384,28 +309,12 @@
 
 @media (min-width: 769px) and (max-width: 1024px) {
   .productRow {
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .productImageColumn,
   .productInfoColumn {
-    flex: 1 1 48%;
     max-width: 48%;
-  }
-
-  .drawerButtons {
-    flex-direction: row;
-  }
-}
-
-@media (min-width: 1025px) {
-  .productRow {
-    gap: 2rem;
-  }
-
-  .drawerButtons {
-    flex-direction: row;
   }
 }
