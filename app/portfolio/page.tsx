@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import styles from "@/styles/@/styles/modules/portfolio.module.css";
+import styles from "@/styles/modules/portfolio.module.css";
 
 export default function EchoGallery() {
   const [selectedArtifact, setSelectedArtifact] = useState<string | null>(null);

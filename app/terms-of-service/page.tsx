@@ -1,5 +1,5 @@
 
-import styles from "@/styles/@/styles/modules/terms.module.css";
+import styles from "@/styles/modules/terms.module.css";
 import "@/app/globals.css";
 import PageHeader from '@/components/shared/PageHeader';
 
