@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "@/styles/modules/about.module.css";
+import styles from "@/styles/@/styles/modules/about.module.css";
 
 const blocks = [
   {
