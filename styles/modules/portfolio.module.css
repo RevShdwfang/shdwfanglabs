@@ -1,89 +1,45 @@
 /* ==============================
-📐 Grid Layout
-============================= */
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-auto-rows: clamp(180px, 18vw, 220px);
-  gap: clamp(var(--space-2), 1.2vw, var(--space-3));
-  padding: clamp(var(--space-3), 1.5vw, var(--space-4));
-  justify-content: center;
-  background-color: var(--color-bg-base);
-}
+🎨 Portfolio Gallery Styles – Umbra Enhanced
+============================== */
 
 .forgeContainer {
-  max-width: var(--breakpoint-desktop-xl);
+  max-width: 1280px;
   margin: 0 auto;
-  position: relative;
-  z-index: var(--z-base);
+  padding: 4rem 2rem;
 }
 
-/* ==============================
-🧩 Artifact Modules
-============================= */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 1.5rem;
+  background: var(--color-bg-base);
+}
+
 .gridItem {
   position: relative;
-  width: 100%;
-  height: 100%;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  border-radius: var(--radius-md);
-  border: var(--border-base);
-  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  background: var(--color-surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .gridItem:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  transform: scale(1.015);
+  box-shadow: 0 0 12px var(--color-accent);
 }
 
 .gridImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--transition-slow);
-  opacity: 0;
-  transform: scale(0.95);
-  animation: fadeInScale 0.5s ease-out forwards;
+  display: block;
+  border-radius: 12px;
 }
 
-.gridItem:hover .gridImage {
-  transform: scale(1.05);
-}
-
-.gridOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--border-void);
-  opacity: 0;
-  transition: opacity var(--transition-slow);
-  border-radius: var(--radius-md);
-  z-index: var(--z-base);
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gridItem:hover .gridOverlay {
-  opacity: 0.9;
-}
-
-.gridOverlay span {
-  font-family: var(--font-tech);
-  font-size: clamp(var(--font-size-sm), 1.8vw, 0.95rem);
-  color: var(--color-text-primary);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-/* ==============================
-🧩 Layout Variants
-============================= */
+/* 🔹 Grid Modifiers */
 .wide {
   grid-column: span 2;
 }
@@ -92,93 +48,104 @@
   grid-row: span 2;
 }
 
-/* ==============================
-🎬 Lightbox Interface
-============================= */
+/* 🔸 Grid Overlay */
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.85));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.gridItem:hover .gridOverlay {
+  opacity: 1;
+}
+
+.gridOverlay span {
+  color: var(--color-text-accent);
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 0 0 6px var(--color-bg-base);
+  text-transform: uppercase;
+}
+
+/* 🔍 Lightbox View */
 .lightbox {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(11, 12, 16, 0.95);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: var(--z-modal);
-  padding: clamp(var(--space-3), 2vw, var(--space-6));
-  opacity: 0;
-  animation: fadeIn 0.4s ease-out forwards;
+  z-index: 999;
+  padding: 2rem;
 }
 
 .lightboxImage {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transform: scale(0.85);
-  opacity: 0;
-  animation: scaleUp 0.4s ease-out 0.15s forwards;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 0 24px var(--color-accent);
 }
 
+/* ❌ Close Button */
 .close {
   position: absolute;
-  top: clamp(var(--space-3), 1.5vw, var(--space-4));
-  right: clamp(var(--space-4), 2vw, var(--space-6));
-  font-size: clamp(var(--font-size-xl), 3.5vw, var(--font-size-2xl));
-  color: var(--color-text-primary);
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-accent);
   cursor: pointer;
-  transition: color var(--transition-base);
+  transition: color 0.2s ease;
+  z-index: 1000;
 }
 
 .close:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-hover);
 }
 
 /* ==============================
-🎬 Animations
-============================= */
-@keyframes fadeInScale {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
+📱 Mobile Optimization
+============================== */
+@media screen and (max-width: 768px) {
+  .forgeContainer {
+    padding: 2rem 1rem;
+  }
 
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes scaleUp {
-  0% { opacity: 0; transform: scale(0.85); }
-  100% { opacity: 1; transform: scale(1); }
-}
-
-/* ==============================
-📱 Responsive Breakpoints (Enhanced)
-============================= */
-@media screen and (max-width: var(--breakpoint-mobile)) {
   .gridContainer {
     grid-template-columns: 1fr;
-    grid-auto-rows: clamp(140px, 14vw, 160px);
-    gap: var(--space-2);
-    padding: var(--space-2);
+    grid-auto-rows: 180px;
+    gap: 1rem;
   }
-  .gridOverlay span {
-    font-size: clamp(var(--font-size-xs), 1.5vw, 0.8rem);
-  }
-  .close {
-    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
-  }
-}
 
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
-  .gridContainer {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: clamp(220px, 22vw, 240px);
-    gap: var(--space-4);
+  .wide,
+  .tall {
+    grid-column: span 1;
+    grid-row: span 1;
   }
+
   .gridOverlay span {
-    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-md));
+    font-size: 0.85rem;
+  }
+
+  .lightboxImage {
+    max-height: 70vh;
+  }
+
+  .close {
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 1.5rem;
   }
 }

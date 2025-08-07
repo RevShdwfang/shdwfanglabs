@@ -1,3 +1,6 @@
+/* ===========================
+📦 Core Layout
+=========================== */
 .faq {
   padding: 4rem 2rem;
   margin-bottom: 4rem;
@@ -11,6 +14,9 @@
   align-items: start;
 }
 
+/* ===========================
+📋 FAQ Intro
+=========================== */
 .faqIntro h2 {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
@@ -39,13 +45,14 @@
   display: block;
 }
 
-/* Right Side */
+/* ===========================
+📚 FAQ Content
+=========================== */
 .faqContent {
   display: flex;
   flex-direction: column;
 }
 
-/* FAQ Item Styles */
 .faqItem {
   margin-bottom: 1.25rem;
   background: var(--color-ui-shell);
@@ -87,55 +94,84 @@
   line-height: 1.6;
 }
 
-/* ==============================
-📱 Responsive Adjustments
-============================= */
-@media screen and (max-width: var(--breakpoint-mobile)) {
+/* ===========================
+📱 Mobile (320px – 480px)
+=========================== */
+@media screen and (max-width: 480px) {
   .faq {
     padding: 2rem 1rem;
   }
+
   .faqLayout {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
   .faqIntro p {
     font-size: 1.5rem;
   }
+
   .faqItem {
     margin-bottom: 1rem;
   }
+
   .summary {
     font-size: 0.875rem;
     padding: 1rem;
   }
+
   .faqAnswer {
     font-size: 0.85rem;
     padding: 1rem;
   }
 }
 
-@media screen and (min-width: var(--breakpoint-tablet)) and (max-width: var(--breakpoint-desktop-sm)) {
+/* ===========================
+📱 Tablet (481px – 768px)
+=========================== */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .faqLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .faqIntro p {
+    font-size: 2rem;
+  }
+}
+
+/* ===========================
+🖥 Small Desktop (769px – 1024px)
+=========================== */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .faqLayout {
     grid-template-columns: 1fr 1.5fr;
   }
+
   .faqIntro p {
     font-size: 2.5rem;
   }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+/* ===========================
+🖥 Large Desktop (1025px+)
+=========================== */
+@media screen and (min-width: 1025px) {
   .faq {
     padding: 5rem 3rem;
   }
+
   .faqLayout {
     gap: 3rem;
   }
+
   .faqIntro p {
     font-size: 3.5rem;
   }
+
   .summary {
     font-size: 1.125rem;
   }
+
   .faqAnswer {
     font-size: 1rem;
   }

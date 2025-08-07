@@ -226,15 +226,15 @@ useEffect(() => {
             {/* Submit */}
             <div className={styles.row}>
               <div className={`${styles.formItem} ${styles.col12} ${styles.padd15}`}>
-                <button
-                  type="submit"
-                  className={styles.btn}
-                  disabled={status === "transmitting"}
-                  aria-label={status === "transmitting" ? "Transmitting message" : "Transmit message"}
-                >
-                  {status === "transmitting" ? "Transmitting..." : "Transmit Mission"}
-                </button>
-              </div>
+               <button
+  type="submit"
+  className={`${styles.btn}`}
+  disabled={status === "transmitting"}
+  aria-label={status === "transmitting" ? "Transmitting message" : "Transmit message"}
+>
+  {status === "transmitting" ? "Transmitting..." : "Transmit Mission"}
+</button>
+            </div>
             </div>
           </form>
         </div>

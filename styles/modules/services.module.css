@@ -46,7 +46,7 @@
   flex-direction: column;
   height: 100%;
   background: linear-gradient(to top, var(--color-surface) 0%, rgba(0, 0, 0, 0) 80%);
-  border: var(--border-base);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-10) var(--space-8);
   text-align: center;
@@ -94,7 +94,7 @@
   position: absolute;
   width: 100px;
   height: 100px;
-  border: 1px solid var(--border-glow);
+  border: 1px solid var(--color-border);
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
@@ -179,7 +179,7 @@
   color: var(--color-text-primary);
   padding: var(--space-3) var(--space-6);
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border-glow);
+  border: 1px solid var(--color-border);
   backdrop-filter: blur(8px);
   text-transform: none;
   letter-spacing: 2px;
@@ -194,7 +194,7 @@
   background: var(--color-link-hover);
   color: var(--color-text-primary);
   transform: translateY(-2px);
-  box-shadow: var(--glow-indigo);
+  box-shadow: 0 0 10px var(--color-text-accent);
 }
 
 .customPackage {
@@ -237,63 +237,80 @@
 /* ==============================
 📱 Responsive Tweaks (Enhanced)
 ============================== */
-@media screen and (max-width: var(--breakpoint-mobile)) {
+
+/* 🔹 Mobile: 320px – 480px */
+@media screen and (max-width: 480px) {
   .row {
-    gap: var(--space-6);
-    padding: 0 var(--space-2);
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
   }
+
   .missionApproach {
-    padding: var(--space-6) var(--space-4);
+    padding: 1.5rem 1rem;
   }
+
   .serviceItem {
-    padding: var(--space-4);
+    padding: 1rem;
   }
+
   .icon {
     width: 48px;
     height: 48px;
-    font-size: var(--font-size-lg);
+    font-size: 1.25rem;
   }
+
   .icon::before {
     width: 80px;
     height: 80px;
   }
+
   .icon::after {
     width: 100px;
     height: 100px;
   }
+
   .serviceItem h4 {
-    font-size: var(--font-size-base);
+    font-size: 1rem;
   }
+
   .serviceItem p {
-    font-size: var(--font-size-xs);
+    font-size: 0.875rem;
   }
+
   .serviceItem .btn {
-    font-size: var(--font-size-xs);
-    padding: var(--space-2) var(--space-4);
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
   }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
+/* 🔸 Small to Medium Desktop: 769px – 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .row {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Wider columns */
-    gap: var(--space-10);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
   }
+
   .missionApproach {
-    padding: var(--space-12) var(--space-10);
+    padding: 3rem 2.5rem;
   }
+
   .serviceItem {
-    padding: var(--space-12);
+    padding: 3rem;
   }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
+/* 🔸 Large Desktop: 1025px+ */
+@media screen and (min-width: 1025px) {
   .forgeContainer {
-    max-width: var(--breakpoint-desktop-xl); /* Full width for large screens */
+    max-width: 1440px; /* You can adjust this value if your XL breakpoint differs */
   }
+
   .row {
-    gap: var(--space-12);
+    gap: 3rem;
   }
+
   .missionApproach {
-    padding: var(--space-14) var(--space-12);
+    padding: 3.5rem 3rem;
   }
 }

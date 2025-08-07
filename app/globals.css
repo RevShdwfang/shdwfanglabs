@@ -54,7 +54,7 @@
   /* ======================================
      ✒️ Typography
   ====================================== */
-  --font-headline: "vintage-deco", serif;
+  --font-headline: "vintage-deco", sans-serif;
   --font-tech: "Orbitron", sans-serif;
   --font-body: "titillium-web", sans-serif;
   --font-code: "Fira Code", monospace;

@@ -115,6 +115,33 @@
   background-color: rgba(231, 76, 60, 0.1);
 }
 
+.btn {
+  background: var(--text-black-900);
+  color: var(--color-text-primary);
+  font-family: var(--font-tech, 'Courier New', monospace);
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  border: var(--border-base);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+  color: var(--text-black-700);
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
 /* Responsive */
 @media (max-width: 600px) {
   .formWrapper {

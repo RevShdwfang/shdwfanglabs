@@ -22,13 +22,18 @@ export default function TopNav() {
       </div>
 
       <button
-        className={styles.menuToggle}
-        onClick={toggleMenu}
-        aria-expanded={menuOpen}
-        aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-      >
-        {menuOpen ? 'Close' : 'Menu'}
-      </button>
+  className={styles.menuToggle}
+  onClick={toggleMenu}
+  aria-expanded={menuOpen}
+  aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+>
+  <span className={styles.burgerIcon}>
+    <span className={`${styles.bar} ${menuOpen ? styles.barTopOpen : ''}`}></span>
+    <span className={`${styles.bar} ${menuOpen ? styles.barMiddleOpen : ''}`}></span>
+    <span className={`${styles.bar} ${menuOpen ? styles.barBottomOpen : ''}`}></span>
+  </span>
+</button>
+
 
       <ul className={`${styles.navLinks} ${menuOpen ? styles.show : ''}`}>
         <li className={pathname === '/' ? styles.active : ''}>
