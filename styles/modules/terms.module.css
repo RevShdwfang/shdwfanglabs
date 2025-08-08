@@ -1,107 +1,150 @@
-/* ===============================
-📐 Grid Foundation
-================================ */
+/* =====================================
+🌒 Container & Layout
+===================================== */
+.forgeContainer {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  position: relative;
+  z-index: 0;
+}
+
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-8);
-  margin-bottom: var(--space-16);
-  max-width: var(--breakpoint-desktop-xl);
-  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr);
+  place-content: start center;
+  justify-items: center;
+  gap: clamp(var(--space-8), 4vw, var(--space-12));
+  padding-block: clamp(var(--space-10), 8vh, var(--space-16));
 }
 
-.forgeContainer {
-  position: relative;
-  z-index: var(--z-base);
-}
-
-/* ===============================
-📝 Text Card
-================================ */
+/* =====================================
+📄 Document Panel
+===================================== */
 .padd15 {
-  background: rgba(255, 255, 255, 0.05);
-  padding: var(--space-8);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--color-accent);
-  box-shadow: var(--shadow-base);
-  transition: var(--transition-base);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+    var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  padding: clamp(var(--space-6), 4vw, var(--space-10));
+  position: relative;
+  isolation: isolate;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  backdrop-filter: saturate(1.05) blur(6px);
 }
 
-.padd15:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+/* Top accent bar */
+.padd15::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-text-accent));
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  pointer-events: none;
 }
 
-.padd15 p {
-  font-family: var(--font-body);
-  font-size: var(--font-size-md);
-  color: var(--color-text-primary);
-  line-height: 1.75;
+/* Hover lift on desktop */
+@media (hover: hover) and (pointer: fine) {
+  .padd15:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+}
+
+/* =====================================
+🔤 Typography
+===================================== */
+.padd15 header[aria-label="Terms header"] {
   margin-bottom: var(--space-6);
 }
 
-.padd15 h3 {
-  font-family: var(--font-tech);
-  font-size: var(--font-size-xl);
+.padd15 header p:first-of-type {
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-3);
+}
+
+.padd15 p,
+.padd15 li {
+  font-family: var(--font-body);
   color: var(--color-text-primary);
-  margin-bottom: var(--space-3);
+  font-size: clamp(.95rem, 1.7vw, var(--font-size-md));
+  line-height: 1.75;
+}
+
+.padd15 p { margin: 0 0 var(--space-5); }
+
+/* Section headings */
+.padd15 h3 {
+  font-family: var(--font-headline, var(--font-tech));
+  color: var(--color-text-heading);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  letter-spacing: .02em;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: var(--space-8) 0 var(--space-3);
+  position: relative;
+  padding-bottom: var(--space-2);
 }
 
-.padd15 h3::before {
-  content: "§";
-  color: var(--color-accent);
-  margin-right: var(--space-2);
-  opacity: 0.9;
-  transform: rotate(-5deg);
+.padd15 h3::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: clamp(56px, 9vw, 120px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
 }
 
+/* Lists */
+.padd15 ul,
+.padd15 ol {
+  margin: 0 0 var(--space-6);
+  padding-left: 1.2rem;
+}
+
+.padd15 li { margin-bottom: var(--space-2); }
+
+/* Links */
 .padd15 a {
-  color: var(--color-link-hover);
+  color: var(--color-link);
   text-decoration: underline;
-  transition: var(--transition-base);
+  text-underline-offset: 2px;
+  transition: color var(--transition-base), text-underline-offset var(--transition-base);
 }
 
-.padd15 a:hover {
-  color: var(--color-accent);
+.padd15 a:hover,
+.padd15 a:focus-visible {
+  color: var(--color-link-hover);
+  text-underline-offset: 3px;
+  outline: none;
 }
 
-/* ===============================
-📱 Responsive Tweaks (Enhanced)
-================================ */
-@media screen and (max-width: var(--breakpoint-mobile)) {
-  .row {
-    gap: var(--space-4);
-    padding: 0 var(--space-2);
-  }
-  .padd15 {
-    padding: var(--space-4);
-    border-left-width: 2px; /* Thinner border */
-  }
-  .padd15 p {
-    font-size: var(--font-size-sm);
-  }
-  .padd15 h3 {
-    font-size: var(--font-size-base);
-  }
+/* =====================================
+🎯 Anchors & Focus
+- Your h3s already have ids; this safely scopes :target for CSS Modules
+===================================== */
+.padd15 h3:target {
+  text-shadow: 0 0 18px rgba(58,26,255,0.35);
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
-  .row {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-10);
-  }
-  .padd15 {
-    padding: var(--space-10);
-  }
+.padd15 :is(h2,h3,p,li)[id] { scroll-margin-top: 7rem; }
+
+/* =====================================
+📱 Responsive Tweaks
+===================================== */
+@media (max-width: 640px) {
+  .padd15 { padding: var(--space-6); }
+  .padd15 h3 { margin-top: var(--space-6); }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
-  .row {
-    gap: var(--space-12);
-  }
-  .padd15 {
-    padding: var(--space-12);
-  }
+@media (min-width: 1280px) {
+  .padd15 { width: min(100%, 78ch); }
+}
+
+/* =====================================
+🧘 Motion Preferences
+===================================== */
+@media (prefers-reduced-motion: reduce) {
+  .padd15 { transition: none; }
+  .padd15:hover { transform: none; }
 }

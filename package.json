@@ -7,6 +7,10 @@
     "start": "next start",
     "postbuild": "next-sitemap"
   },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] }
+  },
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

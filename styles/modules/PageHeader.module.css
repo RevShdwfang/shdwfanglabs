@@ -2,7 +2,7 @@
 🔥 Forge Header
 ============================= */
 .forgeHeader {
-  text-align: left;
+  text-align: center; /* Centering the header content */
   padding: var(--space-8) var(--space-4);
   margin-bottom: var(--space-8);
   position: relative;
@@ -10,7 +10,7 @@
 }
 
 .forgeTitle {
-  font-size: clamp(1.8rem, 4.5vw, var(--font-size-3xl));
+  font-size: clamp(1.8rem, 6vw, var(--font-size-3xl));
   color: var(--color-text-heading);
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -18,44 +18,56 @@
 }
 
 .forgeSubtitle {
-  font-size: clamp(var(--font-size-md), 3vw, var(--font-size-lg));
+  font-size: clamp(var(--font-size-md), 4vw, var(--font-size-lg));
   color: var(--color-text-secondary);
   letter-spacing: 0.8px;
   line-height: 1.5;
   opacity: 0.9;
+  margin-top: var(--space-2); /* Add some space between the title and subtitle */
 }
+
 /* ==============================
-📱 Responsive Adjustments
+📱 Mobile Adjustments
 ============================= */
 @media screen and (max-width: var(--breakpoint-mobile)) {
   .forgeHeader {
-    padding: var(--space-6) var(--space-2);
-    margin-bottom: var(--space-6);
+    padding: var(--space-4) var(--space-2);
+    margin-bottom: var(--space-4);
   }
+  
   .forgeTitle {
-    font-size: clamp(1.5rem, 4vw, var(--font-size-2xl));
+    font-size: clamp(1.5rem, 5vw, var(--font-size-2xl));
   }
+  
   .forgeSubtitle {
-    font-size: clamp(var(--font-size-sm), 2.5vw, var(--font-size-base));
+    font-size: clamp(var(--font-size-sm), 4vw, var(--font-size-base));
   }
 }
 
+/* ==============================
+📐 Tablet and Small Desktop Adjustments
+============================= */
 @media screen and (min-width: var(--breakpoint-tablet)) and (max-width: var(--breakpoint-desktop-sm)) {
   .forgeHeader {
-    padding: var(--space-10) var(--space-6);
+    padding: var(--space-8) var(--space-4);
   }
   .forgeTitle {
-    font-size: clamp(2rem, 4.5vw, var(--font-size-3xl));
+    font-size: clamp(1.8rem, 5vw, var(--font-size-3xl));
   }
 }
 
+/* ==============================
+🖥️ Desktop and Large Desktop Adjustments
+============================= */
 @media screen and (min-width: var(--breakpoint-desktop-lg)) {
   .forgeHeader {
     padding: var(--space-12) var(--space-8);
   }
+
   .forgeTitle {
     font-size: clamp(2.5rem, 5vw, var(--font-size-4xl));
   }
+
   .forgeSubtitle {
     font-size: clamp(var(--font-size-lg), 3vw, var(--font-size-xl));
   }

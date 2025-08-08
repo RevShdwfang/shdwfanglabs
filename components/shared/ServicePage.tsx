@@ -30,6 +30,7 @@ const allServices = [
   { title: "Web Design", slug: "web-design" },
   { title: "Web Development", slug: "web-development" },
   { title: "Brand Identity", slug: "brand-identity" },
+  { title: "Custom Package", slug: "custom-package", path: "/custom-package" },
 ];
 
 export default function ServicePage({

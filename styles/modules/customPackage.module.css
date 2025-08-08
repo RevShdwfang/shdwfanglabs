@@ -1,106 +1,299 @@
+/* ==================================
+🧱 Builder Wrapper (like forgeContainer but as a framed panel)
+================================== */
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
+  --cat-accent: var(--color-link-hover); /* default accent for cards */
   max-width: 1280px;
-  margin: 0 auto;
-  background: var(--color-bg-elevated);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-base);
+  margin-inline: auto;
+  padding: 2rem 1rem;
 }
 
+/* ==================================
+📐 Container
+================================== */
+.forgeContainer {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  position: relative;
+  z-index: 0;
+}
+
+/* ==================================
+📦 Categories Grid (matches .packages)
+================================== */
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
   gap: 2rem;
+  align-items: stretch;
+  margin-top: 2rem;
 }
 
+/* ==================================
+🃏 Category Card — glossy, like .packageCard
+================================== */
 .category {
-  background: var(--color-surface);
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease;
+  /* allow per-card override: style={{ '--cat-accent': '#2ECC71' }} */
+  --plan-accent: var(--cat-accent);
+  position: relative;
+  isolation: isolate; /* keeps pseudo z-index sane */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--color-border);
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.08)),
+    var(--color-bg-elevated);
+  padding: 1.6rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  backdrop-filter: saturate(110%);
 }
-
 .category:hover {
   transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.45);
 }
 
+/* dotted texture + subtle top glow (behind content) */
+.category::after {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(120% 80% at 50% -10%,
+      color-mix(in srgb, var(--plan-accent) 16%, transparent) 0%,
+      color-mix(in srgb, var(--plan-accent) 4%, transparent) 45%,
+      transparent 70%) no-repeat,
+    radial-gradient(#ffffff 0.6px, transparent 0.6px) 0 0/6px 6px;
+  opacity: .06;
+  pointer-events: none;
+}
+
+/* subtle gradient ring on hover (like featured ring style) */
+.category:hover::before {
+  content: "";
+  position: absolute; inset: 0;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--plan-accent) 55%, transparent),
+    color-mix(in srgb, var(--plan-accent) 15%, transparent) 60%,
+    transparent 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ==================================
+🗂️ Card Head & List
+================================== */
 .category h3 {
   font-family: var(--font-headline);
-  color: var(--text-black-900);
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
+  color: var(--color-text-heading);
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  position: relative;
+  z-index: 1;
 }
-
 .category ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 0; margin: 0;
+  position: relative;
+  z-index: 1;
+  display: grid; gap: .25rem;
 }
 
+/* ==================================
+☑️ Checkbox Rows (polished, accessible)
+================================== */
 .checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  align-items: start;
+  gap: .75rem;
+  padding: .6rem .5rem;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 0.95rem;
-  color: var(--text-black-700);
+  font-size: .95rem;
+  color: var(--color-text-secondary);
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.checkbox:hover {
+  background: rgba(255,255,255,.03);
 }
 
 .checkbox input[type="checkbox"] {
-  margin-top: 0.25rem;
-  accent-color: var(--text-black-900);
+  appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  display: grid; place-items: center;
+  margin-top: .1rem;
+  outline: none;
+  transition: background .2s, border-color .2s, box-shadow .2s, transform .1s;
+}
+.checkbox input[type="checkbox"]:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--plan-accent) 40%, transparent);
+  border-color: color-mix(in srgb, var(--plan-accent) 60%, var(--color-border));
+}
+.checkbox input[type="checkbox"]::after {
+  content: "";
+  width: 10px; height: 10px; border-radius: 2px;
+  background: transparent;
+  transition: background .2s ease;
+}
+.checkbox input[type="checkbox"]:checked {
+  background: color-mix(in srgb, var(--plan-accent) 35%, transparent);
+  border-color: color-mix(in srgb, var(--plan-accent) 60%, var(--color-border));
+}
+.checkbox input[type="checkbox"]:checked::after {
+  background: var(--color-text-primary);
+}
+/* Row accent when checked */
+.checkbox:has(input[type="checkbox"]:checked) {
+  background: rgba(255,255,255,.04);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--plan-accent) 30%, var(--color-border));
 }
 
+/* ==================================
+📌 Summary (sticky) — matches CTA area vibe
+================================== */
 .summary {
   position: sticky;
   bottom: 0;
-  background: var(--color-bg-elevated);
+  background:
+    linear-gradient(to top, rgba(0,0,0,.18), rgba(0,0,0,.04)),
+    var(--color-bg-elevated);
   padding: 1.25rem 1.5rem;
-  border-top: var(--border-base);
+  border-top: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 -12px 24px rgba(0,0,0,.25);
   z-index: 10;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  margin-top: 2rem;
 }
-
 .summary p {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-black-900);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin: 0;
 }
 
+/* ==================================
+🚀 Submit Button (matches .packageButton)
+================================== */
 .submitBtn {
-  background-color: var(--text-black-900);
-  color: var(--text-black-900);
-  padding: 0.75rem 2rem;
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  padding: .9rem 1.6rem;
   font-family: var(--font-tech);
   font-size: 1rem;
   text-transform: uppercase;
-  border: none;
-  border-radius: var(--radius-md);
+  letter-spacing: .12em;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 2px;
+  background: rgba(255,255,255,.04);
+  color: var(--color-text-primary);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
-
 .submitBtn:hover {
-  background-color: var(--color-accent);
-  color: var(--color-bg-base);
-  box-shadow: 0 0 10px var(--color-accent);
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--cat-accent) 32%, transparent);
+  border-color: color-mix(in srgb, var(--cat-accent) 55%, var(--color-border));
+  box-shadow: 0 8px 22px rgba(0,0,0,.35);
 }
 
-@media screen and (max-width: 768px) {
+/* ==================================
+🔗 Related Services (same as service page cards)
+================================== */
+.relatedSection {
+  margin-top: 3rem;
+}
+.relatedSection > h2 {
+  text-align: center;
+  font-size: clamp(1.25rem, 2.5vw, var(--font-size-2xl));
+  letter-spacing: .08em;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-heading);
+  text-transform: uppercase;
+}
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 1rem;
+}
+.relatedCard {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+  text-align: left;
+  box-shadow: var(--shadow-base);
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  color: var(--color-text-primary);
+}
+.relatedCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-text-accent);
+}
+.relatedCard h3 {
+  margin: 0 0 .5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--color-text-heading);
+}
+.relatedCard a {
+  color: var(--color-text-accent);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+}
+.relatedCard a::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: currentColor;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .2s;
+}
+.relatedCard a:hover::after { transform: scaleX(1); }
+
+/* ==================================
+📱 Responsive (same breakpoints as service page)
+================================== */
+@media (max-width: 480px) {
+  .categories { grid-template-columns: 1fr; gap: 1.25rem; }
+  .category { padding: 1.25rem; border-radius: 16px; }
+  .category h3 { font-size: 1rem; }
   .summary {
-    position: relative;
-    padding: 2rem 1rem;
+    position: relative;        /* avoid covering next sections on tiny screens */
+    padding: 1.25rem 1rem;
     border-top: none;
     box-shadow: none;
+    border-radius: 12px;
+    background: var(--color-bg-elevated);
   }
+}
+@media (min-width: 481px) and (max-width: 1024px) {
+  .categories { grid-template-columns: repeat(2,1fr); gap: 1.75rem; }
+}
+@media (min-width: 1025px) {
+  .categories { grid-template-columns: repeat(3,1fr); }
 }

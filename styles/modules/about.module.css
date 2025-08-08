@@ -1,207 +1,228 @@
 /* ==============================
-📜 About Section (Legacy Forge)
-============================= */
-.legacyForge {
-  padding: var(--space-16) var(--space-4);
-  background: var(--color-bg-base); /* Darktrace #0b0c10 */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+📜 About — Split Grid Layout
+============================== */
 
-.legacyForge.dark {
-  background: var(--color-text-primary); /* Ghostlight #f7f6f3 */
+.legacyForge {
+  background: var(--color-bg-base);
+  min-height: 100vh;
+  display: grid;
+  place-items: stretch;
+  padding: var(--space-14) var(--space-4);
 }
+@supports (height: 100dvh) { .legacyForge { min-height: 100dvh; } }
 
 .forgeContainer {
-  max-width: var(--breakpoint-desktop-sm);
   width: 100%;
-  padding: 0 var(--space-4);
+  max-width: 1200px;              /* desktop container */
+  margin-inline: auto;
+  display: grid;
+  gap: var(--space-10);
 }
 
-.storyVault {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-12);
+/* Header */
+.forgeHeader {
+  text-align: center;
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+.forgeTitle {
+  font-size: clamp(1.6rem, 6vw, var(--font-size-3xl));
+  color: var(--color-text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-2);
+  text-wrap: balance;
+}
+.forgeSubtitle {
+  font-size: clamp(var(--font-size-sm), 3.4vw, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  opacity: .9;
 }
 
+/* ===== Section rows: base ===== */
 .sectionRow {
-  padding: var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  padding: var(--space-8) 0;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: 8rem; /* anchor targets breathe under sticky navs */
 }
 
-.sectionRow.dark {
-  color: var(--color-bg-base); /* Darktrace #0b0c10 */
-}
-
+/* left column: label */
 .labelBlock {
   font-family: var(--font-headline);
-  font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--color-text-heading); /* Pure white #ffffff */
-  line-height: 1.2;
-  margin-bottom: var(--space-4);
+  color: var(--color-text-heading);
+  text-align: center;
+  text-wrap: balance;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  font-size: clamp(1.3rem, 7vw, var(--font-size-3xl));
+  margin: 0;
+  position: relative;
+  padding-bottom: var(--space-2);
+  overflow-wrap: anywhere; /* prevent overlap on long titles */
+  hyphens: auto;
 }
 
-.labelBlock.dark {
-  color: var(--color-bg-base); /* Darktrace #0b0c10 */
+.labelBlock::after {
+  content: "";
+  display: block;
+  width: clamp(64px, 8vw, 112px);
+  height: 2px;
+  margin: var(--space-3) auto 0;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  pointer-events: none;
 }
 
-.sigilHighlight {
-  color: var(--color-accent); /* Void Amber #d97904 */
-  font-weight: 700;
-}
-
-.sigilHighlight.dark {
-  color: var(--color-accent-hover); /* Brightened Amber #f49012 */
-}
-
+/* right column: content */
 .textBlock {
   font-family: var(--font-body);
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary); /* Muted Light #b0afaf */
-  line-height: 1.6;
+  color: var(--color-text-secondary);
+  font-size: clamp(var(--font-size-sm), 3.5vw, var(--font-size-lg));
+  line-height: 1.65;
+  max-width: 70ch;
+  margin-inline: auto;
+  text-align: center;
 }
+.textBlock p { margin: 0 0 var(--space-4); }
 
-.textBlock.dark {
-  color: var(--color-ui-shell); /* UI Shell #1a1a1a */
-}
-
-.textBlock p {
-  margin-bottom: var(--space-4);
-}
-
+/* Lists */
 .creedList {
   list-style: none;
-  padding-left: 0;
-  margin: var(--space-4) 0;
+  padding: 0;
+  margin: var(--space-4) auto;
+  max-width: 60ch;
+  text-align: left;
 }
-
 .creedList li {
-  font-family: var(--font-body);
-  font-size: var(--font-size-md);
-  color: var(--color-text-primary); /* Ghostlight #f7f6f3 */
   margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+  position: relative;
+  padding-left: 1.25rem;
 }
-
-.creedList.dark {
-  color: var(--color-ui-shell); /* UI Shell #1a1a1a */
-}
-
 .creedList li::before {
-  content: '—';
-  color: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
-  margin-right: var(--space-2);
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-accent);
 }
 
-.creedList.dark li::before {
-  color: var(--color-link-hover); /* Arcane Azure #2e5cff */
-}
+/* CTA (unchanged, but keep hover snappy) */
+.forgeCommand:hover { background: var(--color-text-accent); transform: translateY(-1px); }
 
-.creedList strong {
-  color: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
-  font-weight: 600;
-}
-
-.creedList.dark strong {
-  color: var(--color-link-hover); /* Arcane Azure #2e5cff */
-}
-
-.callToForge {
-  text-align: center;
-  margin-top: var(--space-12);
-}
-
+/* CTA */
+.callToForge { text-align: center; margin-top: var(--space-10); }
 .forgeCommand {
   display: inline-block;
   padding: var(--space-3) var(--space-6);
-  background: var(--color-accent); /* Void Amber #d97904 */
-  color: var(--color-text-primary); /* Ghostlight #f7f6f3 */
-  text-decoration: none;
+  background: var(--color-accent);
+  color: var(--color-text-primary);
   font-family: var(--font-tech);
   font-weight: 600;
   font-size: var(--font-size-md);
   border-radius: var(--radius-sm);
-  transition: background var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
+.forgeCommand:hover { background: var(--color-text-accent); transform: translateY(-1px); }
+.forgeCommand:focus { outline: 2px solid var(--color-link); outline-offset: 2px; }
 
-.forgeCommand.dark {
-  background: var(--color-accent-hover); /* Brightened Amber #f49012 */
-  color: var(--color-bg-base); /* Darktrace #0b0c10 */
-}
+/* ===== Tablet (>=768px): adaptive left rail ===== */
+@media (min-width: 768px) {
+  .forgeContainer { gap: var(--space-12); }
 
-.forgeCommand:hover {
-  background: var(--color-text-accent); /* Voidcore Indigo #3a1aff */
-  color: var(--color-text-heading);
-}
-
-.forgeCommand.dark:hover {
-  background: var(--color-link-hover); /* Arcane Azure #2e5cff */
-  color: var(--color-text-primary);
-}
-
-.forgeCommand:focus {
-  outline: 2px solid var(--color-link); /* Voidcore Indigo #3a1aff */
-  outline-offset: 2px;
-}
-
-.forgeCommand.dark:focus {
-  outline-color: var(--color-link-hover); /* Arcane Azure #2e5cff */
-}
-
-/* ==============================
-📱 Responsive Design (Enhanced)
-============================= */
-@media screen and (max-width: var(--breakpoint-mobile)) {
-  .legacyForge {
-    padding: var(--space-6) var(--space-1); /* Tighter padding */
+  /* Left rail adapts to heading length; copy column stays roomy */
+   .sectionRow {
+    /* Left = content-sized up to 26ch, Right = comfy reading column */
+    grid-template-columns: fit-content(26ch) minmax(48ch, 1fr);
+    align-items: start;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
   }
-  .sectionRow {
-    padding: var(--space-3);
-  }
+
   .labelBlock {
-    font-size: var(--font-size-xl); /* Smaller heading */
+    text-align: right;
+    margin-right: auto;
+    max-width: 26ch;         /* same cap as fit-content */
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
+
+  .labelBlock::after {
+    position: absolute;
+    right: var(--space-6);
+    top: calc(100% + var(--space-2));
+    width: clamp(64px, 7vw, 96px);
+    margin: 0;
+    pointer-events: none;
+  }
+
   .textBlock {
-    font-size: var(--font-size-base); /* Smaller body text */
-  }
-  .creedList li {
-    font-size: var(--font-size-sm);
-  }
-  .forgeCommand {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--font-size-xs);
+    text-align: left;
+    margin-inline: 0;
+    font-size: clamp(1rem, 1.8vw, var(--font-size-lg));
+    max-width: 68ch;
   }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-sm)) and (max-width: var(--breakpoint-desktop-lg)) {
-  .forgeContainer {
-    max-width: var(--breakpoint-desktop-sm); /* Consistent container width */
-  }
-  .labelBlock {
-    font-size: var(--font-size-5xl); /* Larger heading */
-  }
-  .textBlock {
-    font-size: var(--font-size-xl); /* Larger body text */
-  }
-  .creedList li {
-    font-size: var(--font-size-lg);
-  }
+/* ===== Desktop (>=1024px) ===== */
+@media (min-width: 1024px) {
+  .legacyForge { padding: var(--space-16) var(--space-6); }
+  .labelBlock { font-size: clamp(1.6rem, 4vw, var(--font-size-3xl)); }
+  .textBlock { font-size: var(--font-size-lg); }
 }
 
-@media screen and (min-width: var(--breakpoint-desktop-lg)) {
-  .forgeContainer {
-    max-width: var(--breakpoint-desktop-lg); /* Wider container */
+/* ===== Large (>=1280px) ===== */
+@media (min-width: 1280px) {
+  .forgeContainer { max-width: 1280px; }
+  .sectionRow { padding: var(--space-10) 0; }
+
+  /* Slightly narrower rail on very big screens so “Origin” still feels anchored */
+  .sectionRow { grid-template-columns: fit-content(24ch) minmax(60ch, 1fr); }
+  .labelBlock { max-width: 24ch; }
   }
-  .sectionRow {
-    padding: var(--space-10); /* More spacious */
-  }
-}
-/* ==============================
-♿ Accessibility
-============================= */
+
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .forgeCommand {
-    transition: none;
+  .forgeCommand { transition: none; }
+}
+
+/* === Fix label/content overlap on tablet/desktop === */
+@media (min-width: 768px) {
+  .sectionRow {
+    /* Wider, safer left rail + roomy copy column */
+    grid-template-columns: minmax(24ch, 1.1fr) minmax(40ch, 1.6fr);
+    align-items: start;
+    column-gap: var(--space-10);
+  }
+
+  .labelBlock {
+    /* Keep the heading inside its lane */
+    max-width: 28ch;
+    margin-right: auto;          /* hug the gutter */
+    text-align: right;
+    /* Allow breaks if a single word is too long */
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    hyphens: auto;               /* needs lang="en" on the heading or parent */
+  }
+
+  /* keep the decorative line from interfering */
+  .labelBlock::after {
+    right: var(--space-6);
+    width: 96px;
+    pointer-events: none;
   }
 }
+
+/* Cap headline size a bit on large screens so it never bulldozes */
+@media (min-width: 1024px) {
+  .labelBlock { font-size: clamp(1.6rem, 4vw, var(--font-size-3xl)); }
+}
+
+/* Micro-tune just the Origin heading */
+#origin-heading { font-size: 1.08em; letter-spacing: .02em; }
+#origin-heading::after { width: 72px; }

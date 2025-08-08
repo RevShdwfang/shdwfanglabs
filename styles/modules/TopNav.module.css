@@ -1,191 +1,160 @@
+
+
+/* Bar */
 .topnav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--color-ui-shell);
-  padding: 1rem 2rem;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow-base);
-  flex-wrap: wrap;
+  z-index: 50;
+  background: var(--color-ui-shell);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.navLogo {
-  display: flex;
+/* Grid:  [logo+lang] | [nav] | [cta+burger]  */
+.navContainer {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 28px);
+  height: clamp(56px, 6.5vw, 72px);
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  column-gap: clamp(12px, 2.5vw, 28px);
 }
 
-.navLogo a {
+/* Left group */
+.leftGroup {
   display: flex;
   align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+}
+
+/* Logo square */
+.logoBox {
+  position: relative;               /* required for Image fill */
+  display: grid; place-items: center;
+  width: 48px; height: 48px;
+  background: #0f1013;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
   text-decoration: none;
 }
 
-.shadowfangText {
-  font-family: var(--font-headline, 'Arial', sans-serif);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
+.logoImg { object-fit: contain; }   /* keeps padding around the mark */
+
+/* keep your existing small-screen rule, but also shrink the box */
+@media (max-width: 640px) {
+  .logoBox { width: 40px; height: 40px; }
 }
 
-body.light .shadowfangText {
-  color: var(--color-text-accent);
-}
 
-.labsText {
-  font-family: var(--font-headline, 'Arial', sans-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-text-accent);
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  margin-left: 0.25rem;
+/* Language links (small, italic, underlined) */
+.langNav { display: flex; gap: clamp(12px, 2vw, 18px); font-style: italic; }
+.langLink, .langActive {
+  font-size: .95rem;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition-fast);
 }
+.langLink:hover { color: var(--color-link-hover); }
+.langActive { color: var(--color-text-primary); }
 
-.menuToggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--color-text-primary);
-  font-family: var(--font-tech, 'Courier New', monospace);
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1100;
-}
-
-.burgerIcon {
+/* Center nav */
+.mainNav {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 18px;
-  gap: 4px;
-}
-
-.bar {
-  width: 100%;
-  height: 3px;
-  background-color: var(--color-text-primary);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Animated open state */
-.barTopOpen {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.barMiddleOpen {
-  opacity: 0;
-}
-
-.barBottomOpen {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  gap: clamp(18px, 3vw, 36px);
+  font-style: italic;
+  white-space: nowrap;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
 }
-
-.navLinks li a {
-  font-family: var(--font-tech, 'Courier New', monospace);
-  font-size: 1rem;
-  font-weight: 500;
+.mainNav a {
   color: var(--color-text-primary);
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  transition: color 0.2s ease, transform 0.3s ease;
+  padding-bottom: 6px; /* room for active underline */
+  opacity: .9;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
 }
+.mainNav a:hover { opacity: 1; color: var(--color-link-hover); }
 
-.navLinks li a:hover,
-.navLinks .active a {
-  color: var(--color-link-hover);
-  transform: translateY(-2px);
-}
+/* Active link gets cyan underline like the screenshot */
+.active a { border-bottom: 2px solid var(--nav-active); }
 
-.navCommandDesktop {
+/* Right group */
+.rightGroup {
   display: flex;
   align-items: center;
+  gap: clamp(10px, 2vw, 16px);
 }
 
-.navCommandMobile {
-  display: none;
-}
-
-/* 🎯 Client Portal Button */
-.sigilBtn {
-  background-color: var(--color-text-accent);
-  color: var(--color-text-primary);
-  padding: 0.5rem 1.25rem;
-  border: none;
-  border-radius: 0.25rem;
-  font-family: var(--font-tech, 'Courier New', monospace);
-  font-size: 1rem;
-  font-weight: 600;
+/* CTA (light pill) */
+.cta {
+  background: #eceae1;
+  color: #0e0f12;
+  padding: 10px 18px;
+  border-radius: 8px;
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  letter-spacing: .02em;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 10px rgba(0,0,0,.25), 0 0 0 1px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.25);
 }
 
-.sigilBtn:hover {
-  background-color: var(--color-accent);
-  transform: translateY(-3px);
-  box-shadow: var(--glow-indigo);
+/* Burger */
+.menuToggle {
+  display: none; /* hidden on desktop */
+  background: transparent;
+  border: 0;
+  padding: 6px;
 }
+.burgerIcon { display: inline-grid; gap: 4px; }
+.bar {
+  width: 22px; height: 2px; background: var(--color-text-primary);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.barTopOpen   { transform: translateY(6px) rotate(45deg); }
+.barMiddleOpen{ opacity: 0; }
+.barBottomOpen{ transform: translateY(-6px) rotate(-45deg); }
 
-/* 📱 Mobile Layout */
-@media (max-width: 1176px) {
-  .menuToggle {
-    display: block;
-    margin-left: auto;
-  }
+/* Mobile layout */
+.navCommandMobile { display: none; }
 
-  .navLinks {
-    display: none;
-    flex-direction: column;
-    width: 100%;
+@media (max-width: 1023px) {
+  .navContainer { grid-template-columns: auto 1fr auto; }
+  .langNav { display: none; }
+  .menuToggle { display: inline-block; }
+
+  /* turn mainNav into a slide-down panel */
+  .mainNav {
+    position: absolute;
+    left: 0; right: 0; top: 100%;
     background: var(--color-ui-shell);
-    padding: 1rem 2rem;
-    animation: slideIn 0.3s ease;
+    border-bottom: 1px solid var(--color-border);
+    padding: 14px clamp(16px, 4vw, 24px);
+    gap: 14px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .25s ease, opacity .25s ease;
   }
+  .show { transform: translateY(0); opacity: 1; pointer-events: auto; }
 
-  .navLinks.show {
-    display: flex;
-  }
-
-  .navCommandDesktop {
-    display: none;
-  }
-
-  .navCommandMobile {
-    display: flex;
-    margin-top: 1rem;
-  }
+  .navCommandMobile { display: block; margin-top: 6px; }
+  .rightGroup .cta { display: none; } /* CTA lives inside panel on mobile */
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Tiny screens */
+@media (max-width: 640px) {
+  .logoBox { width: 40px; height: 40px; }
+  .cta { padding: 8px 14px; border-radius: 6px; }
 }
