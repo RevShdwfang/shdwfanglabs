@@ -2,15 +2,15 @@ import { notFound } from "next/navigation";
 import ServicePage from "@/components/shared/ServicePage";
 import { services } from "../../../data/services";
 
-
 type Params = { slug: keyof typeof services };
 
 export function generateStaticParams() {
-  return Object.keys(services).map((slug) => ({ slug }));
+  return (Object.keys(services) as Array<keyof typeof services>).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: Params }) {
-  const svc = services[params.slug];
+export async function generateMetadata({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;                 // 👈 Next 15: params is a Promise
+  const svc = services[slug];
   if (!svc) return {};
   return {
     title: svc.title,
@@ -20,9 +20,10 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default function Page({ params }: { params: Params }) {
-  const svc = services[params.slug];
-  if (!svc) return notFound();
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;                 // 👈 await it here too
+  const svc = services[slug];
+  if (!svc) notFound();
 
   return (
     <ServicePage
@@ -30,7 +31,7 @@ export default function Page({ params }: { params: Params }) {
       subtitle={svc.subtitle}
       packages={svc.packages}
       faq={svc.faq}
-      currentSlug={params.slug}
+      currentSlug={slug}
     />
   );
 }
